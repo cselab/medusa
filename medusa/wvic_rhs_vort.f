@@ -273,7 +273,7 @@ FUNCTION wvic_rhs_vort ( vxp, vwp, vdwp, vdime, vnp, ipack, lpack, rpack, &
   !  Impose explicit penalization
   !----------------------------------------------------------------------------!
   !JTR make logical that determines if explicit penalization should be used instead of testing the flow_case
-  IF ((flow_case .gt. 8) .AND. (penalization_implicit .EQ. .FALSE.)) THEN
+  IF ((flow_case .gt. 8) .AND. (penalization_implicit .EQV. .FALSE.)) THEN
     CALL wvic_penalization_explicit(info) 
   END IF
 

@@ -43,27 +43,27 @@ CONTAINS
 
 
 #define __WHAT __VELOCITIES
-#include "ppm_fft_velocities.F"
+#include "ppm_fft_velocities.inc"
 #undef __WHAT
 #define __WHAT __POTENTIAL
-#include "ppm_fft_velocities.F"
+#include "ppm_fft_velocities.inc"
 #undef __WHAT
 #define __WHAT __VELOCITIES
-#include "ppm_fft_velocities_bgw.F"
+#include "ppm_fft_velocities_bgw.inc"
 #undef __WHAT
 
 #define __WHAT __KESPECTRUM
-#include "ppm_fft_diagnostics.F"
+#include "ppm_fft_diagnostics.inc"
 #undef __WHAT
 
 #define __WHAT __KESPECTRUM_KX
-#include "ppm_fft_diagnostics.F"
+#include "ppm_fft_diagnostics.inc"
 #undef __WHAT
 
 #define __WHAT __SOLENOIDAL
-#include "ppm_fft_velocities.F"
+#include "ppm_fft_velocities.inc"
 #undef __WHAT
 
-#include "ppm_fft_killdiv.F"
+#include "ppm_fft_killdiv.inc"
 
 END MODULE ppm_module_fft

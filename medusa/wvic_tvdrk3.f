@@ -279,7 +279,7 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
      ! - solid velocity is computed
      !-------------------------------------------------------------------------!
      g_istage = 1 !JTR what is this?
-     IF (penalization_implicit .EQ. .TRUE.) THEN
+     IF (penalization_implicit .EQV. .TRUE.) THEN
        CALL wvic_penalization_implicit(info)  !JTR
      END IF
 
