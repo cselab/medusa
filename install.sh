@@ -15,6 +15,8 @@ make install 'prefix = $(HOME)/.local')
 
 (cd ppm
  make install)
+# falcon
+# (cd ppm ; make install 'FCFLAGS = -I$(FFTW_INCLUDE) -O3 -g')
 
 (cd medusa
  make)
