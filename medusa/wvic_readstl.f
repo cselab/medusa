@@ -269,7 +269,7 @@ SUBROUTINE wvic_readstl(info)
   IF ( (bndminx .LT. min_physg(1)) .OR. (bndmaxx .GT. max_physg(1)) .OR. &
      & (bndminy .LT. min_physg(2)) .OR. (bndmaxy .GT. max_physg(2)) .OR. &
      & (bndminz .LT. min_physg(3)) .OR. (bndmaxz .GT. max_physg(3)) ) THEN
-    IF (stl_check_bounding .EQ. .true.) THEN 
+    IF (stl_check_bounding .EQV. .true.) THEN 
       WRITE(*,*)' Error: STL-object exceeds  computational domain:\n'
       WRITE(*,*)' minx: ', bndminx, ' miny: ', bndminy, ' minz: ', bndminz, '\n'
       WRITE(*,*)' maxx: ', bndmaxx, ' maxy: ', bndmaxy, ' maxz: ', bndmaxz, '\n'

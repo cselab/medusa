@@ -81,7 +81,7 @@ SUBROUTINE wvic_penalization_explicit (info)
   DO isub=1,nsublist
     isubl = isublist(isub)
 
-    IF (penalization_clearrhs .EQ. .true.) THEN
+    IF (penalization_clearrhs .EQV. .true.) THEN
       DO k=1,ndata(3,isubl)
         DO j=1,ndata(2,isubl)
           DO i=1,ndata(1,isubl)
@@ -118,7 +118,7 @@ SUBROUTINE wvic_penalization_explicit (info)
 !          ty = min_sub(2,isubl) + REAL(j-1,mk)*dy
 !          tz = min_sub(3,isubl) + REAL(k-1,mk)*dz
 
-          IF (penalization_oneterm .EQ. .TRUE.) THEN
+          IF (penalization_oneterm .EQV. .TRUE.) THEN
             IF(SUM(ghostsize).EQ.3) THEN
               penal(1)=fac2*(-field_H(i,j+1,k,isub)*field_up(3,i,j+1,k,isub)-&
                       & (-field_H(i,j-1,k,isub)*field_up(3,i,j-1,k,isub)))-&
@@ -369,7 +369,7 @@ SUBROUTINE wvic_penalization_implicit (info)
   !-------------------------------------------------------------------------!
   ! Advect the step function
   !-------------------------------------------------------------------------!
-  IF (object_move .EQ. .TRUE.) THEN 
+  IF (object_move .EQV. .TRUE.) THEN 
 !JTR
 write(*,*) 'flowers and sunshine'
     CALL wvic_advect_stepparticles(info)

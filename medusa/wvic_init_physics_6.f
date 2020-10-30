@@ -300,6 +300,37 @@ SUBROUTINE wvic_init_physics_6
      END DO
   END DO
   
+#if 0
+  sumvortl = 0.0_mk
+  DO isub=1,nsublist
+     isubl = isublist(isub)
+     DO k=1,ndata(3,isubl)-1
+        DO j=1,ndata(2,isubl)-1
+           DO i=1,ndata(1,isubl)-1
+              sumvortl(1) = sumvortl(1) + field_wp(1,i,j,k,isub)
+              sumvortl(2) = sumvortl(2) + field_wp(2,i,j,k,isub)
+              sumvortl(3) = sumvortl(3) + field_wp(3,i,j,k,isub)
+           END DO
+        END DO
+     END DO
+  END DO
+  CALL MPI_Allreduce(sumvortl,sumvortg,3,mpi_prec,MPI_SUM,comm,info)
+  sumvortg = sumvortg/((nx(1))*(nx(2)-1)*(nx(3)-1))
+  maxvortl = 0.0_mk
+  DO isub=1,nsublist
+     isubl = isublist(isub)
+     DO k=1,ndata(3,isubl)
+        DO j=1,ndata(2,isubl)
+           DO i=1,ndata(1,isubl)
+              field_wp(1,i,j,k,isub) = field_wp(1,i,j,k,isub) - sumvortg(1)
+              field_wp(2,i,j,k,isub) = field_wp(2,i,j,k,isub) - sumvortg(2)
+              field_wp(3,i,j,k,isub) = field_wp(3,i,j,k,isub) - sumvortg(3)
+              maxvortl = MAX(maxvortl,SUM(field_wp(:,i,j,k,isub)**2))
+           END DO
+        END DO
+     END DO
+  END DO
+#endif
   !-----------------------------------------------------
   !  Re-scale to achieve target re or maxvort
   !-----------------------------------------------------

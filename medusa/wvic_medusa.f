@@ -730,7 +730,8 @@ SUBROUTINE wvic_stepfunc_medusa
             tx = min_sub(1,isubl) + REAL(i-1,mk)*dx - tx_center
             ty = min_sub(2,isubl) + REAL(j-1,mk)*dy - ty_center
             tz = min_sub(3,isubl) + REAL(k-1,mk)*dz - tz_center
-            WRITE(14,'7(E)') tx,ty,tz,field_ubar(:,i,j,k,isub),field_H(i,j,k,isub)!
+            WRITE(14,'(7(E12.5))') tx,ty,tz,&
+            field_ubar(:,i,j,k,isub),field_H(i,j,k,isub)
           END DO
         END DO
       END DO

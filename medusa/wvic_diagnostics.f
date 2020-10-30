@@ -390,17 +390,17 @@ SUBROUTINE wvic_diagnostics (info)
         OPEN(14,file=filename,iostat=ios,position='append',status='unknown')
         ! write coordinates on first line of file
         IF (itime .EQ. 0) THEN
-          WRITE(14,'((E,A),$)') time , ' '
+          WRITE(14,'((E12.5,A),$)') time , ' '
           DO j=1,ndata(2,isubl)-1
             ty = min_sub(2,isubl) + REAL(j-1,mk)*dy
-            WRITE(14,'((E,A),$)') ty, ' '
+            WRITE(14,'((E12.5,A),$)') ty, ' '
           END DO
           WRITE(14,*)
         END IF
         ! write time and velocities - time is first figure on each line
-        WRITE(14,'((E,A),$)') time , ' '
+        WRITE(14,'((E12.5,A),$)') time , ' '
         DO j=1,ndata(2,isubl)-1
-          WRITE(14,'((E,A),$)') field_up(3,i,j,k,isub) , ' ' 
+          WRITE(14,'((E12.5,A),$)') field_up(3,i,j,k,isub) , ' '
         END DO
         WRITE(14,*)
         CLOSE(14)
@@ -507,16 +507,16 @@ i = LEN_TRIM(runtag)
      WRITE(filename,'(A,A)') runtag(1:iruntag),'-diag.dat'
      OPEN(14,file=filename,iostat=ios,position='append',status='unknown')
      IF (itime .EQ. 0) THEN
-        WRITE(14, '(A)') '# itime, time, kinetic energy w/o mass, &
-          & global enstrophy, enstrophy in object, dt, & !6
-          & max(omega), omega-rot(u), div(omega), & !9
-          & div(u), norm(u_solid)**2, & !11
-          & force_penal_x, force_penal_y, force_penal_z, & !14
-          & force_wmoment_x, force_wmoment_y, force_wmoment_z, & !17
-          & Dp_x, Dp_y, Dp_z, & !20
-          & (forcenoca&nocadimensions) x nforces'
+        WRITE(14, '(A)') '# itime, time, kinetic energy w/o mass' // &
+          'global enstrophy, enstrophy in object, dt,' // &
+          'max(omega), omega-rot(u), div(omega),' // &
+          'div(u), norm(u_solid)**2,' // &
+          'force_penal_x, force_penal_y, force_penal_z,' // &
+          'force_wmoment_x, force_wmoment_y, force_wmoment_z,' // &
+          'Dp_x, Dp_y, Dp_z,' // &
+          '(forcenoca&nocadimensions) x nforces'
      END IF
-     WRITE(14,'(I,A, 19(E,A),$)') & 
+     WRITE(14,'(I16,A, 19(E12.5,A),$)') &
           & itime,' ',time,' ',geng,' ', & !3
           & gens,' ',gensobj,' ',dt,' ', & !6
           & SQRT(gvor),' ',grot,' ',gdiv,' ', & !9
@@ -526,7 +526,7 @@ i = LEN_TRIM(runtag)
           & REAL(gdp(1)+gdpt(1)),' ',REAL(gdp(2)+gdpt(2)),' ', & !19
           & REAL(gdp(3)+gdpt(3)),' ' !20
      DO ni=1,nforces 
-       WRITE(14,'(6(E,A),$)') & 
+       WRITE(14,'(6(E12.5,A),$)') &
           & ,forcenoca(1+3*(ni-1)),' ' ,forcenoca(2+3*(ni-1)),' ' &
           & ,forcenoca(3+3*(ni-1)),' ' ,nocadimensions(1+3*(ni-1)),' ' &
           & ,nocadimensions(2+3*(ni-1)),' ' ,nocadimensions(3+3*(ni-1)),' '
@@ -882,7 +882,9 @@ SUBROUTINE wvic_diagnostics_trail(info)
      WRITE(filename,'(A,A)') runtag(1:iruntag),'-diag.dat'
      OPEN(14,file=filename,iostat=ios,position='append',status='unknown')
      ! timestep, time, circ, rcirc, energy, enstrophy, dt, maxvorticity, rot
-     WRITE(14,'(I,A,E,A,E,A,E,A,E,A,E,A,E,A,E,A,E,A,E,A,E,A,E,A,E,A,E,A,E,A,E,A,E)') &
+     WRITE(14,'(I16,A,E12.5,A,E12.5,A,E12.5,A,E12.5,A,E12.5,&
+      A,E12.5,A,E12.5,A,E12.5,A,E12.5,A,E12.5,A,E12.5,A,&
+      E12.5,A,E12.5,A,E12.5,A,E12.5,A,E12.5)') &
           & itime,' ',time,' ',gcir,' ',grcirr_d,' ',grcirl_d,' ',&
           & grcir25r_d,' ',grcir25l_d,' ',&
           & grcir26r_d,' ',grcir26l_d,' ',&

@@ -156,7 +156,7 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
   REAL(mk), DIMENSION(4)       :: tsp
   INTEGER,  DIMENSION(3,6)     :: ibcdef
   REAL(mk), DIMENSION(3,1,1,1) :: ibcvalue
-  REAL(mk), DIMENSION(:,:),POINTER     :: XXP
+  REAL(mk), DIMENSION(:,:),POINTER     :: XXP => NULL()
   LOGICAL :: periods(3) = .TRUE.
   INCLUDE 'mpif.h'
   !-----------------------------------------------------
@@ -569,9 +569,7 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
   CALL MPI_BCast(harmonic_period,3,mpi_prec,0,comm,info)
   CALL MPI_BCast(harmonic_phase,3,mpi_prec,0,comm,info)
 
-  IF (rank .ne. 0) THEN
-    ALLOCATE(forcecv(6*nforces))
-  END IF
+  ALLOCATE(forcecv(6*nforces))
   CALL MPI_BCast(forcecv,6*nforces,mpi_prec,0,comm,info)
   ALLOCATE(vforcenocaold(3*nforces))
   vforcenocaold=0.0_mk  
@@ -659,7 +657,7 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
   end if
   cutoff=-TINY(cutoff)
   krnl = ppm_param_rmsh_kernel_mp4
-  CALL ppm_init(dime,prec,tol,comm,debug,info)!,ilogfile)
+  CALL ppm_init(dime,prec,tol,comm,debug,info, ilogfile)
   IF (info.NE.0) CALL wvic_died
   !  say that everythings fine
   if(verbose) CALL ppm_write(rank,'wvic_init_cart_crow','parallel things init''d..',info)
@@ -1081,7 +1079,7 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
   ! Interpolate step function to particles
   ! (requires ppm_module_rmsh_create_part)
   !--------------------------------------------------------------------------
-  IF (object_move .EQ. .true.) THEN
+  IF (object_move .EQV. .true.) THEN
     CALL ppm_rmsh_create_part(xpc,npc,hpc,field_H,topo_id,mesh_id,&
        & (/0.0_mk,1.01_mk/),info,resetpos=.TRUE.,field_wp = field_up,wp&
           & = up, lda2 = dime)

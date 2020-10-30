@@ -266,10 +266,10 @@ SUBROUTINE wvic_barycentric
 	    !-------------------------------------------------------------------
 	    ! Test number of intersections against intersection directions
 	    !-------------------------------------------------------------------
-	    IF (stl_check_intersections .EQ. .true.) THEN
+	    IF (stl_check_intersections .EQV. .true.) THEN
             IF (((MOD(intersections,2) .EQ. 0) .AND. (inout .NE. 0))) THEN
 	      !diverging normals at intersections
-              IF (stl_nonverbose .NE. .TRUE.) THEN
+              IF (stl_nonverbose .NEQV. .TRUE.) THEN
 		WRITE(msg,*) '\nrank:',rank, 'ijk:', &
                 & i,j,k, 'normals diverge (a), intersections:',intersections,&
                 & 'inout:',inout
@@ -278,8 +278,8 @@ SUBROUTINE wvic_barycentric
 	      CYCLE
 	    END IF
 	    IF (MOD(intersections,2) .NE. 0) THEN
-	      IF ((stl_min_phys_inside .EQ. .true.) .AND. (inout .NE. -1)) THEN
-                IF (stl_nonverbose .NE. .TRUE.) THEN
+	      IF ((stl_min_phys_inside .EQV. .true.) .AND. (inout .NE. -1)) THEN
+                IF (stl_nonverbose .NEQV. .TRUE.) THEN
 		  WRITE(msg,*) '\nrank:',rank, 'ijk:', &
                   & i,j,k, 'normals diverge (b), intersections:',intersections,&
                   & 'inout:',inout
@@ -287,8 +287,8 @@ SUBROUTINE wvic_barycentric
                 ENDIF
 	        CYCLE
 	      END IF
-	      IF ((stl_min_phys_inside .EQ. .false.) .AND. (inout .NE. 1)) THEN
-                IF (stl_nonverbose .NE. .TRUE.) THEN
+	      IF ((stl_min_phys_inside .EQV. .false.) .AND. (inout .NE. 1)) THEN
+                IF (stl_nonverbose .NEQV. .TRUE.) THEN
 		  WRITE(msg,*) '\nrank:',rank, 'ijk:', &
                   & i,j,k, 'normals diverge (c), intersections:',intersections,&
                   & 'inout:',inout
@@ -302,7 +302,7 @@ SUBROUTINE wvic_barycentric
 	    !-------------------------------------------------------------------
 	    ! Double check in/out status with an additional reference point
 	    !-------------------------------------------------------------------
-            IF (stl_double_check .EQ. .true.) THEN
+            IF (stl_double_check .EQV. .true.) THEN
               IF ((multicheck .EQ. 0) .AND. (op .NE. 8)) THEN
                 lastlevel = inout
                 multicheck = 1
@@ -320,7 +320,7 @@ SUBROUTINE wvic_barycentric
                 EXIT
               ELSE
                 multicheck = 0
-                IF (stl_nonverbose .NE. .TRUE.) THEN
+                IF (stl_nonverbose .NEQV. .TRUE.) THEN
                   WRITE(msg,*) '\nrank:',rank, &
                              & ' multicheck failed, recalculate, ijk',i,j,k
                   WRITE(6,*) msg 
@@ -335,9 +335,9 @@ SUBROUTINE wvic_barycentric
 	  ! Update field_H. The intersections have been tested or passed
 	  !------------------------------------------------------------------
           minimumdist = sqrt(minimumdist)
-	  IF ((inout .GT. 0) .AND. (stl_min_phys_inside .EQ. .false.)) THEN
+	  IF ((inout .GT. 0) .AND. (stl_min_phys_inside .EQV. .false.)) THEN
             minimumdist = sign(minimumdist,-1.0_mk)
-	  ELSEIF ((inout .GE. 0) .AND. (stl_min_phys_inside .EQ. .true.)) THEN
+	  ELSEIF ((inout .GE. 0) .AND. (stl_min_phys_inside .EQV. .true.)) THEN
             minimumdist = sign(minimumdist,-1.0_mk)
 	  END IF
 
