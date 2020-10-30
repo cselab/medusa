@@ -17,4 +17,4 @@ $L: $O; $(LINK) $O $(LDFLAGS) -o $@
 clean:; rm -f -- $L $O $M
 
 # ./tool/list *.f *.h *.inc | ./tool/dep > dep.mk
-# include dep.mk
+include dep.mk
