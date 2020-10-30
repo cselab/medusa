@@ -210,7 +210,7 @@
       !-------------------------------------------------------------------------
       ALLOCATE(cd_local(ldc,Ncon),STAT=info)
       IF (info .NE. 0) THEN
-          WRITE(*,'(2A,I)') '(ppm_template_comp_boundary): ',  &
+          WRITE(*,'(2A,I6)') '(ppm_template_comp_boundary): ',  &
      &        'allocation failed on line ',__LINE__
           GOTO 9999
       ENDIF
@@ -234,7 +234,7 @@
       !-------------------------------------------------------------------------
       ALLOCATE(pmap(3,pcount),xp_con(dims,pcount),vp_con(lda,pcount),STAT=info)
       IF (info .NE. 0) THEN
-          WRITE(*,'(2A,I)') '(ppm_template_comp_boundary): ',       &
+          WRITE(*,'(2A,I6)') '(ppm_template_comp_boundary): ',       &
      &        'allocation failed on line ',__LINE__
           GOTO 9999
       ENDIF
@@ -292,7 +292,7 @@
       !-------------------------------------------------------------------------
       ALLOCATE(id2(Npart),vp2(lda,Npart),xp2(dims,Npart),STAT=info)
       IF (info .NE. 0) THEN
-          WRITE(*,'(2A,I)') '(ppm_template_comp_boundary): ',  &
+          WRITE(*,'(2A,I6)') '(ppm_template_comp_boundary): ',  &
      &        'allocation failed on line ',__LINE__
           GOTO 9999
       ENDIF
@@ -391,7 +391,7 @@
       !-------------------------------------------------------------------------
       DEALLOCATE(xp2,vp2,id2,STAT=info)
       IF (info .NE. 0) THEN
-          WRITE(*,'(2A,I)') '(ppm_template_comp_boundary): ',  &
+          WRITE(*,'(2A,I6)') '(ppm_template_comp_boundary): ',  &
      &        'deallocation failed on line ',__LINE__
           GOTO 9999
       ENDIF
@@ -425,7 +425,7 @@
 
       ALLOCATE(qp(2,nqp),qw(nqp),lb(3,nqp),STAT=info)
       IF (info .NE. 0) THEN
-          WRITE(*,'(2A,I)') '(ppm_template_comp_boundary): ',   &
+          WRITE(*,'(2A,I6)') '(ppm_template_comp_boundary): ',   &
               'allocation failed on line ',__LINE__
           GOTO 9999
       ENDIF
@@ -447,7 +447,7 @@
       !-------------------------------------------------------------------------
       ALLOCATE(ip(dims),ivp(lda),STAT=info)
       IF (info .NE. 0) THEN
-          WRITE(*,'(2A,I)') '(ppm_template_comp_boundary): ',   &
+          WRITE(*,'(2A,I6)') '(ppm_template_comp_boundary): ',   &
               'allocation failed on line ',__LINE__
           GOTO 9999
       ENDIF
@@ -531,7 +531,7 @@
       !-------------------------------------------------------------------------
       ALLOCATE(xp2(dims,Npart),fp2(ldb,Npart),STAT=info)
       IF (info .NE. 0) THEN
-          WRITE(*,'(2A,I)') '(ppm_template_comp_boundary): ',  &
+          WRITE(*,'(2A,I6)') '(ppm_template_comp_boundary): ',  &
      &        'allocation failed on line ',__LINE__
           GOTO 9999
       ENDIF
@@ -644,7 +644,7 @@
       CALL ppm_map_part(xp2,dims,Lpart,Lpart,-1,ppm_param_map_pop,info)
 
       IF (Lpart .NE. Npart) THEN
-         WRITE(*,'(2A,I)') '(ppm_template_comp_boundary): ',   &
+         WRITE(*,'(2A,I6)') '(ppm_template_comp_boundary): ',   &
              'Uh-oh. Not all particles came back on line ',__LINE__
          GOTO 9999
       ENDIF
@@ -661,7 +661,7 @@
       !-------------------------------------------------------------------------
       DEALLOCATE(xp2,fp2,STAT=info)
       IF (info .NE. 0) THEN
-          WRITE(*,'(2A,I)') '(ppm_template_comp_boundary): ',  &
+          WRITE(*,'(2A,I6)') '(ppm_template_comp_boundary): ',  &
      &        'deallocation failed on line ',__LINE__
           GOTO 9999
       ENDIF
@@ -674,7 +674,7 @@
       DEALLOCATE(cd_local,pmap,f_con,vp_con,xp_con,qp,qw,lb,ip, &
      &             ivp,STAT=info)
       IF (info .NE. 0) THEN
-          WRITE(*,'(2A,I)') '(ppm_template_comp_boundary): ',  &
+          WRITE(*,'(2A,I6)') '(ppm_template_comp_boundary): ',  &
      &        'deallocation failed on line ',__LINE__
           GOTO 9999
       ENDIF

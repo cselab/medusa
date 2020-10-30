@@ -185,7 +185,7 @@
       IF (imode .EQ. -1) THEN
           DEALLOCATE(vlist,nvlist,STAT=info)
           IF (info .NE. 0) THEN
-              WRITE(*,'(2A,I)') '(ppm_template_comp_pp_verlet): ',  &
+              WRITE(*,'(2A,I6)') '(ppm_template_comp_pp_verlet): ',  &
      &            'DEALLOCATE failed on line ',__LINE__
               info = -1
           ENDIF  
@@ -203,7 +203,7 @@
           !---------------------------------------------------------------------
           CALL ppm_neighlist_vlist(xp,Np,cutoff,skin,lsymm,vlist,nvlist,info)
           IF (info .NE. 0) THEN
-              WRITE(*,'(2A,I)') '(ppm_template_comp_pp_verlet): ',&
+              WRITE(*,'(2A,I6)') '(ppm_template_comp_pp_verlet): ',&
      &            'Building Verlet lists failed on line ',__LINE__
               info = -1
           ENDIF

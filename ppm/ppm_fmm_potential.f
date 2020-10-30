@@ -308,7 +308,7 @@
       IF (ppm_debug .GT. 0) THEN
           CALL ppm_write(ppm_rank,'ppm_fmm_potential', &
           &          'Done mapping target points.',info)
-          WRITE(cbuf,'(A,I)') 'Local number of target points now:',Ntp
+          WRITE(cbuf,'(A,I6)') 'Local number of target points now:',Ntp
           CALL ppm_write(ppm_rank,'ppm_fmm_potential',cbuf,info)
       ENDIF
 
@@ -403,7 +403,7 @@
       IF (ppm_debug .GT. 0) THEN
           CALL ppm_write(ppm_rank,'ppm_fmm_potential', &
           &          'Done mapping ghost particles.',info)
-          WRITE(cbuf,'(A,I)') 'Received ghost particles:',Mpart-Np
+          WRITE(cbuf,'(A,I6)') 'Received ghost particles:',Mpart-Np
           CALL ppm_write(ppm_rank,'ppm_fmm_potential',cbuf,info)
       ENDIF
 

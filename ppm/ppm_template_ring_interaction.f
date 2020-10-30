@@ -193,7 +193,7 @@
       !-------------------------------------------------------------------------
       ALLOCATE(xp2(dims,Npart),vp2(lda,Npart),fp2(lda,Npart),STAT=info)
       IF (info .NE. 0) THEN
-          WRITE(*,'(2A,I)') '(ppm_template_ring_interaction): ',  &
+          WRITE(*,'(2A,I6)') '(ppm_template_ring_interaction): ',  &
      &        'allocation failed on line ',__LINE__
           GOTO 9999
       ENDIF
@@ -222,7 +222,7 @@
      &                               xp2,vp2,fp2,Lpart,  &
      &                               lsymm,params,1,info)
       IF (info .NE. 0) THEN
-          WRITE(*,'(2A,I)') '(ppm_template_ring_interaction):',  &
+          WRITE(*,'(2A,I6)') '(ppm_template_ring_interaction):',  &
      &        'interaction calculation failed on line ',__LINE__
           GOTO 9999
       ENDIF
@@ -273,7 +273,7 @@
      &                                  xp2,vp2,fp2,Lpart,  &
      &                                  lsymm,params,0,info)
          IF (info .NE. 0) THEN
-             WRITE(*,'(2A,I)') '(ppm_template_ring_interaction): ',&
+             WRITE(*,'(2A,I6)') '(ppm_template_ring_interaction): ',&
      &           'interaction calculation failed on line ',__LINE__
              GOTO 9999
          ENDIF
@@ -317,7 +317,7 @@
      &                                   fp2(:,rl:ru),ru-rl+1,lsymm,params,    &
      &                                   0,info)
           IF (info .NE. 0) THEN
-             WRITE(*,'(2A,I)') '(ppm_template_ring_interaction): ',&
+             WRITE(*,'(2A,I6)') '(ppm_template_ring_interaction): ',&
      &           'interaction calculation failed on line ',__LINE__
              GOTO 9999
           ENDIF
@@ -346,7 +346,7 @@
 
           IF (Lpart .NE. Npart) THEN
               info = -2
-              WRITE(*,'(2A,I)') '(ppm_template_ring_interaction): ',  &
+              WRITE(*,'(2A,I6)') '(ppm_template_ring_interaction): ',  &
      &            'Not all particles came back on line ',__LINE__
               GOTO 9999
           ENDIF
@@ -369,7 +369,7 @@
       !-------------------------------------------------------------------------
       DEALLOCATE(fp2,vp2,xp2,STAT=info)
       IF (info .NE. 0) THEN
-          WRITE(*,'(2A,I)') '(ppm_template_ring_interaction): ',  &
+          WRITE(*,'(2A,I6)') '(ppm_template_ring_interaction): ',  &
      &        'deallocation failed on line ',__LINE__
           GOTO 9999
       ENDIF

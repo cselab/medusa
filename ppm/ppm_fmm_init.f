@@ -254,7 +254,7 @@
       IF (ppm_debug.GT.0) THEN  
          CALL ppm_write(ppm_rank,'ppm_fmm_init', &
          &    'calling tree successful',info)
-         WRITE (cbuf,'(A,I)') 'nbox = ',nbox
+         WRITE (cbuf,'(A,I6)') 'nbox = ',nbox
          CALL ppm_write(ppm_rank,'ppm_fmm_init',cbuf,info)
       ENDIF
 
@@ -489,7 +489,7 @@
       IF (ppm_debug .GT. 0) THEN
         CALL ppm_write(ppm_rank,'ppm_fmm_init', &
         &             'Done mapping particles.',info)
-        WRITE(cbuf,'(A,I)') 'Local number of particles is now: ',Np
+        WRITE(cbuf,'(A,I6)') 'Local number of particles is now: ',Np
         CALL ppm_write(ppm_rank,'ppm_fmm_init',cbuf,info)
       ENDIF                                                                
       !-------------------------------------------------------------------------
@@ -549,7 +549,7 @@
       IF (ppm_debug.GT.0) THEN
          CALL ppm_write(ppm_rank,'ppm_fmm_init', &
          &    'calling tree (2) successful',info)
-         WRITE (cbuf,'(A,I)') 'nbox = ',nbox
+         WRITE (cbuf,'(A,I6)') 'nbox = ',nbox
          CALL ppm_write(ppm_rank,'ppm_fmm_init',cbuf,info)
       ENDIF
 

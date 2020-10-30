@@ -202,7 +202,7 @@
       !-------------------------------------------------------------------------
       ALLOCATE(id2(Npart),xp2(dims,Npart),vp2(dims,Npart),STAT=info)
       IF (info .NE. 0) THEN
-          WRITE(*,'(2A,I)') '(ppm_template_connect_interaction): ',  &
+          WRITE(*,'(2A,I6)') '(ppm_template_connect_interaction): ',  &
      &        'allocation failed on line ',__LINE__
           GOTO 9999
       ENDIF
@@ -225,7 +225,7 @@
       !-------------------------------------------------------------------------
       ALLOCATE(cd_local(ldc,Ncon),STAT=info)
       IF (info .NE. 0) THEN
-          WRITE(*,'(2A,I)') '(ppm_template_connect_interaction): ',  &
+          WRITE(*,'(2A,I6)') '(ppm_template_connect_interaction): ',  &
      &        'allocation failed on line ',__LINE__
           GOTO 9999
       ENDIF
@@ -250,7 +250,7 @@
       ALLOCATE(pmap(3,pcount),xp_con(dims,pcount),vp_con(dims,pcount), &
      &         fp_con(lda,pcount),STAT=info)
       IF (info .NE. 0) THEN
-          WRITE(*,'(2A,I)') '(ppm_template_connect_interaction): ',       &
+          WRITE(*,'(2A,I6)') '(ppm_template_connect_interaction): ',       &
      &        'allocation failed on line ',__LINE__
           GOTO 9999
       ENDIF
@@ -480,7 +480,7 @@
       !-------------------------------------------------------------------------
       DEALLOCATE(cd_local,pmap,fp_con,vp_con,xp_con,xp2,vp2,id2,STAT=info)
       IF (info .NE. 0) THEN
-          WRITE(*,'(2A,I)') '(ppm_template_connect_interaction): ',  &
+          WRITE(*,'(2A,I6)') '(ppm_template_connect_interaction): ',  &
      &        'deallocation failed on line ',__LINE__
           GOTO 9999
       ENDIF
