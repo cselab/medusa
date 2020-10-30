@@ -349,7 +349,7 @@ SUBROUTINE wvic_run (niter, info)
      END IF
 
      IF(.NOT.fast_rmsh) THEN     
-        WRITE(UNIT=0,*)'JTRrun' !JTR
+        WRITE(0,*)'JTRrun' !JTR
         CALL ppm_rmsh_comp_weights(xp,np,topo_id,mesh_id,krnl,info, &
              & wx1_user=wx,wx2_user=wy,wx3_user=wz)
         IF(info.NE.0) THEN

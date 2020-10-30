@@ -98,7 +98,7 @@ SUBROUTINE wvic_readstl(info)
     READ(iUnit,'(A)',END=100,ERR=200) cbuf
     !  IF (iline .EQ. 1) THEN
     !    WRITE(msg,*) '\n rank:',rank,'+',cbuf ,'+',ILEN,'\n'
-    !    WRITE(UNIT=0,*) msg
+    !    WRITE(0,*) msg
     !  END IF
     cbuf=ADJUSTL(cbuf)
     ILEN = LEN_TRIM(cbuf)
@@ -286,7 +286,7 @@ SUBROUTINE wvic_readstl(info)
     WRITE(*,*) msg
     WRITE(msg,*)' minx:', bndminx, 'bndminy:', bndminy, 'minz:', bndminz, '\n',&
               & ' maxx:', bndmaxx, 'bndmaxy:', bndmaxy, 'maxz:', bndmaxz, '\n'
-    WRITE(unit=6,*) msg
+    WRITE(6,*) msg
   END IF
 
   !-----------------------------------------------------------------------------

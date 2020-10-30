@@ -273,7 +273,7 @@ SUBROUTINE wvic_barycentric
 		WRITE(msg,*) '\nrank:',rank, 'ijk:', &
                 & i,j,k, 'normals diverge (a), intersections:',intersections,&
                 & 'inout:',inout
-                WRITE(UNIT=6,*) msg
+                WRITE(6,*) msg
               ENDIF
 	      CYCLE
 	    END IF
@@ -283,7 +283,7 @@ SUBROUTINE wvic_barycentric
 		  WRITE(msg,*) '\nrank:',rank, 'ijk:', &
                   & i,j,k, 'normals diverge (b), intersections:',intersections,&
                   & 'inout:',inout
-		  WRITE(UNIT=6,*) msg
+		  WRITE(6,*) msg
                 ENDIF
 	        CYCLE
 	      END IF
@@ -292,7 +292,7 @@ SUBROUTINE wvic_barycentric
 		  WRITE(msg,*) '\nrank:',rank, 'ijk:', &
                   & i,j,k, 'normals diverge (c), intersections:',intersections,&
                   & 'inout:',inout
-                  WRITE(UNIT=6,*) msg
+                  WRITE(6,*) msg
                 ENDIF
 	        CYCLE
 	      END IF
@@ -313,7 +313,7 @@ SUBROUTINE wvic_barycentric
               ELSE IF (op .EQ. 8) THEN
                 WRITE(msg,*) '\nrank:',rank,'unable to achive multicheck, ijk',&
                            & i,j,k
-                WRITE(UNIT=0,*) msg 
+                WRITE(0,*) msg 
                 call mpi_finalize(info)
                 stop
                 call wvic_died
@@ -323,7 +323,7 @@ SUBROUTINE wvic_barycentric
                 IF (stl_nonverbose .NE. .TRUE.) THEN
                   WRITE(msg,*) '\nrank:',rank, &
                              & ' multicheck failed, recalculate, ijk',i,j,k
-                  WRITE(UNIT=6,*) msg 
+                  WRITE(6,*) msg 
                 ENDIF
                 CYCLE
               END IF
@@ -379,7 +379,7 @@ SUBROUTINE wvic_barycentric
   CALL MPI_Reduce(lobjectvolume,gobjectvolume,1,mpi_prec,MPI_SUM,0,comm,info)
   IF (rank .EQ. 0) THEN
     WRITE(msg,*) '\nSTL object, volume ' ,gobjectvolume
-    WRITE(unit=0,*) msg
+    WRITE(0,*) msg
   END IF
 
 

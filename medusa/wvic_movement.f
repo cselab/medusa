@@ -234,7 +234,7 @@ SUBROUTINE wvic_advect_stepparticles(info)
 !  END DO
 !
 !WRITE(msg,*) 'JTR: rank,itime,npc', rank, itime, tmp2,'\n'
-!WRITE(UNIT=0,*) msg
+!WRITE(0,*) msg
 
   !-----------------------------------------------------
   !  Ghost stepfunction

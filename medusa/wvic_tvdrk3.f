@@ -409,7 +409,7 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
 !print *, 'dt', dt
 !print *, 'max_up', maxval(up)
 !    write(6,*) 'time',time,'proc',rank,'memory',printmemsize()/1024/1024,'after euler'
-!WRITE(UNIT=0,*) 'JTRstop' !JTR
+!WRITE(0,*) 'JTRstop' !JTR
 !call mpi_finalize(info)
 !stop
 !call wvic_died

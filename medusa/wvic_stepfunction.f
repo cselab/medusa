@@ -20,12 +20,12 @@ SUBROUTINE wvic_init_stepfunc
   & .AND. (SUM(ABS(harmonic_period)) .NE. 0.0_mk)) THEN
     object_move = .true.
     IF (rank .EQ. 0) THEN
-      WRITE(UNIT=0,*) 'Harmonic oscillation activated'
+      WRITE(0,*) 'Harmonic oscillation activated'
     ENDIF
   ELSEIf ((SUM(u_solid**2)) .EQ. 0.0_mk) THEN
     object_move = .false.
     IF (rank .EQ. 0) THEN
-      WRITE(UNIT=0,*) 'Static object, particle step function disabled'
+      WRITE(0,*) 'Static object, particle step function disabled'
     ENDIF
   ELSE
     object_move = .true.
@@ -506,7 +506,7 @@ SUBROUTINE wvic_stepfunc_cylinderarray
 !    END DO !k
 !  END DO !isub
 !WRITE(msg,*) 'JTR: rank', rank, tmp,'\n'
-!WRITE(UNIT=0,*) msg
+!WRITE(0,*) msg
 !stop
 
   !----------------------------------------------------------------------------!
@@ -852,7 +852,7 @@ SUBROUTINE wvic_stepfunc_complex
     IF (rank .EQ. 0) THEN
       WRITE(msg,*) '\n Objectvolume:', gobjectvolume,'\n'
       WRITE(*,*) msg
-      WRITE(unit=0,*) msg
+      WRITE(0,*) msg
     END IF
   END DO !isub
 
@@ -860,7 +860,7 @@ SUBROUTINE wvic_stepfunc_complex
   IF(rank.EQ.0) THEN
 
     WRITE(msg,*) 'aDeviance from analytical heaviside gradient to FD: ', gdvnc
-    WRITE(UNIT=0,*) msg
+    WRITE(0,*) msg
 
   END IF
   !---- Vorticity has been initialized on the field.
@@ -1235,7 +1235,7 @@ SUBROUTINE wvic_calculate_mass(info)
   sum_cmassz=sum_cmassz*dv
 
 !  WRITE (msg,*) 'rank',rank,'mass',sum_mass,'\n'
-!  WRITE (unit=0,*) msg
+!  WRITE (0,*) msg
   CALL MPI_AllReduce(sum_mass,gsum_mass,1,mpi_prec,MPI_SUM,comm,info)
   CALL MPI_AllReduce(sum_cmassx,gsum_cmassx,1,mpi_prec,MPI_SUM,comm,info)
   CALL MPI_AllReduce(sum_cmassy,gsum_cmassy,1,mpi_prec,MPI_SUM,comm,info)

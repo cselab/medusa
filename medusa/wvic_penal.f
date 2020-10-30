@@ -379,16 +379,16 @@ write(*,*) 'flowers and sunshine'
   CALL MPI_Reduce((time2-time1),time1,1,mpi_prec,MPI_MAX,0,comm,info)
   IF (rank .EQ. 0) THEN
     WRITE(msg,*) '\nitime=',itime,', Time used initialising and moving stepfunction: ',time1,'\n'
-    WRITE(UNIT=0,*) TRIM(msg)
+    WRITE(0,*) TRIM(msg)
   ENDIF
 
   !JTR? can this not be assumed constant? 
   CALL wvic_calculate_mass(info)
   IF (rank .EQ. 0) THEN
     WRITE(msg,*) '\nitime=',itime,', Medusa mass=',object_mass,'\n'
-    WRITE(UNIT=0,*) TRIM(msg)
+    WRITE(0,*) TRIM(msg)
     WRITE(msg,*) '\nitime=',itime,', Medusa center of mass',object_cmass,'\n'
-    WRITE(UNIT=0,*) TRIM(msg)
+    WRITE(0,*) TRIM(msg)
   ENDIF
 
 !  lambda=penalization_lambda/dt
@@ -419,7 +419,7 @@ write(*,*) 'flowers and sunshine'
 !    END DO !k
 !  END DO
 !WRITE(msg,*) 'JTR: rank,itime,npc', rank, itime, npc,'\n'
-!WRITE(UNIT=0,*) msg
+!WRITE(0,*) msg
 
 
   !-------------------------------------------------------------------------!

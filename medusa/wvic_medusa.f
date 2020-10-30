@@ -37,7 +37,7 @@ SUBROUTINE wvic_readmedusa
   WRITE(filein,'(A,I5.5)') medusa_file(1:ilenmedusa), 0
   INQUIRE(FILE=filein(1:(ilenmedusa+5)), EXIST=lExist)
   IF(.NOT. lExist) THEN
-    WRITE(unit=0,'(2A)')'\nFile does not exist: ',filein(1:(ilenmedusa+5)), '\n'
+    WRITE(0,'(2A)')'\nFile does not exist: ',filein(1:(ilenmedusa+5)), '\n'
     Info = 1
     call mpi_finalize(info)
     stop
@@ -47,7 +47,7 @@ SUBROUTINE wvic_readmedusa
 
   OPEN(iUnit, FILE=filein(1:(ilenmedusa+5)), IOSTAT=ios, ACTION='READ')
   IF(ios .NE. 0) THEN
-    WRITE(unit=0,'(3A)')'\nFailed to open medusa file: ', &
+    WRITE(0,'(3A)')'\nFailed to open medusa file: ', &
      & filein(1:(ilenmedusa+5)), '\n'
     Info = 1
     GOTO 9999
@@ -86,7 +86,7 @@ SUBROUTINE wvic_readmedusa
     WRITE(filein,'(A,I5.5)') medusa_file(1:ilenmedusa), (filenumber-1)
     OPEN(iUnit, FILE=filein(1:(ilenmedusa+5)), IOSTAT=ios, ACTION='READ')
     IF(ios .NE. 0) THEN
-      WRITE(unit=0,'(3A)')'\nFailed to open file:',filein(1:(ilenmedusa+5)),'\n'
+      WRITE(0,'(3A)')'\nFailed to open file:',filein(1:(ilenmedusa+5)),'\n'
       Info = 1
       GOTO 9999
     END IF
@@ -147,10 +147,10 @@ SUBROUTINE wvic_readmedusa
   IF (rank .EQ. 0) THEN
     WRITE(msg,*) '\nrank:',rank,'Succesfully read', medusa_count, &
       & ' points from ', medusa_file(1:ilenmedusa),'\n'
-    WRITE(unit=0,*) msg
+    WRITE(0,*) msg
     WRITE(msg,*)'\nmaxx:',medusa_maxx,'maxy:',medusa_maxy,'miny:', &
       & medusa_miny,'\n'
-    WRITE(unit=0,*) msg
+    WRITE(0,*) msg
   END IF
 
   !-----------------------------------------------------------------------------
@@ -295,9 +295,9 @@ SUBROUTINE wvic_stepfunc_medusa
 !      DO j=1-ghostsize(2),ndata(2,isubl)+ghostsize(2)!jmin,jmax !
 !        DO i=1-ghostsize(1),ndata(1,isubl)+ghostsize(1)!imin,imax !
     WRITE(msg,*) '\nindex:',rank,imin,imax,jmin,jmax,kmin,kmax
-    WRITE(UNIT=0,*) msg
+    WRITE(0,*) msg
     WRITE(msg,*) '\nbounds:',rank,mmaxx,mminy,mmaxy
-    WRITE(UNIT=0,*) msg
+    WRITE(0,*) msg
 
     DO k=kmin,kmax,1 
       DO j=jmin,jmax,1 
@@ -325,7 +325,7 @@ SUBROUTINE wvic_stepfunc_medusa
           cosangxz = COS(sinangxz)
           sinangxz = SIN(sinangxz)
           IF (rank .eq. -10) THEN
-            WRITE(unit=0,*) '\nCOORDS ',tx,ty,tz,px,py,tst1,cosangxz,sinangxz
+            WRITE(0,*) '\nCOORDS ',tx,ty,tz,px,py,tst1,cosangxz,sinangxz
           END IF
           IF (px .EQ. 0.0_mk) THEN
             !JTR consider printing cosangxz,sinangxz to see what ATAN2 gives
@@ -496,7 +496,7 @@ SUBROUTINE wvic_stepfunc_medusa
                   & medusa_points(np2-1,2),&
                   & medusa_points(np2-1,1)+medusa_panel(np2-1,1),&
                   & medusa_points(np2-1,2)+medusa_panel(np2-1,2),'\n'
-                WRITE(unit=0,*) TRIM(msgl)
+                WRITE(0,*) TRIM(msgl)
                 STOP
               ENDIF
               tst1 = (px - medusa_points(np1,1))* & 
@@ -533,7 +533,7 @@ SUBROUTINE wvic_stepfunc_medusa
                   & medusa_points(np2+1,2),&
                   & medusa_points(np2+1,1)+medusa_panel(np2+1,1),&
                   & medusa_points(np2+1,2)+medusa_panel(np2+1,2),'\n'
-                WRITE(unit=0,*) TRIM(msgl)
+                WRITE(0,*) TRIM(msgl)
                 STOP
                 STOP
               ENDIF
@@ -555,7 +555,7 @@ SUBROUTINE wvic_stepfunc_medusa
 
             IF ((tst1 .GT. 0.0_mk) .OR. (tst2 .GT. 0.0_mk)) THEN
                 WRITE(msg,*) '\nERROR tst1 or tst2 positive\n'
-                WRITE(unit=0,*) msg
+                WRITE(0,*) msg
             END IF
 
             !INNER SANCTUM REACHED, TAKE HEED AND BEAR WITNESS TO THE TRUTH
@@ -621,7 +621,7 @@ SUBROUTINE wvic_stepfunc_medusa
                 & itime,', rank ',rank,'ijk',i,j,k,'pol abc',pola,polb,polc, &
                 & 'xyz',tx,ty,tz,'level',level,'roots',tst1,tst2,'coords', &
                 & x1,y1,x2,y2,vx1,vy1,vx2,vy2,px,py,'\n'
-              WRITE(unit=0,*) TRIM(msgl)
+              WRITE(0,*) TRIM(msgl)
               tst1 = -polc/polb
               tst2 = tst1
               IF ((tst1 .GE. 0.0_mk) .AND. (tst1 .LE. 1.0_mk)) THEN
@@ -633,7 +633,7 @@ SUBROUTINE wvic_stepfunc_medusa
                 WRITE(msgl,*) '\nERROR in interpolation variables: rank',rank, &
                   & 'ijk',i,j,k,'xyz',tx,ty,tz,level,'pol abc',pola,polb,polc, &
                   & 'tst1',tst1,'ubar',field_ubar(:,i,j,k,isub),'\n'
-                WRITE(unit=0,*) TRIM(msgl)
+                WRITE(0,*) TRIM(msgl)
               ENDIF
             ENDIF
             !LAZARUS HAS BEEN KILLED GO FINISH OFF DIABLO: set ubar from x1 & x2
@@ -738,7 +738,7 @@ SUBROUTINE wvic_stepfunc_medusa
     CLOSE(14)
 
   WRITE(msg,*) '\nrank:',rank , min_sub(1,isubl), min_sub(2,isubl),  min_sub(3,isubl)
-  WRITE(unit=0,*) msg
+  WRITE(0,*) msg
   ENDIF
 
 
@@ -757,7 +757,7 @@ SUBROUTINE wvic_stepfunc_medusa
   CALL MPI_Reduce(ubarmax,tx,1,mpi_prec,MPI_MAX,0,comm,info)
   IF (rank.eq.0) THEN
     WRITE (msg,*) '\nitime=',itime,', ubarmax=',ubarmax,'\n'
-    WRITE (unit=0,*) TRIM(msg)
+    WRITE (0,*) TRIM(msg)
   END IF
 
 
@@ -862,7 +862,7 @@ SUBROUTINE wvic_medusa_move
   medu_move_pos = medu_move_pos + medu_move_vel*dt
 IF (rank.EQ. 0) THEN
 WRITE(msg,*) '\nJTR3',rank,medu_move_pos,medu_move_vel,medu_thrusty,medu_mass_orig,'\n' !JTR
-WRITE(UNIT=0,*) msg
+WRITE(0,*) msg
 ENDIF 
 
   !-----------------------------------------------------------------------------

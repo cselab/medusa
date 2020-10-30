@@ -596,7 +596,7 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
   CALL MPI_BCast(medusa_period,1,mpi_prec,0,comm,info)
 
   IF(MINVAL(ghostsize) .LT. (stl_stencil+1) .AND. (flow_case .EQ. 14)) THEN
-    WRITE(UNIT=0,*) 'Ghostlayer insufficient for stl stencil, exiting\n'
+    WRITE(0,*) 'Ghostlayer insufficient for stl stencil, exiting\n'
     call mpi_finalize(info)
     stop
     call wvic_died
@@ -995,7 +995,7 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
              CALL wvic_init_onset
            ELSE
              WRITE(msg,*) 'Initialising analytic Poiseuille flow (z) profile\n'
-             WRITE(UNIT=0,*) msg
+             WRITE(0,*) msg
              CALL wvic_init_poiseulle
            ENDIF 
          CASE(10)
