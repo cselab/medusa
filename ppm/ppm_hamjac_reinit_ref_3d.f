@@ -167,7 +167,7 @@
      &         mesh_id,ghostsize,info)
 
            ! IF (ppm_debug .GT. 0) THEN
-           WRITE(cbuf,'(A,I4,A,ES)') 'Iteration ',istep,' Residual: ',res
+           WRITE(cbuf,'(A,I4,A,ES12.5)') 'Iteration ',istep,' Residual: ',res
            CALL ppm_write(ppm_rank,'ppm_hamjac_reinit_ref_3d',cbuf,info)
            ! ENDIF
 
