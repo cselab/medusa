@@ -10,11 +10,9 @@ awk '
     type = vars = $0
     sub(/::.*/, "", type)
     sub(/.*::/, "", vars)
-
     split(vars, va, ",")
-
+    gsub(/[ \t]/, "")
     for (i = 1; i in va; i++) {
-	gsub(/[ \t]*/, va[i])
 	printf "%s::%s => null()", type, va[i]
 	if (length(comment))
 	    printf " ! %s\n", comment
