@@ -1,0 +1,8 @@
+#!/bin/sh
+
+awk '
+sub(/^[ \t]*#[ \t]*include[ \t]*</, "") && sub(/>.*/, "") {
+    sub(/\.c$/, ".o", FILENAME)
+    print FILENAME  " : " $0
+}
+' "$@" | sort | uniq
