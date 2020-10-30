@@ -8,7 +8,6 @@ include obj.mk
 PREFIX = $(HOME)/.local
 FCFLAGS = -O2 -g
 FC = mpifort
-LINK = $(FC)
 0 = ${O:.o=.mod}
 M = ${0:ppm_module_neighlist_MkNeighIdx.mod=ppm_module_neighlist_mkneighidx.mod}
 
