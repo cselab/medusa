@@ -1,0 +1,84 @@
+#-------------------------------------------------------------------------------
+#			 Fri Aug 11 14:51:06 CEST 2006
+#		   Philippe, Chatelain, pchatela@inf.ethz.ch
+#		     Michael Bergdorf, bergdorf@inf.ethz.ch
+#			      CSELab, ETH-Zuerich
+#-------------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------
+#  NAME OF RUN // rem: none
+#=====================================================
+RUNTAG= default
+NX= 129,129,513
+TOPOLOGY = 2,2,2
+
+MIN_PHYS= 0.0,0.0,0.0
+MAX_PHYS= 3.0,3.0,12.0
+DT= 0.005
+DTMAX= 10.0
+TEND= 10000.0
+
+NU= 0.000001
+
+#-------------------------------------------------------------------------------
+#  FLOW CASE //
+#=====================================================
+# 0 = Vortex tubes
+# 1 = Poiseuille
+# 2 = Ring
+#-------------------------------------------------------------------------------
+FLOW_CASE = 0
+MULTIGRID = false
+MAXLEV    = 4
+TALK      = false
+RENORM    = false
+GHOSTSIZE = 2,2,2
+
+#-------------------------------------------------------------------------------
+#  TRAILING VTX STUFF
+#-------------------------------------------------------------------------------
+TRAILING_VORTICES                     = true
+TRAILING_VORTICES_PRIMARY_SPAN        = 0.3
+TRAILING_VORTICES_SECONDARY_SPAN      = 0.1
+TRAILING_VORTICES_PRIMARY_SIGMA       = 0.07
+TRAILING_VORTICES_SECONDARY_SIGMA     = 0.05
+TRAILING_VORTICES_PRIMARY_VERTDIFF    = 0.0
+TRAILING_VORTICES_PRIMARY_GAMMA       = 0.003
+TRAILING_VORTICES_PRIMARY_GAMMA_RATIO = 0.5
+
+U_INFTY= 0.0,0.0,1.6
+
+#-------------------------------------------------------------------------------
+#  NOISE PARAMETERS // rem: none
+#-------------------------------------------------------------------------------
+NOISE_AMP     = 0.01
+NOISE_NMODES  = 14
+NOISE_AMBIENT = 0.0
+
+#-------------------------------------------------------------------------------
+#  STRETCHING SCHEME // 
+#  0 = std, 1 = muscle, 2 = pcons, 3 = ncons, 4 = 4th order
+#  VELOCITY SCHEME //
+#  0 = std, 1 = 4th order, 2 = spectral
+#-------------------------------------------------------------------------------
+W_SCHEME = 4
+U_SCHEME = 2
+
+#-------------------------------------------------------------------------------
+#  DUMP EVERY <NDUMP>TH STEP
+#  RUN TIME LIMITATION
+#=====================================================
+NDUMP= 100
+DIE_AFTER= 44800
+
+#-------------------------------------------------------------------------------
+#  NETCDF RESTART PARAMETERS
+#=====================================================
+NETCDF_RESTART = false
+NETCDF_ITIME   = 3700 
+NETCDF_TIME    = 0.2375819E+01 
+NETCDF_DT      = 0.1724706E-03
+
+ 
+
+
