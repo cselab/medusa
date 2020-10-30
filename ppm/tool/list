@@ -1,0 +1,16 @@
+#!/bin/sh
+
+awk '
+sub(/^[ \t]*INCLUDE[ \t]/, "") && gsub(/'\''/, "") {
+    print FILENAME, $0, $0
+}
+sub(/^[ \t]*#[ \t]*include[ \t]*"/, "") && sub(/".*/, "") {
+    print FILENAME, $0, $0
+}
+sub(/^[ \t]*USE[ \t]+/, "") {
+    sub(/!.*$/, "")
+    sub(/,.*/, "")
+    sub(/[ \t]*$/, "")
+    print FILENAME, $0 ".f", $0 ".o"
+ }
+' "$@" | sort | uniq

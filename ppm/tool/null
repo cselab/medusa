@@ -1,0 +1,27 @@
+awk '
+/,[ \t]*POINTER[ \t]+::[ \t]*/ && !/=>/{
+
+    if (/!/) {
+	comment = $0
+	sub(/.*!/, "", comment)
+	sub(/!.*/, "")
+    } else
+	comment = ""
+    type = vars = $0
+    sub(/::.*/, "", type)
+    sub(/.*::/, "", vars)
+
+    split(vars, va, ",")
+
+    for (i = 1; i in va; i++) {
+	gsub(/[ \t]*/, va[i])
+	printf "%s::%s => null()", type, va[i]
+	if (length(comment))
+	    printf " ! %s\n", comment
+	else
+	    printf "\n"
+    }
+    next
+}
+1
+' "$@"
