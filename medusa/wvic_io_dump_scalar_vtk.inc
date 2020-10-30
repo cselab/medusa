@@ -109,7 +109,7 @@ SUBROUTINE wvic_io_dump_scalar_vtk(scalfield, n_data, scalname, iter,info)
     WRITE(vtkfile,'(A,A,A,A,I5.5,A)')&
       & scalname(1:iscalname),'_',runtag(1:iruntag),'I',iter,'.pvti'
 
-    OPEN(17,file=vtkfile,form='binary')
+    OPEN(17,file=vtkfile,access='stream')
 
     buffer =  '<?xml version="1.0"?>'//lf
     WRITE(17) TRIM(buffer)
@@ -151,7 +151,7 @@ SUBROUTINE wvic_io_dump_scalar_vtk(scalfield, n_data, scalname, iter,info)
   WRITE(vtkfile,'(A,A,A,A,I5.5,A,I5.5,A)')&
     & scalname(1:iscalname),'_',runtag(1:iruntag),'R',rank,'I',iter,'.vti'
 
-  OPEN(17,file=vtkfile,form='binary')
+  OPEN(17,file=vtkfile,access='stream')
 
   !-----------------------------------------------------------------------------
   ! Write header
