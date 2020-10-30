@@ -142,11 +142,14 @@
       !  Local variables 
       !-------------------------------------------------------------------------
       REAL(MK), DIMENSION(ppm_dim)            :: bsize,len_sub
-      REAL(MK), DIMENSION(:,:), POINTER       :: ctrs
+      REAL(MK), DIMENSION(:,:), POINTER       :: ctrs => null()
       REAL(MK)                                :: mx1,mx2,mx3
       REAL(MK)                                :: mn1,mn2,mn3
-      INTEGER , DIMENSION(:  ), POINTER       :: subid,lhbx,lpdx
-      INTEGER , DIMENSION(:,:), POINTER       :: inp,jnp
+      INTEGER , DIMENSION(:  ), POINTER       :: subid => null()
+      INTEGER , DIMENSION(:  ), POINTER       :: lhbx => null()
+      INTEGER , DIMENSION(:  ), POINTER       :: lpdx => null()
+      INTEGER , DIMENSION(:,:), POINTER       :: inp => null()
+      INTEGER , DIMENSION(:,:), POINTER       :: jnp => null()
       INTEGER , DIMENSION(ppm_dim)            :: ldc,Nm,Nmtot
       INTEGER , DIMENSION(2*ppm_dim)          :: Ngl
       INTEGER                                 :: nsubsplus,nnp

@@ -149,11 +149,17 @@
       !-------------------------------------------------------------------------
       !  Local variables 
       !-------------------------------------------------------------------------
-      INTEGER , DIMENSION(:  ), POINTER   :: elmnts,npart,nxadj,nadjncy
-      INTEGER , DIMENSION(:  ), POINTER   :: vwgt,adjwgt,vsize,vote
-      INTEGER , DIMENSION(:,:), POINTER   :: cornerno
-      REAL(MK), DIMENSION(:,:,:), POINTER :: corner
-      REAL(ppm_kind_single), DIMENSION(:), POINTER :: tpwgt
+      INTEGER , DIMENSION(:  ), POINTER   :: elmnts => null()
+      INTEGER , DIMENSION(:  ), POINTER   :: npart => null()
+      INTEGER , DIMENSION(:  ), POINTER   :: nxadj => null()
+      INTEGER , DIMENSION(:  ), POINTER   :: nadjncy => null()
+      INTEGER , DIMENSION(:  ), POINTER   :: vwgt => null()
+      INTEGER , DIMENSION(:  ), POINTER   :: adjwgt => null()
+      INTEGER , DIMENSION(:  ), POINTER   :: vsize => null()
+      INTEGER , DIMENSION(:  ), POINTER   :: vote => null()
+      INTEGER , DIMENSION(:,:), POINTER   :: cornerno => null()
+      REAL(MK), DIMENSION(:,:,:), POINTER :: corner => null()
+      REAL(ppm_kind_single), DIMENSION(:), POINTER :: tpwgt => null()
       INTEGER , DIMENSION(3)              :: ldc
       INTEGER , DIMENSION(1)              :: maxvote
       INTEGER , DIMENSION(5)              :: metis_options

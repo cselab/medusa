@@ -153,7 +153,7 @@
       INTEGER                          :: i,iopt,Nt,isub
       INTEGER                          :: n1,n2,n3,jsub,prev
       INTEGER, DIMENSION(2)            :: ldu
-      REAL(MK),DIMENSION(:,:), POINTER :: clotmp
+      REAL(MK),DIMENSION(:,:), POINTER :: clotmp => null()
       REAL(MK)                         :: t0,x,y,z,xx,yy,zz,dx,dy,dz
       REAL(MK)                         :: s,sprev,thresh
       LOGICAL                          :: lok

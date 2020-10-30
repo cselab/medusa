@@ -100,8 +100,9 @@
       INTEGER                             :: ipart,sendrank,recvrank
       INTEGER                             :: iopt,iset,ibuffer
       INTEGER                             :: tag1,tag2
-      INTEGER, DIMENSION(:), POINTER      :: bcdef
-      REAL(MK), DIMENSION(:,:,:), POINTER :: ppm_min_sub,ppm_max_sub
+      INTEGER, DIMENSION(:), POINTER      :: bcdef => null()
+      REAL(MK), DIMENSION(:,:,:), POINTER :: ppm_min_sub => null()
+      REAL(MK), DIMENSION(:,:,:), POINTER :: ppm_max_sub => null()
       REAL(MK)                            :: t0
       LOGICAL                             :: valid
 #ifdef __MPI

@@ -332,7 +332,8 @@
       REAL(MK), DIMENSION(:,:), POINTER       :: xp
       REAL(MK), DIMENSION(:  ), INTENT(IN   ) :: min_phys,max_phys
       REAL(MK)                , INTENT(IN   ) :: ghostsize
-      REAL(MK), DIMENSION(:,:), POINTER       :: min_sub,max_sub
+      REAL(MK), DIMENSION(:,:), POINTER       :: min_sub
+      REAL(MK), DIMENSION(:,:), POINTER       :: max_sub
       REAL(MK), DIMENSION(:  ), POINTER       :: cost
       REAL(MK), DIMENSION(:  ), OPTIONAL, INTENT(IN) :: pcost
       INTEGER , DIMENSION(:  ), INTENT(IN   ) :: bcdef
@@ -345,13 +346,16 @@
       !-------------------------------------------------------------------------
       !  Local variables 
       !-------------------------------------------------------------------------
-      INTEGER , DIMENSION(:,:), POINTER :: ineigh,subs_bc
-      INTEGER , DIMENSION(  :), POINTER :: nneigh,nchld
+      INTEGER , DIMENSION(:,:), POINTER :: ineigh => null()
+      INTEGER , DIMENSION(:,:), POINTER :: subs_bc => null()
+      INTEGER , DIMENSION(  :), POINTER :: nneigh => null()
+      INTEGER , DIMENSION(  :), POINTER :: nchld => null()
       INTEGER , DIMENSION(3,1)          :: nnodes
       INTEGER , DIMENSION(3)            :: ldc
       REAL(MK), DIMENSION(3,2)          :: weights
       REAL(MK), DIMENSION(ppm_dim)      :: gsvec
-      REAL(MK), DIMENSION(:,:), POINTER :: min_box,max_box
+      REAL(MK), DIMENSION(:,:), POINTER :: min_box => null()
+      REAL(MK), DIMENSION(:,:), POINTER :: max_box => null()
       LOGICAL , DIMENSION(ppm_dim)      :: fixed
       INTEGER                           :: i,j,k,Ntot,iopt,treetype
       INTEGER                           :: istat,topoid,nbox,isub

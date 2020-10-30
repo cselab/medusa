@@ -146,8 +146,9 @@
       !  Local variables 
       !-------------------------------------------------------------------------
       REAL(MK):: costsum,totalcost,t0
-      INTEGER , DIMENSION(:), POINTER :: list
-      LOGICAL , DIMENSION(:), POINTER :: not_assigned,not_listed
+      INTEGER , DIMENSION(:), POINTER :: list => null()
+      LOGICAL , DIMENSION(:), POINTER :: not_assigned => null()
+      LOGICAL , DIMENSION(:), POINTER :: not_listed => null()
       INTEGER , DIMENSION(ppm_dim) :: ldc
       INTEGER :: i,j,ii,jj,k,iopt
       INTEGER :: istat,isize,rank,nlist,ilist,isub,jsub,nassigned

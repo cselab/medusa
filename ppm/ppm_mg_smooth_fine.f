@@ -147,7 +147,12 @@
         INTEGER                                    ::  ilda,isweep,count
         REAL(MK)                                   ::  c11,c22,c33,c44 
         REAL(MK)                                   ::  dx,dy
-        INTEGER,DIMENSION(:),POINTER               ::  a,b,c,d,e,g
+        INTEGER,DIMENSION(:),POINTER               :: a => null()
+        INTEGER,DIMENSION(:),POINTER               :: b => null()
+        INTEGER,DIMENSION(:),POINTER               :: c => null()
+        INTEGER,DIMENSION(:),POINTER               :: d => null()
+        INTEGER,DIMENSION(:),POINTER               :: e => null()
+        INTEGER,DIMENSION(:),POINTER               :: g => null()
         INTEGER                                    ::  k,idom
         REAL(MK)                                   ::  x,y
         REAL(MK)                                   ::  omega

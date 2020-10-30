@@ -109,7 +109,8 @@
       REAL(MK), DIMENSION(:  ), INTENT(IN   ) :: min_phys,max_phys
       INTEGER                 , INTENT(INOUT) :: mesh_id
       INTEGER                 , INTENT(  OUT) :: info
-      INTEGER , DIMENSION(:,:), POINTER       :: istart,ndata
+      INTEGER , DIMENSION(:,:), POINTER       :: istart
+      INTEGER , DIMENSION(:,:), POINTER       :: ndata
       !-------------------------------------------------------------------------
       !  Local variables 
       !-------------------------------------------------------------------------

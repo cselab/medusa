@@ -163,9 +163,11 @@
       INTEGER,DIMENSION(2)                :: ldu2
       INTEGER,DIMENSION(3)                :: ldu,ldl
       INTEGER,DIMENSION(6)                :: bcdef      
-      INTEGER,DIMENSION(:),    POINTER    :: box2proc,boxid 
-      INTEGER,DIMENSION(:),    POINTER    :: subs2proc,isublist
-      INTEGER,DIMENSION(:),    POINTER    :: new_subs2proc
+      INTEGER,DIMENSION(:),    POINTER    :: box2proc => null()
+      INTEGER,DIMENSION(:),    POINTER    :: boxid  => null()
+      INTEGER,DIMENSION(:),    POINTER    :: subs2proc => null()
+      INTEGER,DIMENSION(:),    POINTER    :: isublist => null()
+      INTEGER,DIMENSION(:),    POINTER    :: new_subs2proc => null()
       INTEGER                             :: treetype,minboxes
       INTEGER                             :: maxlevels,level
       INTEGER                             :: iopt,i,j
@@ -178,11 +180,17 @@
       REAL(MK),DIMENSION(3  )             :: minboxsize
       REAL(MK),DIMENSION(3  )             :: diagvec
       REAL(MK),DIMENSION(3,2)             :: weights
-      REAL(MK),DIMENSION(:),   POINTER    :: treewp,cost,boxcost 
-      REAL(MK),DIMENSION(:),   POINTER    :: radius,totalmass
-      REAL(MK),DIMENSION(:,:), POINTER    :: centerofbox,treepart
-      REAL(MK),DIMENSION(:,:), POINTER    :: min_box,max_box
-      REAL(MK),DIMENSION(:,:), POINTER    :: min_sub,max_sub      
+      REAL(MK),DIMENSION(:),   POINTER    :: treewp => null()
+      REAL(MK),DIMENSION(:),   POINTER    :: cost => null()
+      REAL(MK),DIMENSION(:),   POINTER    :: boxcost  => null()
+      REAL(MK),DIMENSION(:),   POINTER    :: radius => null()
+      REAL(MK),DIMENSION(:),   POINTER    :: totalmass => null()
+      REAL(MK),DIMENSION(:,:), POINTER    :: centerofbox => null()
+      REAL(MK),DIMENSION(:,:), POINTER    :: treepart => null()
+      REAL(MK),DIMENSION(:,:), POINTER    :: min_box => null()
+      REAL(MK),DIMENSION(:,:), POINTER    :: max_box => null()
+      REAL(MK),DIMENSION(:,:), POINTER    :: min_sub => null()
+      REAL(MK),DIMENSION(:,:), POINTER    :: max_sub       => null()
       CHARACTER(LEN=ppm_char)             :: cbuf
 
       !-------------------------------------------------------------------------

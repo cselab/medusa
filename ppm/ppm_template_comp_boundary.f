@@ -154,21 +154,27 @@
       INTEGER                           :: i,j,k,l,m,dims,pcount,psize,found
       INTEGER                           :: itarget,isource,hops,Lpart,nproc,rank
       INTEGER , DIMENSION(ldc)          :: p
-      INTEGER , DIMENSION(:)  , POINTER :: id2
-      INTEGER , DIMENSION(:,:), POINTER :: cd_local,pmap
-      REAL(MK), DIMENSION(:,:), POINTER :: xp_con,vp_con,fp_con
+      INTEGER , DIMENSION(:)  , POINTER :: id2 => null()
+      INTEGER , DIMENSION(:,:), POINTER :: cd_local => null()
+      INTEGER , DIMENSION(:,:), POINTER :: pmap => null()
+      REAL(MK), DIMENSION(:,:), POINTER :: xp_con => null()
+      REAL(MK), DIMENSION(:,:), POINTER :: vp_con => null()
+      REAL(MK), DIMENSION(:,:), POINTER :: fp_con => null()
       ! USER: if allocation of the following varaibles fails due to stack 
       ! size limitations, try putting them in a module and add a USE
       ! statement for it above.
-      REAL(MK), DIMENSION(:,:), POINTER :: xp2,vp2,fp2
+      REAL(MK), DIMENSION(:,:), POINTER :: xp2 => null()
+      REAL(MK), DIMENSION(:,:), POINTER :: vp2 => null()
+      REAL(MK), DIMENSION(:,:), POINTER :: fp2 => null()
       !-------------------------------------------------------------------------
       !  USER CODE HERE
       !  Add the variable names for the copies here, e.g.
-      !  REAL(MK), DIMENSION(:,:), POINTER :: mp2,sp2
+      ::       => null() !   REAL(MK), DIMENSION(:,:), POINTER :: mp2,sp2
       !  ...
       !-------------------------------------------------------------------------
-      REAL(MK), DIMENSION(:,:), POINTER :: lb
-      REAL(MK), DIMENSION(:)  , POINTER :: ip,ivp
+      REAL(MK), DIMENSION(:,:), POINTER :: lb => null()
+      REAL(MK), DIMENSION(:)  , POINTER :: ip => null()
+      REAL(MK), DIMENSION(:)  , POINTER :: ivp => null()
       REAL(MK)                          :: integral
       
       !-------------------------------------------------------------------------

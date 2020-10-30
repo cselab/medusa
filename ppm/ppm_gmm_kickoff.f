@@ -228,7 +228,7 @@
       REAL(MK)                    :: facx,facy,facz,facxy,facxz,facyz,facxyz
       REAL(MK)                    :: err,tol2,pxk,sprod,x,y,z
       REAL(MK),DIMENSION(ppm_dim) :: xk,x0,gradpxk,delta1,delta2,x0mxk,xkhalf
-      REAL(MK),DIMENSION(:),POINTER :: phi
+      REAL(MK),DIMENSION(:),POINTER :: phi => null()
       LOGICAL                     :: lok
       INTEGER , DIMENSION(8)      :: neg
       REAL(MK), DIMENSION(0:3)    :: xv,yv,gxv,gyv

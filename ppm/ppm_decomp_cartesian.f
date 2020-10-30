@@ -164,7 +164,8 @@
       ! physical extent of comput. domain
       REAL(MK), DIMENSION(ppm_dim)      :: len_phys
       INTEGER , DIMENSION(ppm_dim)      :: nblocks,surface,volume,Nc
-      INTEGER , DIMENSION(:,:), POINTER :: Npx,Npxnew
+      INTEGER , DIMENSION(:,:), POINTER :: Npx => null()
+      INTEGER , DIMENSION(:,:), POINTER :: Npxnew => null()
       REAL(MK)                          :: gs
       CHARACTER(LEN=ppm_char)           :: mesg
       INTEGER, DIMENSION(2)             :: ldu

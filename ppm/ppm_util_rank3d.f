@@ -193,9 +193,9 @@
       INTEGER                                 :: n2,nbox,ibox
       ! work arrays: box idx of each particle, write pointer, number of
       ! particles per box
-      INTEGER, DIMENSION(:), POINTER          :: pbox 
-      INTEGER, DIMENSION(:), POINTER          :: cbox
-      INTEGER, DIMENSION(:)   , POINTER       :: npbx
+      INTEGER, DIMENSION(:), POINTER          :: pbox  => null()
+      INTEGER, DIMENSION(:), POINTER          :: cbox => null()
+      INTEGER, DIMENSION(:)   , POINTER       :: npbx => null()
       ! total number of cells in each direction (including ghost layers)
       INTEGER, DIMENSION(3)                   :: Nmtot
       CHARACTER(LEN=ppm_char)                 :: msg

@@ -126,13 +126,21 @@
       REAL(MK)                             :: sine,cosine,val,prod
       REAL(MK)                             :: angle,reci,t0
       REAL(MK)                             :: dx,dy,dz,tmp  
-      REAL(MK),DIMENSION(:  ),POINTER      :: box_rho,box_theta,box_phi
-      REAL(MK),DIMENSION(:  ),POINTER      :: fracfac,totalmass,radius
-      REAL(MK),DIMENSION(:,:),POINTER      :: Pnm,Anm,sqrtfac,centerofbox
+      REAL(MK),DIMENSION(:  ),POINTER      :: box_rho => null()
+      REAL(MK),DIMENSION(:  ),POINTER      :: box_theta => null()
+      REAL(MK),DIMENSION(:  ),POINTER      :: box_phi => null()
+      REAL(MK),DIMENSION(:  ),POINTER      :: fracfac => null()
+      REAL(MK),DIMENSION(:  ),POINTER      :: totalmass => null()
+      REAL(MK),DIMENSION(:  ),POINTER      :: radius => null()
+      REAL(MK),DIMENSION(:,:),POINTER      :: Pnm => null()
+      REAL(MK),DIMENSION(:,:),POINTER      :: Anm => null()
+      REAL(MK),DIMENSION(:,:),POINTER      :: sqrtfac => null()
+      REAL(MK),DIMENSION(:,:),POINTER      :: centerofbox => null()
       COMPLEX(MK)                          :: csum
       COMPLEX(MK),PARAMETER                :: CI=(0.0_MK,1.0_MK)
-      COMPLEX(MK),DIMENSION(:,:  ),POINTER :: Inner,Ynm
-      COMPLEX(MK),DIMENSION(:,:,:),POINTER :: expansion
+      COMPLEX(MK),DIMENSION(:,:  ),POINTER :: Inner => null()
+      COMPLEX(MK),DIMENSION(:,:  ),POINTER :: Ynm => null()
+      COMPLEX(MK),DIMENSION(:,:,:),POINTER :: expansion => null()
       CHARACTER(LEN=ppm_char)              :: cbuf
 
       !-------------------------------------------------------------------------

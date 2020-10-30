@@ -155,7 +155,7 @@
       !  Local variables 
       !-------------------------------------------------------------------------
       INTEGER, DIMENSION(3)          :: ldu
-      INTEGER, DIMENSION(:), POINTER :: bcdef
+      INTEGER, DIMENSION(:), POINTER :: bcdef => null()
       INTEGER                        :: i,j,k,idom,ipart,nlist1,nlist2
       INTEGER                        :: sendrank,recvrank
       INTEGER                        :: iopt,iset,ibuffer

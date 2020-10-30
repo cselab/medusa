@@ -5,9 +5,9 @@
       !  Purpose      : This routine is the topology routine for meshes.
       !                 Valid decomposition types are:
       !                     ppm_param_decomp_bisection
-      !                     ppm_param_decomp_xpencil 
-      !                     ppm_param_decomp_ypencil 
-      !                     ppm_param_decomp_zpencil 
+      !                     ppm_param_decomp_xpencil
+      !                     ppm_param_decomp_ypencil
+      !                     ppm_param_decomp_zpencil
       !                     ppm_param_decomp_xy_slab
       !                     ppm_param_decomp_xz_slab
       !                     ppm_param_decomp_yz_slab
@@ -15,8 +15,8 @@
       !                     ppm_param_decomp_cuboid
       !                     ppm_param_decomp_user_defined
       !
-      !                 In the user_defined case, the user must submit 
-      !                 existing subdomains and all of min_sub, max_sub, 
+      !                 In the user_defined case, the user must submit
+      !                 existing subdomains and all of min_sub, max_sub,
       !                 cost, nsubs must be provided. The sub boundaries
       !                 must align with mesh planes.
       !                 For all other decompositions, particles can be used
@@ -33,9 +33,9 @@
       !                 Npart        (I) number of particles. <=0 if no xp
       !                                  is given to guide decomp
       !                 Nm(:)        (I) number of mesh POINTS (not cells)
-      !                                  in each direction of the global 
-      !                                  computational domain (including 
-      !                                  points ON its boundaries) 
+      !                                  in each direction of the global
+      !                                  computational domain (including
+      !                                  points ON its boundaries)
       !                 decomp       (I) type of decomposition (see above)
       !                 assig        (I) the type of subdomain-to-processor
       !                                  assignment. One of:
@@ -49,11 +49,11 @@
       !                                  library METIS and is only
       !                                  available if ppm was compiled with
       !                                  METIS support.
-      !                 min_phys(:)  (F) the minimum coordinate of the 
-      !                                  physical/computational domain 
-      !                 max_phys(:)  (F) the maximum coordinate of the 
-      !                                  physical/computational domain 
-      !                 bcdef(:)     (I) the definition of the BC 
+      !                 min_phys(:)  (F) the minimum coordinate of the
+      !                                  physical/computational domain
+      !                 max_phys(:)  (F) the maximum coordinate of the
+      !                                  physical/computational domain
+      !                 bcdef(:)     (I) the definition of the BC
       !                 ghostsize(:) (I) the size (width) of the GL in
       !                                  units of grid spacings in all 3
       !                                  directions.
@@ -83,7 +83,7 @@
       !                                  for default mesh (as defined by
       !                                  Nm) on the topology. If <0, ppm
       !                                  will create a number internally
-      !                                  and return it here on exit. 
+      !                                  and return it here on exit.
       !                 min_sub(:,:) (F) the min. extent of the subdomains.
       !                                  (either user-specified on input or
       !                                  decomposition result on output)
@@ -239,11 +239,11 @@
       !  Added cost to argument list of ppm_decomp_metis_s2p.
       !
       !  Revision 1.18  2004/02/25 14:45:37  ivos
-      !  Added new METIS assignment types ppm_param_assign_nodal_cut, 
+      !  Added new METIS assignment types ppm_param_assign_nodal_cut,
       !  _nodal_comm, _dual_cut and _dual_comm.
       !
       !  Revision 1.17  2004/02/24 14:15:21  ivos
-      !  Changed CALLs to ppm_mesh_alloc to new interface. Now has the same 
+      !  Changed CALLs to ppm_mesh_alloc to new interface. Now has the same
       !  argument list as ppm_alloc for regular arrays.
       !
       !
@@ -295,7 +295,7 @@
       !  corrected log entries.
       !
       !  Revision 1.3  2003/12/19 12:32:17  michaebe
-      !  wrote the part where user-defined subdomains used. added a marginal 
+      !  wrote the part where user-defined subdomains used. added a marginal
       !  check of the latter (volume consistency).
       !
       !  Revision 1.1.1.1  2003/11/17 15:13:45  walther
@@ -324,7 +324,7 @@
       !-------------------------------------------------------------------------
 #include "ppm_define.h"
       !-------------------------------------------------------------------------
-      !  Modules 
+      !  Modules
       !-------------------------------------------------------------------------
       USE ppm_module_data
       USE ppm_module_data_mesh
@@ -351,7 +351,7 @@
       INTEGER, PARAMETER :: MK = ppm_kind_double
 #endif
       !-------------------------------------------------------------------------
-      !  Arguments     
+      !  Arguments
       !-------------------------------------------------------------------------
       REAL(MK), DIMENSION(:,:), POINTER       :: xp
       INTEGER                 , INTENT(IN   ) :: Npart
@@ -371,25 +371,28 @@
       INTEGER                 , INTENT(  OUT) :: nsublist
       INTEGER                 , INTENT(  OUT) :: info
       !-------------------------------------------------------------------------
-      !  Local variables 
+      !  Local variables
       !-------------------------------------------------------------------------
       INTEGER                           :: i,topoid,ul,iopt,j,treetype,nbox
       INTEGER                           :: isub,minbox
       INTEGER, DIMENSION(1)             :: ldc
-      INTEGER, DIMENSION(:,:), POINTER  :: ineigh,subs_bc
-      INTEGER, DIMENSION(:  ), POINTER  :: nneigh,nchld
+      INTEGER, DIMENSION(:,:), POINTER  :: subs_bc => null()
+      INTEGER, DIMENSION(:,:), POINTER  :: ineigh => null()
+      INTEGER, DIMENSION(:  ), POINTER  :: nneigh => null()
+      INTEGER, DIMENSION(:  ), POINTER  :: nchld => null()
       REAL(MK)                          :: t0,parea,sarea,larea,lmyeps,maxvar
       REAL(MK), DIMENSION(ppm_dim)      :: gsvec,meshdx
       LOGICAL , DIMENSION(ppm_dim)      :: fixed
       REAL(MK), DIMENSION(3,2)          :: weights
-      REAL(MK), DIMENSION(:,:), POINTER :: min_box,max_box
+      REAL(MK), DIMENSION(:,:), POINTER :: min_box => null()
+      REAL(MK), DIMENSION(:,:), POINTER :: max_box => null()
       CHARACTER(LEN=ppm_char)           :: mesg
       !-------------------------------------------------------------------------
-      !  Externals 
+      !  Externals
       !-------------------------------------------------------------------------
-      
+
       !-------------------------------------------------------------------------
-      !  Initialise 
+      !  Initialise
       !-------------------------------------------------------------------------
       CALL substart('ppm_topo_mkfield',t0,info)
 #if    __KIND == __SINGLE_PRECISION
@@ -529,15 +532,15 @@
      &              'faulty subdomains defined',__LINE__,info)
                GOTO 9999
             ENDIF
-         ENDIF      
-         
+         ENDIF
+
          !----------------------------------------------------------------------
          ! Check bcdef
          !----------------------------------------------------------------------
          !  [TODO]!!!
          !  must check for compatibility of boundary conditions
-         !  and boundary condtions array must have one more 
-         !  dimension, as its possible that you dont want to 
+         !  and boundary condtions array must have one more
+         !  dimension, as its possible that you dont want to
          !  have the same boundary conditions on every side
          !  of the subdomain
          !  Will be accounted for as soon as the structure of
@@ -551,7 +554,7 @@
      &     'topo_id was reset for non-null decomposition',__LINE__, info)
          topo_id = -1
       ENDIF
-     
+
       !-------------------------------------------------------------------------
       !  Compute grid spacing
       !-------------------------------------------------------------------------
@@ -896,7 +899,7 @@
          !-------------------------------------------------------------------
          !  internal assignment routine
          !-------------------------------------------------------------------
-         CALL ppm_topo_subs2proc(cost,nneigh,ineigh,nsubs,sub2proc, & 
+         CALL ppm_topo_subs2proc(cost,nneigh,ineigh,nsubs,sub2proc, &
      &       isublist,nsublist,info)
          IF (info.NE.0) THEN
             info = ppm_error_error
@@ -952,7 +955,7 @@
       ENDIF
 
       !-------------------------------------------------------------------------
-      !  Find and define the boundary conditions on the subs on the local 
+      !  Find and define the boundary conditions on the subs on the local
       !  processor (the routine will allocate the requried memory)
       !-------------------------------------------------------------------------
       CALL ppm_define_subs_bc(min_phys,max_phys,bcdef,min_sub,max_sub, &
@@ -978,7 +981,7 @@
       ENDIF
 
       !-------------------------------------------------------------------------
-      !  Get internal topoid. If no field topology has ever been defined, set 
+      !  Get internal topoid. If no field topology has ever been defined, set
       !  this as the current field topology. If no particle topology has
       !  been defined so far, this will also be the current particle
       !  topology.
@@ -1000,7 +1003,7 @@
          CALL ppm_error(ppm_err_alloc,'ppm_topo_mkfield',  &
      &       'maximum mesh id MAXMESHID',__LINE__,info)
          GOTO 9999
-      ENDIF 
+      ENDIF
 
       !-------------------------------------------------------------------------
       !  Grow ppm_meshid if needed. The following is basically a
@@ -1075,7 +1078,7 @@
 !      ENDIF
 
       !-------------------------------------------------------------------------
-      !  Return 
+      !  Return
       !-------------------------------------------------------------------------
       iopt = ppm_param_dealloc
       CALL ppm_alloc(ineigh,ldc,iopt,info)
@@ -1086,7 +1089,7 @@
          CALL ppm_alloc(max_box,ldc,iopt,info)
          CALL ppm_alloc(nchld,ldc,iopt,info)
       END IF
-      
+
 9999  CONTINUE
       CALL substop('ppm_topo_mkfield',t0,info)
       RETURN

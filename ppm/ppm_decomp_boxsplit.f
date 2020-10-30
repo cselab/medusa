@@ -106,7 +106,7 @@
       !-------------------------------------------------------------------------
       REAL(MK)                        :: t0
       REAL(MK), DIMENSION(ppm_dim)    :: cen_box
-      INTEGER , DIMENSION(:), POINTER :: npbx_temp
+      INTEGER , DIMENSION(:), POINTER :: npbx_temp => null()
       INTEGER , DIMENSION(ppm_dim)    :: Nm
       INTEGER                         :: i,j,k,iopt,Mm,ibox,idx,jdx,kdx,ipart
       INTEGER                         :: istat,n1,n2

@@ -172,7 +172,7 @@
       INTEGER               :: nlist1,nlist2,nghost,nghostplus
       INTEGER               :: ipart,sendrank,recvrank
       INTEGER               :: iopt,iset,ibuffer
-      REAL(MK), DIMENSION(:,:), POINTER :: xt  ! position of potential ghosts
+      REAL(MK), DIMENSION(:,:), POINTER :: xt   => null() !  position of potential ghosts
       REAL(MK)              :: xminf,yminf,zminf ! full domain
       REAL(MK)              :: xmaxf,ymaxf,zmaxf ! full domain
       REAL(MK)              :: xmini,ymini,zmini ! inner domain

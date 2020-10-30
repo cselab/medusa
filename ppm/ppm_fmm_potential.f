@@ -195,19 +195,31 @@
       INTEGER                              :: pexp,topoid,isymm
       INTEGER ,DIMENSION(1)                :: ldu1
       INTEGER ,DIMENSION(2)                :: ldu2 
-      INTEGER ,DIMENSION(:  ), POINTER     :: part_subtop,newlpdx,stack,wp
-      INTEGER ,DIMENSION(:,:), POINTER     :: coeff_subtop
+      INTEGER ,DIMENSION(:  ), POINTER     :: part_subtop => null()
+      INTEGER ,DIMENSION(:  ), POINTER     :: newlpdx => null()
+      INTEGER ,DIMENSION(:  ), POINTER     :: stack => null()
+      INTEGER ,DIMENSION(:  ), POINTER     :: wp => null()
+      INTEGER ,DIMENSION(:,:), POINTER     :: coeff_subtop => null()
       REAL(MK)                             :: t0,ghostsize,cutoff
       REAL(MK)                             :: dx,dy,dz,dist,rad
       REAL(MK)                             :: thetap,eps,angle,reci 
       REAL(MK)                             :: sine,cosine,val,prod 
       REAL(MK),DIMENSION(1)                :: curboxrho,curboxphi,curboxtheta
-      REAL(MK),DIMENSION(:  ),     POINTER :: fracfac,radius,boxcost
-      REAL(MK),DIMENSION(:,:),     POINTER :: sqrtfac,xp,Pnm,Anm,centerofbox
-      REAL(MK),DIMENSION(:,:),     POINTER :: min_box,max_box
-      REAL(MK),DIMENSION(:,:),     POINTER :: min_sub,max_sub
-      COMPLEX(MK),DIMENSION(:,:),  POINTER :: Ynm,Outer
-      COMPLEX(MK),DIMENSION(:,:,:),POINTER :: expansion
+      REAL(MK),DIMENSION(:  ),     POINTER :: fracfac => null()
+      REAL(MK),DIMENSION(:  ),     POINTER :: radius => null()
+      REAL(MK),DIMENSION(:  ),     POINTER :: boxcost => null()
+      REAL(MK),DIMENSION(:,:),     POINTER :: sqrtfac => null()
+      REAL(MK),DIMENSION(:,:),     POINTER :: xp => null()
+      REAL(MK),DIMENSION(:,:),     POINTER :: Pnm => null()
+      REAL(MK),DIMENSION(:,:),     POINTER :: Anm => null()
+      REAL(MK),DIMENSION(:,:),     POINTER :: centerofbox => null()
+      REAL(MK),DIMENSION(:,:),     POINTER :: min_box => null()
+      REAL(MK),DIMENSION(:,:),     POINTER :: max_box => null()
+      REAL(MK),DIMENSION(:,:),     POINTER :: min_sub => null()
+      REAL(MK),DIMENSION(:,:),     POINTER :: max_sub => null()
+      COMPLEX(MK),DIMENSION(:,:),  POINTER :: Ynm => null()
+      COMPLEX(MK),DIMENSION(:,:),  POINTER :: Outer => null()
+      COMPLEX(MK),DIMENSION(:,:,:),POINTER :: expansion => null()
       COMPLEX(MK),PARAMETER                :: CI=(0.0_MK,1.0_MK)
       CHARACTER(LEN=ppm_char)              :: cbuf
 

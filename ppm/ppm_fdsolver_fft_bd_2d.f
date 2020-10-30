@@ -118,7 +118,8 @@
       ! scale_fft of the transformation
       REAL(MK)                                :: scale_fft
       ! working storage
-      REAL(MK), DIMENSION(:),POINTER          :: table, work
+      REAL(MK), DIMENSION(:),POINTER          :: table => null()
+      REAL(MK), DIMENSION(:),POINTER          :: work => null()
       ! the size of the working storage
       INTEGER, DIMENSION(1)                   :: lda_table, lda_work
 
