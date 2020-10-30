@@ -6,9 +6,10 @@ $ MAKEFLAGS=-j ./install.sh
 
 # Run
 
-Configuration file: [medusa/Ctrl](medusa/Ctrl)
+Configuration file: [medusa/Ctrl](medusa/Ctrl). Dumps default*.nc
+file.
 
 ```
 cd medusa
-./ppm_tv
+mpirun -n 8 ./ppm_tv
 ```
