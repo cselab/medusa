@@ -263,7 +263,7 @@
      !                          Renormalization
      !-----------------------------------------------------
 #if __DIME == __2D
-     #error two dimensional renormalization is not yet implemented
+#error two dimensional renormalization is not yet implemented
      REAL(mk), DIMENSION(:,:,:),   POINTER  :: field_reno
 #elif __DIME == __3D
      REAL(mk), DIMENSION(:,:,:,:), POINTER  :: field_reno
