@@ -169,12 +169,12 @@ FUNCTION wvic_rhs_vort ( vxp, vwp, vdwp, vdime, vnp, ipack, lpack, rpack, &
   !----------------------------------------------------------------------------!
   !IF (rkstep .LT. 2) THEN
     IF(wvic_multigrid) THEN
-  #ifdef __WITH_FISHPACK__
+#ifdef __WITH_FISHPACK__
        CALL wvic_poisson_fishpack(info)
-  #else
+#else
   !#error you dont want to do this
        CALL wvic_poisson_mg(info)                 
-  #endif     
+#endif     
     ELSE
        CALL wvic_poisson_fft(info)
     END IF
