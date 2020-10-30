@@ -44,16 +44,16 @@ CONTAINS
 #define __REAL 1
 #define __COMPLEX 2
 
-#include "wvic_io_dump_scalar_netcdf.F"
+#include "wvic_io_dump_scalar_netcdf.inc"
 
 #define __WHAT __COMPLEX
-#include "wvic_io_dump_vector_netcdf.F"
+#include "wvic_io_dump_vector_netcdf.inc"
 #undef __WHAT
 #define __WHAT __REAL
-#include "wvic_io_dump_vector_netcdf.F"
+#include "wvic_io_dump_vector_netcdf.inc"
 #undef __WHAT
 
-#include "wvic_io_dump_scalar_vtk.F"
-#include "wvic_io_dump_vector_vtk.F"
+#include "wvic_io_dump_scalar_vtk.inc"
+#include "wvic_io_dump_vector_vtk.inc"
 
 END MODULE wvic_module_io
