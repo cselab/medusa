@@ -3,7 +3,9 @@
 set -e
 
 (cd netcdf
- make install)
+ ./configure &&
+     make &&
+     make install 'prefix = $(HOME)/.local')
 
 (cd metis
  make install)
