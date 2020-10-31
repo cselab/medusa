@@ -3,15 +3,9 @@
 set -e
 
 (cd netcdf
- ./configure &&
+ ./configure --disable-f03 --disable-dependency-tracking --disable-shared &&
      make &&
      make install 'prefix = $(HOME)/.local')
-
-(cd metis
- make install)
-
-(cd vizing
- make install)
 
 (cd ppm
  make install)
