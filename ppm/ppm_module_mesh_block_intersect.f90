@@ -46,6 +46,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_mesh_block_intersect.f"
+#include "ppm_mesh_block_intersect.inc"
 
       END MODULE ppm_module_mesh_block_intersect

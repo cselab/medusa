@@ -55,19 +55,19 @@
 
 #define __DIM __2D
 #define __KIND __SINGLE_PRECISION
-#include "ppm_gmm_march.f"
+#include "ppm_gmm_march.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_gmm_march.f"
+#include "ppm_gmm_march.inc"
 #undef __KIND
 #undef __DIM
 
 #define __DIM __3D
 #define __KIND __SINGLE_PRECISION
-#include "ppm_gmm_march.f"
+#include "ppm_gmm_march.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_gmm_march.f"
+#include "ppm_gmm_march.inc"
 #undef __KIND
 #undef __DIM
 

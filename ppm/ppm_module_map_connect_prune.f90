@@ -51,6 +51,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_map_connect_prune.f"
+#include "ppm_map_connect_prune.inc"
 
       END MODULE ppm_module_map_connect_prune

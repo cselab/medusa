@@ -48,11 +48,11 @@
          CONTAINS
  
 #define __KIND __SINGLE_PRECISION
-#include "substart.f"                
+#include "substart.inc"                
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "substart.f"                
+#include "substart.inc"                
 #undef __KIND
 
       END MODULE ppm_module_substart

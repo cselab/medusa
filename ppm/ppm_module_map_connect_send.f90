@@ -53,6 +53,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_map_connect_send.f"
+#include "ppm_map_connect_send.inc"
 
       END MODULE ppm_module_map_connect_send

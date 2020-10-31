@@ -42,6 +42,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_io_unused_unit.f"
+#include "ppm_io_unused_unit.inc"
 
       END MODULE ppm_module_io_unused_unit

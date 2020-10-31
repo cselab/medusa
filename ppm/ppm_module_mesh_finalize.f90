@@ -60,6 +60,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_mesh_finalize.f"
+#include "ppm_mesh_finalize.inc"
 
       END MODULE ppm_module_mesh_finalize

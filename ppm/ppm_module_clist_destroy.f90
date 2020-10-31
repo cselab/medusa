@@ -43,6 +43,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_clist_destroy.f"
+#include "ppm_clist_destroy.inc"
 
       END MODULE ppm_module_clist_destroy

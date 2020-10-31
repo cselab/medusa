@@ -60,11 +60,11 @@ MODULE ppm_module_fmm_expchange
 CONTAINS
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_fmm_expchange.f"
+#include "ppm_fmm_expchange.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_fmm_expchange.f"
+#include "ppm_fmm_expchange.inc"
 #undef __KIND
 
 END MODULE ppm_module_fmm_expchange

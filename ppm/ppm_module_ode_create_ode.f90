@@ -43,6 +43,6 @@
         
       CONTAINS
 
-#include "ppm_ode_create_ode.f"
+#include "ppm_ode_create_ode.inc"
 
       END MODULE ppm_module_ode_create_ode

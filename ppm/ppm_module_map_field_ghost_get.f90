@@ -46,6 +46,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_map_field_ghost_get.f"
+#include "ppm_map_field_ghost_get.inc"
 
       END MODULE ppm_module_map_field_ghost_get

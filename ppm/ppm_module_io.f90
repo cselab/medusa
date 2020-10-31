@@ -141,130 +141,130 @@
 
 #define __DIM 0
 #define __KIND __SINGLE_PRECISION
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __INTEGER
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __LOGICAL
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __CHARACTER
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #undef __DIM
 
 #define __DIM 1
 #define __KIND __SINGLE_PRECISION
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __INTEGER
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __LOGICAL
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #undef __DIM
 
 #define __DIM 2
 #define __KIND __SINGLE_PRECISION
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __INTEGER
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __LOGICAL
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #undef __DIM
          
 #define __DIM 3
 #define __KIND __SINGLE_PRECISION
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __INTEGER
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __LOGICAL
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #undef __DIM
          
 #define __DIM 4
 #define __KIND __SINGLE_PRECISION
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __INTEGER
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __LOGICAL
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #undef __DIM
          
 #define __DIM 5
 #define __KIND __SINGLE_PRECISION
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __INTEGER
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __LOGICAL
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_io.f"
+#include "ppm_io.inc"
 #undef __KIND
 #undef __DIM 
 

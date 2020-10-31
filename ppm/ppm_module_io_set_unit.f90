@@ -42,6 +42,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_io_set_unit.f"
+#include "ppm_io_set_unit.inc"
 
       END MODULE ppm_module_io_set_unit

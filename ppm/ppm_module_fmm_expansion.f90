@@ -58,11 +58,11 @@ MODULE ppm_module_fmm_expansion
 CONTAINS
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_fmm_expansion.f"
+#include "ppm_fmm_expansion.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_fmm_expansion.f"
+#include "ppm_fmm_expansion.inc"
 #undef __KIND
 
 

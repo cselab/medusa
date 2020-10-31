@@ -40,6 +40,6 @@
          !----------------------------------------------------------------------
          CONTAINS
  
-#include "ppm_util_collapse_list.f"
+#include "ppm_util_collapse_list.inc"
 
       END MODULE ppm_module_util_collapse_list

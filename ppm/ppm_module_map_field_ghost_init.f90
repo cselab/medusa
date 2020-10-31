@@ -61,6 +61,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_map_field_ghost_init.f"
+#include "ppm_map_field_ghost_init.inc"
 
       END MODULE ppm_module_map_field_ghost_init

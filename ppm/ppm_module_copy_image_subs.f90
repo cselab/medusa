@@ -47,11 +47,11 @@
          CONTAINS
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_copy_image_subs.f"
+#include "ppm_copy_image_subs.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_copy_image_subs.f"
+#include "ppm_copy_image_subs.inc"
 #undef __KIND
 
       END MODULE ppm_module_copy_image_subs

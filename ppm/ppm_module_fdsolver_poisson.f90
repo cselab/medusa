@@ -47,13 +47,13 @@
          CONTAINS
 
 #define __KIND __COMPLEX
-#include "ppm_fdsolver_poisson_2d.f"
-#include "ppm_fdsolver_poisson_3d.f"
+#include "ppm_fdsolver_poisson_2d.inc"
+#include "ppm_fdsolver_poisson_3d.inc"
 #undef  __KIND
 
 #define __KIND __DOUBLE_COMPLEX
-#include "ppm_fdsolver_poisson_2d.f"
-#include "ppm_fdsolver_poisson_3d.f"
+#include "ppm_fdsolver_poisson_2d.inc"
+#include "ppm_fdsolver_poisson_3d.inc"
 #undef  __KIND
 
 

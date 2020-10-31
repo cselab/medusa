@@ -63,23 +63,23 @@
          CONTAINS
  
 #define __KIND __SINGLE_PRECISION
-#include "ppm_util_fft_forward_2d.f"
-#include "ppm_util_fft_forward_3d.f"
+#include "ppm_util_fft_forward_2d.inc"
+#include "ppm_util_fft_forward_3d.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_util_fft_forward_2d.f"
-#include "ppm_util_fft_forward_3d.f"
+#include "ppm_util_fft_forward_2d.inc"
+#include "ppm_util_fft_forward_3d.inc"
 #undef __KIND
 
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_util_fft_forward_2d.f"
-#include "ppm_util_fft_forward_3d.f"
+#include "ppm_util_fft_forward_2d.inc"
+#include "ppm_util_fft_forward_3d.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_util_fft_forward_2d.f"
-#include "ppm_util_fft_forward_3d.f"
+#include "ppm_util_fft_forward_2d.inc"
+#include "ppm_util_fft_forward_3d.inc"
 #undef __KIND
 
       END MODULE ppm_module_util_fft_forward

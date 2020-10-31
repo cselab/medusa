@@ -47,11 +47,11 @@
          CONTAINS
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_find_neigh.f"
+#include "ppm_find_neigh.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_find_neigh.f"
+#include "ppm_find_neigh.inc"
 #undef __KIND
 
       END MODULE ppm_module_find_neigh

@@ -40,6 +40,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_finalize.f"
+#include "ppm_finalize.inc"
 
       END MODULE ppm_module_finalize

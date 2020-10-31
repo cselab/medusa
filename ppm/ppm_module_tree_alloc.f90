@@ -52,19 +52,19 @@
 
 #define __TYPE __TREE
 #define __KIND __SINGLE_PRECISION
-#include "ppm_tree_alloc.f"
+#include "ppm_tree_alloc.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_tree_alloc.f"
+#include "ppm_tree_alloc.inc"
 #undef __KIND
 #undef __TYPE
 
 #define __TYPE __DECOMP
 #define __KIND __SINGLE_PRECISION
-#include "ppm_tree_alloc.f"
+#include "ppm_tree_alloc.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_tree_alloc.f"
+#include "ppm_tree_alloc.inc"
 #undef __KIND
 #undef __TYPE
 

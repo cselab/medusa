@@ -40,6 +40,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_map_connect.f"
+#include "ppm_map_connect.inc"
 
       END MODULE ppm_module_map_connect

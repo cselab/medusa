@@ -46,7 +46,7 @@
          !----------------------------------------------------------------------
          CONTAINS
  
-#include "ppm_util_commopt_cart.f"
+#include "ppm_util_commopt_cart.inc"
 !#include "ppm_util_commopt.f"
 
       END MODULE ppm_module_util_commopt

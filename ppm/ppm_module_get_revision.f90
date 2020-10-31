@@ -40,6 +40,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_get_revision.f"
+#include "ppm_get_revision.inc"
 
       END MODULE ppm_module_get_revision

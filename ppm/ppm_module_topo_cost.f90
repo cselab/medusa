@@ -48,11 +48,11 @@
          CONTAINS
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_topo_cost.f"
+#include "ppm_topo_cost.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_topo_cost.f"
+#include "ppm_topo_cost.inc"
 #undef __KIND
 
       END MODULE ppm_module_topo_cost

@@ -77,42 +77,42 @@
 #define __CASE __SLAB
  
 #define __KIND __SINGLE_PRECISION
-#include "ppm_fdsolver_fft_bd_3d.f"
+#include "ppm_fdsolver_fft_bd_3d.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_fdsolver_fft_bd_3d.f"
+#include "ppm_fdsolver_fft_bd_3d.inc"
 #undef __KIND
 
 #undef __CASE
 
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_fdsolver_fft_bd_2d.f"
-#include "ppm_fdsolver_fft_bd_3d.f"
+#include "ppm_fdsolver_fft_bd_2d.inc"
+#include "ppm_fdsolver_fft_bd_3d.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_fdsolver_fft_bd_2d.f"
-#include "ppm_fdsolver_fft_bd_3d.f"
+#include "ppm_fdsolver_fft_bd_2d.inc"
+#include "ppm_fdsolver_fft_bd_3d.inc"
 #undef __KIND
 
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_fdsolver_fft_bd_2d.f"
-#include "ppm_fdsolver_fft_bd_3d.f"
+#include "ppm_fdsolver_fft_bd_2d.inc"
+#include "ppm_fdsolver_fft_bd_3d.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_fdsolver_fft_bd_2d.f"
-#include "ppm_fdsolver_fft_bd_3d.f"
+#include "ppm_fdsolver_fft_bd_2d.inc"
+#include "ppm_fdsolver_fft_bd_3d.inc"
 #undef __KIND
 
 #define __KIND __SINGLE_PRECISION_COMPLEX_Z
-#include "ppm_fdsolver_fft_bd_3d.f"
+#include "ppm_fdsolver_fft_bd_3d.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION_COMPLEX_Z
-#include "ppm_fdsolver_fft_bd_3d.f"
+#include "ppm_fdsolver_fft_bd_3d.inc"
 #undef __KIND
 
       END MODULE ppm_module_fdsolver_fft_bd

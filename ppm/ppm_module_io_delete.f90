@@ -42,6 +42,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_io_delete.f"
+#include "ppm_io_delete.inc"
 
       END MODULE ppm_module_io_delete

@@ -47,11 +47,11 @@
          CONTAINS
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_define_subs_bc.f"
+#include "ppm_define_subs_bc.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_define_subs_bc.f"
+#include "ppm_define_subs_bc.inc"
 #undef __KIND
 
       END MODULE ppm_module_define_subs_bc

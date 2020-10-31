@@ -89,55 +89,55 @@
 #define __DIM __SFIELD
 #define __KIND __SINGLE_PRECISION
 #define __MESH_DIM  __2D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #define __MESH_DIM  __3D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
 #define __MESH_DIM  __2D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #define __MESH_DIM  __3D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #undef __KIND
          
 #define __KIND __SINGLE_PRECISION_COMPLEX
 #define __MESH_DIM  __2D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #define __MESH_DIM  __3D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #undef __KIND
          
 #define __KIND __DOUBLE_PRECISION_COMPLEX
 #define __MESH_DIM  __2D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #define __MESH_DIM  __3D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #undef __KIND
 
 #define __KIND __INTEGER
 #define __MESH_DIM  __2D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #define __MESH_DIM  __3D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #undef __KIND
 
 #define __KIND __LOGICAL
 #define __MESH_DIM  __2D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #define __MESH_DIM  __3D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #undef __KIND
 #undef __DIM
@@ -145,55 +145,55 @@
 #define __DIM __VFIELD
 #define __KIND __SINGLE_PRECISION
 #define __MESH_DIM  __2D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #define __MESH_DIM  __3D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
 #define __MESH_DIM  __2D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #define __MESH_DIM  __3D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #undef __KIND
 
 #define __KIND __SINGLE_PRECISION_COMPLEX
 #define __MESH_DIM  __2D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #define __MESH_DIM  __3D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION_COMPLEX
 #define __MESH_DIM  __2D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #define __MESH_DIM  __3D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #undef __KIND
 
 #define __KIND __INTEGER
 #define __MESH_DIM  __2D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #define __MESH_DIM  __3D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #undef __KIND
 
 #define __KIND __LOGICAL
 #define __MESH_DIM  __2D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #define __MESH_DIM  __3D
-#include "ppm_map_field.f"
+#include "ppm_map_field.inc"
 #undef __MESH_DIM
 #undef __KIND
 #undef __DIM

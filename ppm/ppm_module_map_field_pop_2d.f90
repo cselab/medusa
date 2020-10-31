@@ -84,53 +84,53 @@
 
 #define __DIM __SFIELD
 #define __KIND __SINGLE_PRECISION
-#include "ppm_map_field_pop_2d.f"
+#include "ppm_map_field_pop_2d.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_map_field_pop_2d.f"
+#include "ppm_map_field_pop_2d.inc"
 #undef __KIND
          
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_map_field_pop_2d.f"
+#include "ppm_map_field_pop_2d.inc"
 #undef __KIND
          
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_map_field_pop_2d.f"
+#include "ppm_map_field_pop_2d.inc"
 #undef __KIND
 
 #define __KIND __INTEGER
-#include "ppm_map_field_pop_2d.f"
+#include "ppm_map_field_pop_2d.inc"
 #undef __KIND
 
 #define __KIND __LOGICAL
-#include "ppm_map_field_pop_2d.f"
+#include "ppm_map_field_pop_2d.inc"
 #undef __KIND
 #undef __DIM
 
 #define __DIM __VFIELD
 #define __KIND __SINGLE_PRECISION
-#include "ppm_map_field_pop_2d.f"
+#include "ppm_map_field_pop_2d.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_map_field_pop_2d.f"
+#include "ppm_map_field_pop_2d.inc"
 #undef __KIND
 
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_map_field_pop_2d.f"
+#include "ppm_map_field_pop_2d.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_map_field_pop_2d.f"
+#include "ppm_map_field_pop_2d.inc"
 #undef __KIND
 
 #define __KIND __INTEGER
-#include "ppm_map_field_pop_2d.f"
+#include "ppm_map_field_pop_2d.inc"
 #undef __KIND
 
 #define __KIND __LOGICAL
-#include "ppm_map_field_pop_2d.f"
+#include "ppm_map_field_pop_2d.inc"
 #undef __KIND
 #undef __DIM
 

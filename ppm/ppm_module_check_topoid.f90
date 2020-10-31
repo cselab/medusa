@@ -40,6 +40,6 @@
          !----------------------------------------------------------------------
          CONTAINS
  
-#include "ppm_check_topoid.f"
+#include "ppm_check_topoid.inc"
 
       END MODULE ppm_module_check_topoid

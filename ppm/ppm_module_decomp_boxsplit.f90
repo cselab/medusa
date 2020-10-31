@@ -48,11 +48,11 @@
          CONTAINS
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_decomp_boxsplit.f"
+#include "ppm_decomp_boxsplit.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_decomp_boxsplit.f"
+#include "ppm_decomp_boxsplit.inc"
 #undef __KIND
 
       END MODULE ppm_module_decomp_boxsplit

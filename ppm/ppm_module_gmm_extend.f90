@@ -100,19 +100,19 @@
 #define __DIM __2D
 #define __TYPE __SFIELD
 #define __KIND __SINGLE_PRECISION
-#include "ppm_gmm_extend.f"
+#include "ppm_gmm_extend.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_gmm_extend.f"
+#include "ppm_gmm_extend.inc"
 #undef __KIND
 #undef __TYPE
 
 #define __TYPE __VFIELD
 #define __KIND __SINGLE_PRECISION
-#include "ppm_gmm_extend.f"
+#include "ppm_gmm_extend.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_gmm_extend.f"
+#include "ppm_gmm_extend.inc"
 #undef __KIND
 #undef __TYPE
 #undef __DIM
@@ -120,19 +120,19 @@
 #define __DIM __3D
 #define __TYPE __SFIELD
 #define __KIND __SINGLE_PRECISION
-#include "ppm_gmm_extend.f"
+#include "ppm_gmm_extend.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_gmm_extend.f"
+#include "ppm_gmm_extend.inc"
 #undef __KIND
 #undef __TYPE
 
 #define __TYPE __VFIELD
 #define __KIND __SINGLE_PRECISION
-#include "ppm_gmm_extend.f"
+#include "ppm_gmm_extend.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_gmm_extend.f"
+#include "ppm_gmm_extend.inc"
 #undef __KIND
 #undef __TYPE
 #undef __DIM
@@ -142,19 +142,19 @@
 #define __DIM __2D
 #define __TYPE __SFIELD
 #define __KIND __SINGLE_PRECISION
-#include "ppm_gmm_extend.f"
+#include "ppm_gmm_extend.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_gmm_extend.f"
+#include "ppm_gmm_extend.inc"
 #undef __KIND
 #undef __TYPE
 
 #define __TYPE __VFIELD
 #define __KIND __SINGLE_PRECISION
-#include "ppm_gmm_extend.f"
+#include "ppm_gmm_extend.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_gmm_extend.f"
+#include "ppm_gmm_extend.inc"
 #undef __KIND
 #undef __TYPE
 #undef __DIM
@@ -162,19 +162,19 @@
 #define __DIM __3D
 #define __TYPE __SFIELD
 #define __KIND __SINGLE_PRECISION
-#include "ppm_gmm_extend.f"
+#include "ppm_gmm_extend.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_gmm_extend.f"
+#include "ppm_gmm_extend.inc"
 #undef __KIND
 #undef __TYPE
 
 #define __TYPE __VFIELD
 #define __KIND __SINGLE_PRECISION
-#include "ppm_gmm_extend.f"
+#include "ppm_gmm_extend.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_gmm_extend.f"
+#include "ppm_gmm_extend.inc"
 #undef __KIND
 #undef __TYPE
 #undef __DIM

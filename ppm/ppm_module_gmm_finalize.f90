@@ -39,6 +39,6 @@
          !----------------------------------------------------------------------
         CONTAINS
 
-#include "ppm_gmm_finalize.f"
+#include "ppm_gmm_finalize.inc"
 
       END MODULE ppm_module_gmm_finalize

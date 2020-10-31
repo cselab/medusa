@@ -54,11 +54,11 @@
          CONTAINS
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_mesh_define.f"
+#include "ppm_mesh_define.inc"
 #undef __KIND
          
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_mesh_define.f"
+#include "ppm_mesh_define.inc"
 #undef __KIND
 
       END MODULE ppm_module_mesh_define

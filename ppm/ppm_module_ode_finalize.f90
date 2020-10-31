@@ -37,7 +37,7 @@
         END INTERFACE
         
       CONTAINS
-#include "ppm_ode_finalize.f"
+#include "ppm_ode_finalize.inc"
 
       END MODULE ppm_module_ode_finalize
 

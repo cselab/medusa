@@ -40,6 +40,6 @@
          !----------------------------------------------------------------------
          CONTAINS
  
-#include "ppm_log.f"
+#include "ppm_log.inc"
 
       END MODULE ppm_module_log

@@ -42,6 +42,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_io_open.f"
+#include "ppm_io_open.inc"
 
       END MODULE ppm_module_io_open

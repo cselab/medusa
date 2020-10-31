@@ -58,22 +58,22 @@
 #define __DIME  __2D
 #define __MODE  __SCA
         ! 2D SCA SINGLE
-#include "ppm_rmsh_remesh.f"
+#include "ppm_rmsh_remesh.inc"
 #undef  __MODE
 #define __MODE  __VEC
         ! 2D VEC SINGLE
-#include "ppm_rmsh_remesh.f"
+#include "ppm_rmsh_remesh.inc"
 #undef  __MODE
 #undef  __DIME
         
 #define __DIME  __3D
 #define __MODE  __SCA
         ! 3D SCA SINGLE
-#include "ppm_rmsh_remesh.f"
+#include "ppm_rmsh_remesh.inc"
 #undef  __MODE
 #define __MODE  __VEC
         ! 3D VEC SINGLE
-#include "ppm_rmsh_remesh.f"
+#include "ppm_rmsh_remesh.inc"
 #undef  __MODE
 #undef  __DIME
 #undef  __KIND
@@ -83,22 +83,22 @@
 #define __DIME  __2D
 #define __MODE  __SCA
         ! 2D SCA DOUBLE
-#include "ppm_rmsh_remesh.f"
+#include "ppm_rmsh_remesh.inc"
 #undef  __MODE
 #define __MODE  __VEC
         ! 2D VEC DOUBLE
-#include "ppm_rmsh_remesh.f"
+#include "ppm_rmsh_remesh.inc"
 #undef  __MODE
 #undef  __DIME
         
 #define __DIME  __3D
 #define __MODE  __SCA
         ! 3D SCA DOUBLE
-#include "ppm_rmsh_remesh.f"
+#include "ppm_rmsh_remesh.inc"
 #undef  __MODE
 #define __MODE  __VEC
         ! 3D VEC DOUBLE
-#include "ppm_rmsh_remesh.f"
+#include "ppm_rmsh_remesh.inc"
 #undef  __MODE
 #undef  __DIME
 #undef  __KIND        

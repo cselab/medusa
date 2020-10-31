@@ -40,6 +40,6 @@
          !----------------------------------------------------------------------
          CONTAINS
  
-#include "ppm_util_invert_list.f"
+#include "ppm_util_invert_list.inc"
 
       END MODULE ppm_module_util_invert_list

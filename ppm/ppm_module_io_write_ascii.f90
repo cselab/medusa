@@ -58,22 +58,22 @@
          CONTAINS
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_io_write_ascii.f"
+#include "ppm_io_write_ascii.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_io_write_ascii.f"
+#include "ppm_io_write_ascii.inc"
 #undef __KIND
 #define __KIND __INTEGER
-#include "ppm_io_write_ascii.f"
+#include "ppm_io_write_ascii.inc"
 #undef __KIND
 #define __KIND __LOGICAL
-#include "ppm_io_write_ascii.f"
+#include "ppm_io_write_ascii.inc"
 #undef __KIND
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_io_write_ascii.f"
+#include "ppm_io_write_ascii.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_io_write_ascii.f"
+#include "ppm_io_write_ascii.inc"
 #undef __KIND
 
       END MODULE ppm_module_io_write_ascii

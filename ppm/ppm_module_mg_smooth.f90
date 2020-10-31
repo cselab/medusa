@@ -81,25 +81,25 @@ CONTAINS
 #define __DIM __SFIELD
 #define __MESH_DIM __2D
 #define __KIND __SINGLE_PRECISION
-#include "ppm_mg_smooth_coarse.f"
-#include "ppm_mg_smooth_fine.f"
+#include "ppm_mg_smooth_coarse.inc"
+#include "ppm_mg_smooth_fine.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_mg_smooth_coarse.f"
-#include "ppm_mg_smooth_fine.f"
+#include "ppm_mg_smooth_coarse.inc"
+#include "ppm_mg_smooth_fine.inc"
 #undef __KIND
 #undef __MESH_DIM 
 
 #define __MESH_DIM __3D
 #define __KIND __SINGLE_PRECISION
-#include "ppm_mg_smooth_coarse.f"
-#include "ppm_mg_smooth_fine.f"
+#include "ppm_mg_smooth_coarse.inc"
+#include "ppm_mg_smooth_fine.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_mg_smooth_coarse.f"
-#include "ppm_mg_smooth_fine.f"
+#include "ppm_mg_smooth_coarse.inc"
+#include "ppm_mg_smooth_fine.inc"
 #undef __KIND
 #undef __MESH_DIM
 #undef __DIM
@@ -107,25 +107,25 @@ CONTAINS
 #define __DIM __VFIELD
 #define __MESH_DIM __2D
 #define __KIND __SINGLE_PRECISION
-#include "ppm_mg_smooth_coarse.f"
-#include "ppm_mg_smooth_fine.f"
+#include "ppm_mg_smooth_coarse.inc"
+#include "ppm_mg_smooth_fine.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_mg_smooth_coarse.f"
-#include "ppm_mg_smooth_fine.f"
+#include "ppm_mg_smooth_coarse.inc"
+#include "ppm_mg_smooth_fine.inc"
 #undef __KIND
 #undef __MESH_DIM
 
 #define __MESH_DIM __3D
 #define __KIND __SINGLE_PRECISION
-#include "ppm_mg_smooth_coarse.f"
-#include "ppm_mg_smooth_fine.f"
+#include "ppm_mg_smooth_coarse.inc"
+#include "ppm_mg_smooth_fine.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_mg_smooth_coarse.f"
-#include "ppm_mg_smooth_fine.f"
+#include "ppm_mg_smooth_coarse.inc"
+#include "ppm_mg_smooth_fine.inc"
 #undef __KIND
 #undef __MESH_DIM
 #undef __DIM

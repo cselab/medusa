@@ -46,11 +46,11 @@
          CONTAINS
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_scale_domain.f"
+#include "ppm_scale_domain.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_scale_domain.f"
+#include "ppm_scale_domain.inc"
 #undef __KIND
 
       END MODULE ppm_module_scale_domain

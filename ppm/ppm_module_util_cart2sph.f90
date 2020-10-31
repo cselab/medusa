@@ -50,11 +50,11 @@
          CONTAINS
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_util_cart2sph.f"
+#include "ppm_util_cart2sph.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_util_cart2sph.f"
+#include "ppm_util_cart2sph.inc"
 #undef __KIND
 
       END MODULE ppm_module_util_cart2sph

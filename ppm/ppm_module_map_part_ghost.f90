@@ -70,63 +70,63 @@
 
 #define __DIM 1
 #define __KIND __SINGLE_PRECISION
-#include "ppm_map_part_ghost.f"
+#include "ppm_map_part_ghost.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_map_part_ghost.f"
+#include "ppm_map_part_ghost.inc"
 #undef __KIND
 #define __KIND __INTEGER
 #define __KIND_AUX __DOUBLE_PRECISION
-#include "ppm_map_part_ghost.f"
+#include "ppm_map_part_ghost.inc"
 #undef __KIND_AUX
 #define __KIND_AUX __SINGLE_PRECISION
-#include "ppm_map_part_ghost.f"
+#include "ppm_map_part_ghost.inc"
 #undef __KIND_AUX
 #undef __KIND
 #define __KIND __LOGICAL
 #define __KIND_AUX __DOUBLE_PRECISION
-#include "ppm_map_part_ghost.f"
+#include "ppm_map_part_ghost.inc"
 #undef __KIND_AUX
 #define __KIND_AUX __SINGLE_PRECISION
-#include "ppm_map_part_ghost.f"
+#include "ppm_map_part_ghost.inc"
 #undef __KIND_AUX
 #undef __KIND
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_map_part_ghost.f"
+#include "ppm_map_part_ghost.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_map_part_ghost.f"
+#include "ppm_map_part_ghost.inc"
 #undef __KIND
 #undef __DIM
 
 #define __DIM 2
 #define __KIND __SINGLE_PRECISION
-#include "ppm_map_part_ghost.f"
+#include "ppm_map_part_ghost.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_map_part_ghost.f"
+#include "ppm_map_part_ghost.inc"
 #undef __KIND
 #define __KIND __INTEGER
 #define __KIND_AUX __DOUBLE_PRECISION
-#include "ppm_map_part_ghost.f"
+#include "ppm_map_part_ghost.inc"
 #undef __KIND_AUX
 #define __KIND_AUX __SINGLE_PRECISION
-#include "ppm_map_part_ghost.f"
+#include "ppm_map_part_ghost.inc"
 #undef __KIND_AUX
 #undef __KIND
 #define __KIND __LOGICAL
 #define __KIND_AUX __DOUBLE_PRECISION
-#include "ppm_map_part_ghost.f"
+#include "ppm_map_part_ghost.inc"
 #undef __KIND_AUX
 #define __KIND_AUX __SINGLE_PRECISION
-#include "ppm_map_part_ghost.f"
+#include "ppm_map_part_ghost.inc"
 #undef __KIND_AUX
 #undef __KIND
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_map_part_ghost.f"
+#include "ppm_map_part_ghost.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_map_part_ghost.f"
+#include "ppm_map_part_ghost.inc"
 #undef __KIND
 #undef __DIM
 

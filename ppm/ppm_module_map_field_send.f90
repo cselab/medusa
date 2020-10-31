@@ -68,6 +68,6 @@
          CONTAINS
 
 !#include "ppm_map_field_send.f"
-#include "ppm_map_field_send_noblock.f"
+#include "ppm_map_field_send_noblock.inc"
 
       END MODULE ppm_module_map_field_send

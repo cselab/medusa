@@ -46,6 +46,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_map_field_ghost_put.f"
+#include "ppm_map_field_ghost_put.inc"
 
       END MODULE ppm_module_map_field_ghost_put

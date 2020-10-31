@@ -51,11 +51,11 @@
          CONTAINS
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_topo_metis_s2p.f"
+#include "ppm_topo_metis_s2p.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_topo_metis_s2p.f"
+#include "ppm_topo_metis_s2p.inc"
 #undef __KIND
 
       END MODULE ppm_module_topo_metis_s2p

@@ -42,6 +42,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_io_inquire.f"
+#include "ppm_io_inquire.inc"
 
       END MODULE ppm_module_io_inquire

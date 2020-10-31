@@ -40,6 +40,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_neighlist_MkNeighIdx.f"
+#include "ppm_neighlist_MkNeighIdx.inc"
 
       END MODULE ppm_module_neighlist_MkNeighIdx

@@ -52,13 +52,13 @@
          CONTAINS
  
 #define __KIND __SINGLE_PRECISION
-#include "ppm_util_sort3d.f"
-#include "ppm_util_sort2d.f"
+#include "ppm_util_sort3d.inc"
+#include "ppm_util_sort2d.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_util_sort3d.f"
-#include "ppm_util_sort2d.f"
+#include "ppm_util_sort3d.inc"
+#include "ppm_util_sort2d.inc"
 #undef __KIND
 
       END MODULE ppm_module_util_sort

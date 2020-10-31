@@ -81,20 +81,20 @@
 #define __MODE  __SCA
         ! 2D SCA SINGLE
 #define __MODE2  __SCA
-#include "ppm_rmsh_create_part.f"
+#include "ppm_rmsh_create_part.inc"
 #undef __MODE2
 #define __MODE2  __VEC
-#include "ppm_rmsh_create_part.f"
+#include "ppm_rmsh_create_part.inc"
 #undef __MODE2
 
 #undef  __MODE
 #define __MODE  __VEC
         ! 2D VEC SINGLE
 #define __MODE2  __SCA
-#include "ppm_rmsh_create_part.f"
+#include "ppm_rmsh_create_part.inc"
 #undef __MODE2
 #define __MODE2  __VEC
-#include "ppm_rmsh_create_part.f"
+#include "ppm_rmsh_create_part.inc"
 #undef __MODE2
 #undef  __MODE
 #undef  __DIME
@@ -103,19 +103,19 @@
 #define __MODE  __SCA
         ! 3D SCA SINGLE
 #define __MODE2 __SCA
-#include "ppm_rmsh_create_part.f"
+#include "ppm_rmsh_create_part.inc"
 #undef __MODE2
 #define __MODE2 __VEC
-#include "ppm_rmsh_create_part.f"
+#include "ppm_rmsh_create_part.inc"
 #undef __MODE2
 #undef  __MODE
 #define __MODE  __VEC
         ! 3D VEC SINGLE
 #define __MODE2 __SCA
-#include "ppm_rmsh_create_part.f"
+#include "ppm_rmsh_create_part.inc"
 #undef __MODE2
 #define __MODE2 __VEC
-#include "ppm_rmsh_create_part.f"
+#include "ppm_rmsh_create_part.inc"
 #undef __MODE2
 #undef  __MODE
 #undef  __DIME
@@ -127,19 +127,19 @@
 #define __MODE  __SCA
         ! 2D SCA DOUBLE
 #define __MODE2 __SCA
-#include "ppm_rmsh_create_part.f"
+#include "ppm_rmsh_create_part.inc"
 #undef __MODE2
 #define __MODE2 __VEC
-#include "ppm_rmsh_create_part.f"
+#include "ppm_rmsh_create_part.inc"
 #undef __MODE2
 #undef  __MODE
 #define __MODE  __VEC
         ! 2D VEC DOUBLE
 #define __MODE2 __SCA
-#include "ppm_rmsh_create_part.f"
+#include "ppm_rmsh_create_part.inc"
 #undef __MODE2
 #define __MODE2 __VEC
-#include "ppm_rmsh_create_part.f"
+#include "ppm_rmsh_create_part.inc"
 #undef __MODE2
 #undef  __MODE
 #undef  __DIME
@@ -148,19 +148,19 @@
 #define __MODE  __SCA
         ! 3D SCA DOUBLE
 #define __MODE2 __SCA
-#include "ppm_rmsh_create_part.f"
+#include "ppm_rmsh_create_part.inc"
 #undef __MODE2
 #define __MODE2 __VEC
-#include "ppm_rmsh_create_part.f"
+#include "ppm_rmsh_create_part.inc"
 #undef __MODE2
 #undef  __MODE
 #define __MODE  __VEC
         ! 3D VEC DOUBLE
 #define __MODE2 __SCA
-#include "ppm_rmsh_create_part.f"
+#include "ppm_rmsh_create_part.inc"
 #undef __MODE2
 #define __MODE2 __VEC
-#include "ppm_rmsh_create_part.f"
+#include "ppm_rmsh_create_part.inc"
 #undef __MODE2
 #undef  __MODE
 #undef  __DIME

@@ -66,43 +66,43 @@
 
 #define __DIM 1
 #define __KIND __SINGLE_PRECISION
-#include "ppm_map_part_pop.f"
+#include "ppm_map_part_pop.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_map_part_pop.f"
+#include "ppm_map_part_pop.inc"
 #undef __KIND
 #define __KIND __INTEGER
-#include "ppm_map_part_pop.f"
+#include "ppm_map_part_pop.inc"
 #undef __KIND
 #define __KIND __LOGICAL
-#include "ppm_map_part_pop.f"
+#include "ppm_map_part_pop.inc"
 #undef __KIND
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_map_part_pop.f"
+#include "ppm_map_part_pop.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_map_part_pop.f"
+#include "ppm_map_part_pop.inc"
 #undef __KIND
 #undef __DIM
 
 #define __DIM 2
 #define __KIND __SINGLE_PRECISION
-#include "ppm_map_part_pop.f"
+#include "ppm_map_part_pop.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_map_part_pop.f"
+#include "ppm_map_part_pop.inc"
 #undef __KIND
 #define __KIND __INTEGER
-#include "ppm_map_part_pop.f"
+#include "ppm_map_part_pop.inc"
 #undef __KIND
 #define __KIND __LOGICAL
-#include "ppm_map_part_pop.f"
+#include "ppm_map_part_pop.inc"
 #undef __KIND
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_map_part_pop.f"
+#include "ppm_map_part_pop.inc"
 #undef __KIND
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_map_part_pop.f"
+#include "ppm_map_part_pop.inc"
 #undef __KIND
 #undef __DIM
 

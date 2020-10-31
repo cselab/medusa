@@ -61,7 +61,7 @@
 #define __DIME  __2D
 #define __MODE  __SCA
         ! 2D SCA SINGLE
-#include "ppm_interp_m2p.f"
+#include "ppm_interp_m2p.inc"
 #undef  __MODE
 #define __MODE  __VEC
         ! 2D VEC SINGLE
@@ -72,11 +72,11 @@
 #define __DIME  __3D
 #define __MODE  __SCA
         ! 3D SCA SINGLE
-#include "ppm_interp_m2p.f"
+#include "ppm_interp_m2p.inc"
 #undef  __MODE
 #define __MODE  __VEC
         ! 3D VEC SINGLE
-#include "ppm_interp_m2p.f"
+#include "ppm_interp_m2p.inc"
 #undef  __MODE
 #undef  __DIME
 #undef  __KIND
@@ -86,7 +86,7 @@
 #define __DIME  __2D
 #define __MODE  __SCA
         ! 2D SCA DOUBLE
-#include "ppm_interp_m2p.f"
+#include "ppm_interp_m2p.inc"
 #undef  __MODE
 #define __MODE  __VEC
         ! 2D VEC DOUBLE
@@ -97,11 +97,11 @@
 #define __DIME  __3D
 #define __MODE  __SCA
         ! 3D SCA DOUBLE
-#include "ppm_interp_m2p.f"
+#include "ppm_interp_m2p.inc"
 #undef  __MODE
 #define __MODE  __VEC
         ! 3D VEC DOUBLE
-#include "ppm_interp_m2p.f"
+#include "ppm_interp_m2p.inc"
 #undef  __MODE
 #undef  __DIME
 #undef  __KIND        

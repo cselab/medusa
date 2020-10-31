@@ -46,6 +46,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_mesh_derive.f"
+#include "ppm_mesh_derive.inc"
 
       END MODULE ppm_module_mesh_derive

@@ -47,11 +47,11 @@
         CONTAINS
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_bem_quadrule.f"
+#include "ppm_bem_quadrule.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_bem_quadrule.f"
+#include "ppm_bem_quadrule.inc"
 #undef __KIND
 
       END MODULE ppm_module_bem_quadrule

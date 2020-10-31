@@ -46,15 +46,15 @@
          !----------------------------------------------------------------------
          CONTAINS
 #define __KIND __SINGLE_PRECISION
-#include "ppm_util_qsort.f"
+#include "ppm_util_qsort.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_util_qsort.f"
+#include "ppm_util_qsort.inc"
 #undef __KIND
 
 #define __KIND __INTEGER
-#include "ppm_util_qsort.f"
+#include "ppm_util_qsort.inc"
 #undef __KIND
 
       END MODULE ppm_module_util_qsort

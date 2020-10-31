@@ -64,6 +64,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_map_field_global.f"
+#include "ppm_map_field_global.inc"
 
       END MODULE ppm_module_map_field_global

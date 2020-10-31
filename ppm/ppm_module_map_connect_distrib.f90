@@ -55,6 +55,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_map_connect_distrib.f"
+#include "ppm_map_connect_distrib.inc"
 
       END MODULE ppm_module_map_connect_distrib

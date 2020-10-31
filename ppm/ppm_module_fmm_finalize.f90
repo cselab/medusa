@@ -54,7 +54,7 @@ MODULE ppm_module_fmm_finalize
 
 CONTAINS
 
-#include "ppm_fmm_finalize.f"
+#include "ppm_fmm_finalize.inc"
 
 END MODULE ppm_module_fmm_finalize
 

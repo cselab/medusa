@@ -47,11 +47,11 @@
          CONTAINS
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_tree_done.f"
+#include "ppm_tree_done.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_tree_done.f"
+#include "ppm_tree_done.inc"
 #undef __KIND
 
       END MODULE ppm_module_tree_done

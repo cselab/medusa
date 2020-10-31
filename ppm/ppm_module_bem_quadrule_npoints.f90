@@ -39,6 +39,6 @@
         !-----------------------------------------------------------------------
         CONTAINS
 
-#include "ppm_bem_quadrule_npoints.f"
+#include "ppm_bem_quadrule_npoints.inc"
 
       END MODULE ppm_module_bem_quadrule_npoints

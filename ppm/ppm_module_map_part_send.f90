@@ -60,6 +60,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_map_part_send.f"
+#include "ppm_map_part_send.inc"
 
       END MODULE ppm_module_map_part_send

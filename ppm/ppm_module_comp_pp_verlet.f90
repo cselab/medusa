@@ -66,55 +66,55 @@
 
 #define __KERNEL __INTERNAL
 #define __KIND __SINGLE_PRECISION
-#include "ppm_comp_pp_verlet.f"
+#include "ppm_comp_pp_verlet.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_comp_pp_verlet.f"
+#include "ppm_comp_pp_verlet.inc"
 #undef __KIND
 
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_comp_pp_verlet.f"
+#include "ppm_comp_pp_verlet.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_comp_pp_verlet.f"
+#include "ppm_comp_pp_verlet.inc"
 #undef __KIND
 #undef __KERNEL
 
 #define __KERNEL __USER_FUNCTION
 #define __KIND __SINGLE_PRECISION
-#include "ppm_comp_pp_verlet.f"
+#include "ppm_comp_pp_verlet.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_comp_pp_verlet.f"
+#include "ppm_comp_pp_verlet.inc"
 #undef __KIND
 
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_comp_pp_verlet.f"
+#include "ppm_comp_pp_verlet.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_comp_pp_verlet.f"
+#include "ppm_comp_pp_verlet.inc"
 #undef __KIND
 #undef __KERNEL
 
 #define __KERNEL __LOOKUP_TABLE
 #define __KIND __SINGLE_PRECISION
-#include "ppm_comp_pp_verlet.f"
+#include "ppm_comp_pp_verlet.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_comp_pp_verlet.f"
+#include "ppm_comp_pp_verlet.inc"
 #undef __KIND
 
 #define __KIND __SINGLE_PRECISION_COMPLEX
-#include "ppm_comp_pp_verlet.f"
+#include "ppm_comp_pp_verlet.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION_COMPLEX
-#include "ppm_comp_pp_verlet.f"
+#include "ppm_comp_pp_verlet.inc"
 #undef __KIND
 #undef __KERNEL
 

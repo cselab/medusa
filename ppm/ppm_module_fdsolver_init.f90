@@ -60,22 +60,22 @@
 #define __MESH_DIM __2D
 #define __DIM __SFIELD
 #define __KIND __SINGLE_PRECISION
-#include "ppm_fdsolver_init.f"
+#include "ppm_fdsolver_init.inc"
 #undef  __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_fdsolver_init.f"
+#include "ppm_fdsolver_init.inc"
 #undef  __KIND
 #undef __DIM
 
 
 #define __DIM __VFIELD
 #define __KIND __SINGLE_PRECISION
-#include "ppm_fdsolver_init.f"
+#include "ppm_fdsolver_init.inc"
 #undef  __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_fdsolver_init.f"
+#include "ppm_fdsolver_init.inc"
 #undef  __KIND
 #undef __DIM
 #undef __MESH_DIM
@@ -86,22 +86,22 @@
 #define __MESH_DIM __3D
 #define __DIM __SFIELD
 #define __KIND __SINGLE_PRECISION
-#include "ppm_fdsolver_init.f"
+#include "ppm_fdsolver_init.inc"
 #undef  __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_fdsolver_init.f"
+#include "ppm_fdsolver_init.inc"
 #undef  __KIND
 #undef __DIM
 
 
 #define __DIM __VFIELD
 #define __KIND __SINGLE_PRECISION
-#include "ppm_fdsolver_init.f"
+#include "ppm_fdsolver_init.inc"
 #undef  __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_fdsolver_init.f"
+#include "ppm_fdsolver_init.inc"
 #undef  __KIND
 #undef __DIM
 #undef __MESH_DIM

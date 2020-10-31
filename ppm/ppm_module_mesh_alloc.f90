@@ -47,7 +47,7 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_mesh_alloc_list.f"
-#include "ppm_mesh_alloc_equi.f"
+#include "ppm_mesh_alloc_list.inc"
+#include "ppm_mesh_alloc_equi.inc"
 
       END MODULE ppm_module_mesh_alloc

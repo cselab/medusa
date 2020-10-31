@@ -66,46 +66,46 @@
 
 #define __DIM __SFIELD
 #define __KIND __SINGLE_PRECISION
-#include "ppm_fdsolver_map_2d.f"
-#include "ppm_fdsolver_map_3d.f"
+#include "ppm_fdsolver_map_2d.inc"
+#include "ppm_fdsolver_map_3d.inc"
 #undef  __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_fdsolver_map_2d.f"
-#include "ppm_fdsolver_map_3d.f"
+#include "ppm_fdsolver_map_2d.inc"
+#include "ppm_fdsolver_map_3d.inc"
 #undef  __KIND
 
 #define __KIND __COMPLEX
-#include "ppm_fdsolver_map_2d.f"
-#include "ppm_fdsolver_map_3d.f"
+#include "ppm_fdsolver_map_2d.inc"
+#include "ppm_fdsolver_map_3d.inc"
 #undef  __KIND
 
 #define __KIND __DOUBLE_COMPLEX
-#include "ppm_fdsolver_map_2d.f"
-#include "ppm_fdsolver_map_3d.f"
+#include "ppm_fdsolver_map_2d.inc"
+#include "ppm_fdsolver_map_3d.inc"
 #undef  __KIND
 #undef  __DIM
 
 
 #define __DIM __VFIELD
 #define __KIND __SINGLE_PRECISION
-#include "ppm_fdsolver_map_2d.f"
-#include "ppm_fdsolver_map_3d.f"
+#include "ppm_fdsolver_map_2d.inc"
+#include "ppm_fdsolver_map_3d.inc"
 #undef  __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_fdsolver_map_2d.f"
-#include "ppm_fdsolver_map_3d.f"
+#include "ppm_fdsolver_map_2d.inc"
+#include "ppm_fdsolver_map_3d.inc"
 #undef  __KIND
 
 #define __KIND __COMPLEX
-#include "ppm_fdsolver_map_2d.f"
-#include "ppm_fdsolver_map_3d.f"
+#include "ppm_fdsolver_map_2d.inc"
+#include "ppm_fdsolver_map_3d.inc"
 #undef  __KIND
 
 #define __KIND __DOUBLE_COMPLEX
-#include "ppm_fdsolver_map_2d.f"
-#include "ppm_fdsolver_map_3d.f"
+#include "ppm_fdsolver_map_2d.inc"
+#include "ppm_fdsolver_map_3d.inc"
 #undef  __KIND
 #undef  __DIM
 

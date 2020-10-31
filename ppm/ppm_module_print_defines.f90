@@ -40,6 +40,6 @@
          !----------------------------------------------------------------------
          CONTAINS
  
-#include "ppm_print_defines.f"
+#include "ppm_print_defines.inc"
 
       END MODULE ppm_module_print_defines

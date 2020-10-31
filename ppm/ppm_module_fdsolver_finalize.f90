@@ -43,6 +43,6 @@
 
 
 
-#include "ppm_fdsolver_finalize.f"
+#include "ppm_fdsolver_finalize.inc"
 
       END MODULE ppm_module_fdsolver_finalize

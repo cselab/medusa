@@ -48,11 +48,11 @@
          CONTAINS
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_tree_cutdir.f"
+#include "ppm_tree_cutdir.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_tree_cutdir.f"
+#include "ppm_tree_cutdir.inc"
 #undef __KIND
 
       END MODULE ppm_module_tree_cutdir

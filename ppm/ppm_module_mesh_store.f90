@@ -49,6 +49,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_mesh_store.f"
+#include "ppm_mesh_store.inc"
 
       END MODULE ppm_module_mesh_store

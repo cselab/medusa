@@ -37,7 +37,7 @@
         END INTERFACE
 
       CONTAINS
-#include "ppm_ode_start.f"
+#include "ppm_ode_start.inc"
 
       END MODULE ppm_module_ode_start
 

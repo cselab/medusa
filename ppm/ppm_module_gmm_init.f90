@@ -39,6 +39,6 @@
          !----------------------------------------------------------------------
         CONTAINS
 
-#include "ppm_gmm_init.f"
+#include "ppm_gmm_init.inc"
 
       END MODULE ppm_module_gmm_init

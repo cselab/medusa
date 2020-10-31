@@ -40,6 +40,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_topo_inquire.f"
+#include "ppm_topo_inquire.inc"
 
       END MODULE ppm_module_topo_inquire

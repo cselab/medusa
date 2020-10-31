@@ -57,17 +57,17 @@
          CONTAINS
 
 #define __KIND __SINGLE_PRECISION
-#include "ppm_topo_mkpart.f"
-#include "ppm_topo_mkfield.f"
-#include "ppm_topo_mkgeom.f"
-#include "ppm_topo_mktree.f"
+#include "ppm_topo_mkpart.inc"
+#include "ppm_topo_mkfield.inc"
+#include "ppm_topo_mkgeom.inc"
+#include "ppm_topo_mktree.inc"
 #undef __KIND
 
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_topo_mkpart.f"
-#include "ppm_topo_mkfield.f"
-#include "ppm_topo_mkgeom.f"
-#include "ppm_topo_mktree.f"
+#include "ppm_topo_mkpart.inc"
+#include "ppm_topo_mkfield.inc"
+#include "ppm_topo_mkgeom.inc"
+#include "ppm_topo_mktree.inc"
 #undef __KIND
 
       END MODULE ppm_module_mktopo

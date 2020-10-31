@@ -61,18 +61,18 @@
       CONTAINS
 #define __MODE __SCA
 #define __KIND __SINGLE_PRECISION
-#include "ppm_ode_step.f"
+#include "ppm_ode_step.inc"
 #undef  __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_ode_step.f"
+#include "ppm_ode_step.inc"
 #undef  __KIND
 #undef  __MODE
 #define __MODE __VEC
 #define __KIND __SINGLE_PRECISION
-#include "ppm_ode_step.f"
+#include "ppm_ode_step.inc"
 #undef  __KIND
 #define __KIND __DOUBLE_PRECISION
-#include "ppm_ode_step.f"
+#include "ppm_ode_step.inc"
 #undef  __KIND
 #undef  __MODE
 

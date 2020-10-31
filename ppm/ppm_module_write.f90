@@ -40,6 +40,6 @@
          !----------------------------------------------------------------------
          CONTAINS
  
-#include "ppm_write.f"
+#include "ppm_write.inc"
 
       END MODULE ppm_module_write

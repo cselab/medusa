@@ -45,6 +45,6 @@
          !----------------------------------------------------------------------
          CONTAINS
  
-#include "ppm_error.f"
+#include "ppm_error.inc"
 
       END MODULE ppm_module_error

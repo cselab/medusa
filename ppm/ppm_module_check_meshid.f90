@@ -39,6 +39,6 @@
          !----------------------------------------------------------------------
          CONTAINS
  
-#include "ppm_check_meshid.f"
+#include "ppm_check_meshid.inc"
 
       END MODULE ppm_module_check_meshid

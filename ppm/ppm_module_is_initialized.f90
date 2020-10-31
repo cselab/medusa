@@ -40,6 +40,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_is_initialized.f"
+#include "ppm_is_initialized.inc"
 
       END MODULE ppm_module_is_initialized

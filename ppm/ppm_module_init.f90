@@ -40,6 +40,6 @@
          !----------------------------------------------------------------------
          CONTAINS
 
-#include "ppm_init.f"
+#include "ppm_init.inc"
 
       END MODULE ppm_module_init
