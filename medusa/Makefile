@@ -9,8 +9,6 @@ include obj.mk
 
 PPM_FCFLAGS = -I$(PREFIX)/include
 PPM_LDFLAGS = -L$(PREFIX)/lib -Wl,-R$(PREFIX)/lib -lppm
-
-FC = mpifort
 LINK = $(FC)
 M = ${O:.o=.mod}
 M_LDFLAGS = -lnetcdff -lfftw3f

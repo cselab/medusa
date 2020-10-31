@@ -1,6 +1,6 @@
 # Install
 
-Needs `mpifort` and `fftw3f`.
+Needs `fftw3f` and `mpif90`.
 
 ```
 $ MAKEFLAGS=-j ./install.sh
