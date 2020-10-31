@@ -2,7 +2,7 @@
 .SUFFIXES:
 .SUFFIXES: .o .f90
 include ../conf.mk
-L = libncdff.a
+L = libnetcdff.a
 all: $L
 include obj.mk
 include mod.mk
