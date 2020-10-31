@@ -38,7 +38,10 @@ SUBROUTINE wvic_forcenoca (tforcenoca,gnocadimensions,info)
   !-----------------------------------------------------------------------------
   REAL(mk), DIMENSION(3*nforces) :: sforcenoca, tforcenoca, gsforcenoca
   REAL(md), DIMENSION(3*nforces) :: vforcenoca, gvforcenoca
-  REAL(md), DIMENSION(3*nforces) :: sforcenocaW, gsforcenocaW, sforcenocaE, gsforcenocaE, sforcenocaS, gsforcenocaS, sforcenocaN, gsforcenocaN, sforcenocaB, gsforcenocaB, sforcenocaT, gsforcenocaT 
+  REAL(md), DIMENSION(3*nforces) :: sforcenocaW, gsforcenocaW, &
+       sforcenocaE, gsforcenocaE, sforcenocaS, &
+       gsforcenocaS, sforcenocaN, gsforcenocaN, &
+       sforcenocaB, gsforcenocaB, sforcenocaT, gsforcenocaT
   REAL(mk), DIMENSION(3*nforces) :: lnocadimensions,gnocadimensions
   REAL(mk) :: o1, o2, o3, u1, u2, u3
 

@@ -455,8 +455,13 @@ SUBROUTINE wvic_enforcetv2
                                            & upstream_plane(i,jm1))
            END DO
         END DO
-        WRITE(msg,*) ' Found the transversal vorticities ', MINVAL(upstream_wp(1,:,:)), MAXVAL(upstream_wp(1,:,:)), MINVAL(upstream_wp(2,:,:)), MAXVAL(upstream_wp(2,:,:))
-        IF ((verbose).AND.(rank.EQ.0)) CALL ppm_write(rank,'wvic_enforcetv2',msg,info)
+        WRITE(msg,*) ' Found the transversal vorticities ', &
+             MINVAL(upstream_wp(1,:,:)), &
+             MAXVAL(upstream_wp(1,:,:)), &
+             MINVAL(upstream_wp(2,:,:)), &
+             MAXVAL(upstream_wp(2,:,:))
+        IF ((verbose).AND.(rank.EQ.0)) &
+             CALL ppm_write(rank,'wvic_enforcetv2',msg,info)
         DO i=2,n_upstream
             send_size = ndata(1,isubl)*ndata(2,isubl)*2 ! Assuming they're all the same size!!
             upstream_wpl = upstream_wp(:,istartl(1,i):istartl(1,i)+ndata(1,isubl)-1,istartl(2,i):istartl(2,i)+ndata(2,isubl)-1)

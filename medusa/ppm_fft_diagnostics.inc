@@ -141,7 +141,9 @@
         ! local and global arrays for kinetic energy spectrum arrays
         REAL(mk), DIMENSION(:), POINTER               :: kespecl, kespecg
         INTEGER                                       :: ike, ikemin, ikemax, nkespec
-        REAL(mk)                                      :: ksqrt, ksq, dirac, dirac_eps, dirac_epsi, kmax_kespec, dkespec, dkespeci, ke, symfac
+        REAL(mk)                                      :: ksqrt, &
+             ksq, dirac, dirac_eps, dirac_epsi, kmax_kespec, &
+             dkespec, dkespeci, ke, symfac
         INTEGER                                       :: kefile
 #elif __WHAT == __KESPECTRUM_KX
         COMPLEX(mk)                                   :: kx,ky,kz
