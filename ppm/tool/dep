@@ -8,7 +8,7 @@ awk '
 END {
     ban["mpif.h"]
     for (s in n)
-	if (s ~ /^ppm_module_/)
+	if (s ~ /\.f90$/)
 	    dfs(s)
 }
 
@@ -28,7 +28,7 @@ function dfs(s,   q, i, j, k, seen, nxt, c) {
 }
 
 function f2obj(s) {
-    sub(/\.f$/, ".o", s)
+    sub(/\.f90$/, ".o", s)
     return s
 }
 
