@@ -6,7 +6,7 @@ Needs `mpifort` and `fftw3f`.
 $ MAKEFLAGS=-j ./install.sh
 ```
 
-If it fail adjust steps in [install.sh](install.sh).
+Compilers and flags are in [conf.mk](conf.mk).
 
 # Run
 

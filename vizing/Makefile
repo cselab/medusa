@@ -1,5 +1,6 @@
 .POSIX:
 .SUFFIXES: .o .cpp
+include ../conf.mk
 L = libvizing.a
 all: $L
 O = vizing_coloring.o
