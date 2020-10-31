@@ -1033,8 +1033,9 @@ dz=dz_d
               DO k=start(3,isub,1)+e(isub),stop(3,isub,1)-g(isub)
                  DO j=start(2,isub,1)+c(isub),stop(2,isub,1)-d(isub)
                     DO i=start(1,isub,1)+mod(j+k+color,2)+a(isub),stop(1,isub,1)-b(isub)-mod(j+k+color,2),2
-                        IF ((i.GE.1.AND.i.LE.max_node(1,mlev)).AND.(j.GE.1.AND.j.LE.max_node(2,mlev)).AND.(k.GE.1.AND.k.LE.max_node(3,mlev))) THEN
-                        
+                        IF ((i.GE.1.AND.i.LE.max_node(1,mlev)) &
+			   .AND.(j.GE.1.AND.j.LE.max_node(2,mlev)) &
+			   .AND.(k.GE.1.AND.k.LE.max_node(3,mlev))) THEN
                         !PRINT *,'ISUB:',isub,i,j,k,a(isub),b(isub),color
 
                         

@@ -716,7 +716,14 @@
                END DO
                IF ((psend(k).GT.0).AND.(ppm_debug .GT. 1)) THEN
                   jbuffer = qq(k,j)
-                  WRITE(mesg,'(A,I9,I9,F10.4,A,I9)') 'Initial send hash ',k,j,SUM(ppm_sendbuffers(jbuffer:jbuffer+psend(k)*ppm_buffer_dim(j)-1)),' to ',ppm_isendlist(k)
+                  WRITE(mesg,'(A,I9,I9,F10.4,A,I9)') &
+                       'Initial send hash ', &
+                       k, &
+                       j, &
+                       SUM(ppm_sendbuffers( &
+                       jbuffer:jbuffer+psend(k)*ppm_buffer_dim(j)-1)), &
+                       ' to ',&
+                       ppm_isendlist(k)
                   CALL ppm_write(ppm_rank,'ppm_map_field_send_noblock',mesg,info)
                ENDIF
             END DO
@@ -746,14 +753,24 @@
                tag1 = k
                IF(psend(k).GT.0) THEN
                   kreqsend = kreqsend + 1
-                  CALL MPI_ISend(isends(isendoff(k)),nsend(k),ppm_mpi_kind, &
-                       & ppm_isendlist(k),tag1,ppm_comm,sendreqs(kreqsend),info)
+                  CALL MPI_ISend(isends(isendoff(k)), &
+                       nsend(k), &
+                       ppm_mpi_kind, &
+                       ppm_isendlist(k), &
+                       tag1, &
+                       ppm_comm, &
+                       sendreqs(kreqsend), &
+                       info)
                   klistsend(kreqsend) = k
                END IF
                IF(precv(k).GT.0) THEN
                   kreqrecv = kreqrecv + 1
-                  CALL MPI_IRecv(irecvs(irecvoff(k)),nrecv(k),ppm_mpi_kind, &
-                       & ppm_irecvlist(k),tag1,ppm_comm,recvreqs(kreqrecv),info)
+                  CALL MPI_IRecv(irecvs(irecvoff(k)), &
+                       nrecv(k), &
+                       ppm_mpi_kind, &
+                       ppm_irecvlist(k), &
+                       tag1,ppm_comm,recvreqs(kreqrecv), &
+                       info)
                   klistrecv(kreqrecv) = k
                END IF
             ELSE
@@ -921,7 +938,14 @@
                END DO
                IF ((precv(k).GT.0).AND.(ppm_debug .GT. 1)) THEN
                   jbuffer = pp(k,j)
-                  WRITE(mesg,'(A,I9,I9,F10.4,A,I9)') 'Final recv hash ',k,j,SUM(ppm_recvbuffers(jbuffer:jbuffer+precv(k)*ppm_buffer_dim(j)-1)),' from ',ppm_irecvlist(k)
+                  WRITE(mesg,'(A,I9,I9,F10.4,A,I9)') &
+                       'Final recv hash ',&
+                       k, &
+                       j, &
+                       SUM(ppm_recvbuffers( &
+                       jbuffer:jbuffer+precv(k)*ppm_buffer_dim(j)-1)), &
+                       ' from ', &
+                       ppm_irecvlist(k)
                   CALL ppm_write(ppm_rank,'ppm_map_field_send_noblock',mesg,info)
                ENDIF
             END DO

@@ -1307,7 +1307,9 @@
 		 DO k=start(3,isub,mlev)+e(isub),stop(3,isub,mlev)-g(isub)  
 		    DO j=start(2,isub,mlev)+c(isub),stop(2,isub,mlev)-d(isub)
                        DO i=start(1,isub,mlev)+mod(j+k+color,2)+a(isub),stop(1,isub,mlev)-b(isub)-mod(j+k+color,2),2
-                        IF ((i.GE.1.AND.i.LE.max_node(1,mlev)).AND.(j.GE.1.AND.j.LE.max_node(2,mlev)).AND.(k.GE.1.AND.k.LE.max_node(3,mlev))) THEN
+                          IF ((i.GE.1.AND.i.LE.max_node(1,mlev)) &
+                               .AND.(j.GE.1.AND.j.LE.max_node(2,mlev)) &
+                               .AND.(k.GE.1.AND.k.LE.max_node(3,mlev))) THEN
 #ifdef __VECTOR
 
                         moldu(1) = tuc(1,i,j,k)
