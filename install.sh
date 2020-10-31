@@ -3,9 +3,7 @@
 set -e
 
 (cd netcdf
- ./configure &&
-     make 'FC = mpif90' 'FCFLAGS = -O2 -g -fallow-argument-mismatch' &&
-     make install 'prefix = $(HOME)/.local')
+ make install)
 
 (cd metis
  make install)

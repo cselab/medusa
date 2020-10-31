@@ -6,9 +6,6 @@ awk '
     adj[$1, ++n[$1]] = $2
 }
 END {
-    ban["mpif.h"]
-    ban["fftw3.f"]
-    ban["netcdf.f"]
     for (s in n)
 	if (s ~ /\.f90$/)
 	    dfs(s)

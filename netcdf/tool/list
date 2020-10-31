@@ -1,18 +1,26 @@
 #!/bin/sh
 
 awk '
+{
+    sub(/!.*/, "")
+    org = $0
+    $0 = tolower($0)
+}
 sub(/^[ \t]*include[ \t]+"/, "") && sub(/".*/, "") {
     print FILENAME, $0, $0
 }
-sub(/^[ \t]*INCLUDE[ \t]/, "") && gsub(/'\''/, "") {
+sub(/^[ \t]*include[ \t]/, "") && gsub(/'\''/, "") {
     print FILENAME, $0, $0
 }
-sub(/^[ \t]*USE[ \t]+/, "") {
+sub(/^[ \t]*use[ \t]+/, "") {
     sub(/!.*$/, "")
     sub(/,.*/, "")
     sub(/[ \t]*$/, "")
-    $0 = tolower($0)
-    if (!/^iso_/)
+    if (/^iso_/)
+	;
+    else if (/^typesizes$/)
 	print FILENAME, $0 ".f90", $0 ".o"
+    else
+	print FILENAME, $0 ".f90", "module_" $0 ".o"
  }
 ' "$@" | sort | uniq
