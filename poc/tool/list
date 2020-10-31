@@ -1,6 +1,9 @@
 #!/bin/sh
 
 awk '
+sub(/^[ \t]*include[ \t]+"/, "") && sub(/".*/, "") {
+    print FILENAME, $0, $0
+}
 sub(/^[ \t]*INCLUDE[ \t]/, "") && gsub(/'\''/, "") {
     print FILENAME, $0, $0
 }
