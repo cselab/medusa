@@ -318,15 +318,16 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
      CALL measure(4,1)
      !-------------------------------------------------------------------------!
      ! Optional dumps
-     !-------------------------------------------------------------------------!
-!     IF((itime .EQ. 71) .OR. (itime .EQ. 72) .OR. (itime .EQ. 73))THEN
-!	WRITE(msg,'(A)') 'H'
-!        CALL wvic_io_dump_field_vtk(field_H,ndata,msg, itime, info)
-!	WRITE(msg,'(A)') 'vel'
-!        CALL wvic_io_dump_field_vtk(field_up,ndata,msg, itime, info)
-!	WRITE(msg,'(A)') 'vrt'
-!        CALL wvic_io_dump_field_vtk(field_wp,ndata,msg, itime, info)
-!     END IF
+     !-------------------------------------------------------------------------
+
+     IF(MOD(itime,ndump).EQ.0) THEN
+	WRITE(msg,'(A)') 'H'
+        CALL wvic_io_dump_field_vtk(field_H,ndata,msg, itime, info)
+	WRITE(msg,'(A)') 'vel'
+        CALL wvic_io_dump_field_vtk(field_up,ndata,msg, itime, info)
+	WRITE(msg,'(A)') 'vrt'
+        CALL wvic_io_dump_field_vtk(field_wp,ndata,msg, itime, info)
+     END IF
      IF(MOD(itime,ndump).EQ.0) THEN
         CALL MPI_Barrier(comm,info)
         IF (dumpvel) THEN
