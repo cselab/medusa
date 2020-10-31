@@ -1,4 +1,5 @@
 .POSIX:
+.SUFFIXES:
 .SUFFIXES: .o .f90
 include ../conf.mk
 L = libppm.a
@@ -17,5 +18,5 @@ install: $L
 
 clean:; rm -f -- $L $O $M
 
-# ./tool/list *.f *.h *.inc | ./tool/dep > dep.mk
+# ./tool/list *.f90 *.f *.h *.inc | ./tool/dep > dep.mk
 include dep.mk
