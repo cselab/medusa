@@ -5,8 +5,6 @@ all: $L
 O = vizing_coloring.o
 
 PREFIX = $(HOME)/.local
-CXXFLAGS = -Ofast -g
-CXX = g++
 LINK = $(CXX)
 $L: $O; ar rv $@ $O && ranlib $@
 .cpp.o:; $(CXX) -c $(CXXFLAGS) $<

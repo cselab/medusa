@@ -4,7 +4,7 @@ set -e
 
 (cd netcdf &&
 ./configure &&
-make 'FC = mpifort' 'FCFLAGS = -O2 -g -fallow-argument-mismatch' &&
+make 'FC = mpifort' 'FFLAGS = -O2 -g -fallow-argument-mismatch' &&
 make install 'prefix = $(HOME)/.local')
 
 (cd metis
