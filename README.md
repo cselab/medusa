@@ -10,8 +10,8 @@ Compilers and flags are in [conf.mk](conf.mk).
 
 # Run
 
-Configuration file: [medusa/Ctrl](medusa/Ctrl). Dumps default*.nc files
-file.
+Configuration file: [medusa/Ctrl](medusa/Ctrl). Dumps netcdf and vtk
+files.
 
 ```
 cd medusa
