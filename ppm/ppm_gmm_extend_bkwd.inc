@@ -109,6 +109,9 @@
       USE ppm_module_alloc
       USE ppm_module_write
       USE ppm_module_map_field_ghost
+#ifdef __MPI
+      USE MPI
+#endif
 #if    __KIND == __SINGLE_PRECISION
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #else
@@ -117,9 +120,6 @@
       !-------------------------------------------------------------------------
       !  Includes
       !-------------------------------------------------------------------------
-#ifdef __MPI
-      USE MPI
-#endif
       !-------------------------------------------------------------------------
       !  Arguments     
       !-------------------------------------------------------------------------

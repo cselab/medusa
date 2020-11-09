@@ -179,6 +179,9 @@
       USE ppm_module_gmm_march_bkwd
       USE ppm_module_gmm_extend_fwd
       USE ppm_module_gmm_extend_bkwd
+#ifdef __MPI
+      USE MPI
+#endif
 #if    __KIND == __SINGLE_PRECISION
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #else
@@ -187,9 +190,6 @@
       !-------------------------------------------------------------------------
       !  Includes
       !-------------------------------------------------------------------------
-#ifdef __MPI
-      USE MPI
-#endif
       !-------------------------------------------------------------------------
       !  Arguments     
       !-------------------------------------------------------------------------

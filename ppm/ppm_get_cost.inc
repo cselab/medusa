@@ -96,6 +96,9 @@
       USE ppm_module_check_topoid
       USE ppm_module_check_meshid
       USE ppm_module_topo_cost
+#ifdef __MPI
+       USE MPI
+#endif
 #if   __KIND == __SINGLE_PRECISION
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #elif __KIND == __DOUBLE_PRECISION
@@ -104,9 +107,6 @@
       !-------------------------------------------------------------------------
       !  Includes
       !-------------------------------------------------------------------------
-#ifdef __MPI
-       USE MPI
-#endif
       !-------------------------------------------------------------------------
       !  Arguments     
       !-------------------------------------------------------------------------

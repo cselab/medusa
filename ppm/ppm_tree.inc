@@ -300,6 +300,9 @@
       USE ppm_module_tree_done
       USE ppm_module_util_rank
       USE ppm_module_decomp_tree
+#ifdef __MPI
+      USE MPI
+#endif
 #if   __KIND == __SINGLE_PRECISION
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #elif __KIND == __DOUBLE_PRECISION
@@ -308,9 +311,6 @@
       !-------------------------------------------------------------------------
       !  Includes
       !-------------------------------------------------------------------------
-#ifdef __MPI
-      USE MPI
-#endif
       !-------------------------------------------------------------------------
       !  Arguments     
       !-------------------------------------------------------------------------

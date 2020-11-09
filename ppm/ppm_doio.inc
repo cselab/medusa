@@ -168,6 +168,9 @@
       USE ppm_module_io_read_binary
       USE ppm_module_io_write_ascii
       USE ppm_module_io_write_binary
+#ifdef __MPI
+       USE MPI
+#endif
 #if    __KIND == __SINGLE_PRECISION | __KIND == __SINGLE_PRECISION_COMPLEX
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #else
@@ -176,9 +179,6 @@
       !-------------------------------------------------------------------------
       !  Includes
       !-------------------------------------------------------------------------
-#ifdef __MPI
-       USE MPI
-#endif
       !-------------------------------------------------------------------------
       !  Arguments     
       !-------------------------------------------------------------------------
