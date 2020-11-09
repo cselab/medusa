@@ -83,6 +83,9 @@
       USE ppm_module_substop
       USE ppm_module_error
       USE ppm_module_alloc
+#ifdef  __FFTW
+      INCLUDE "fftw3.f"
+#endif
 #if   __KIND == __SINGLE_PRECISION | __KIND ==__SINGLE_PRECISION_COMPLEX 
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #elif __KIND ==__SINGLE_PRECISION_COMPLEX_Z 
@@ -95,9 +98,6 @@
       !-------------------------------------------------------------------------
       !  FFTW include
       !-------------------------------------------------------------------------
-#ifdef  __FFTW
-      INCLUDE "fftw3.f"
-#endif
       !-------------------------------------------------------------------------
       !  Arguments     
       !-------------------------------------------------------------------------

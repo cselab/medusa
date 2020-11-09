@@ -141,10 +141,9 @@
        USE ppm_module_mktopo
        USE ppm_module_data_fieldsolver
        USE ppm_module_error
-
-
-
-
+#ifdef  __FFTW
+      INCLUDE "fftw3.f"
+#endif
 #if   __KIND == __SINGLE_PRECISION | __KIND == __COMPLEX 
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #elif __KIND == __DOUBLE_PRECISION | __KIND == __DOUBLE_COMPLEX 
@@ -155,11 +154,6 @@
       !-------------------------------------------------------------------------
       !  FFTW include
       !-------------------------------------------------------------------------
-#ifdef  __FFTW
-      INCLUDE "fftw3.f"
-#endif
- 
-
       !-------------------------------------------------------------------------
       !  Arguments     
       !-------------------------------------------------------------------------
