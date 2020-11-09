@@ -130,7 +130,7 @@
 
 #ifdef __FFTW
       ! FFTW Plan
-      INTEGER*8                          :: Plan
+      type(C_PTR)                        :: Plan
       INTEGER                            :: mbistride, mbrank, mbidist, mbiembed
       INTEGER                            :: mboembed, mbhowmany, mbodist
 #endif

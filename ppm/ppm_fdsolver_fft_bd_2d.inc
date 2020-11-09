@@ -102,7 +102,7 @@
 
 #ifdef __FFTW
       ! FFTW Plan
-      INTEGER*8                               :: Plan
+      type(C_PTR)                             :: Plan
 #endif
 
 #ifdef __MATHKEISAN
