@@ -60,7 +60,7 @@
 #include "ppm_define.h"
       INCLUDE 'ppm_param.h'
 #ifdef __MPI
-      INCLUDE 'mpif.h'
+      USE MPI
 #endif
       !-------------------------------------------------------------------------
       !  Type kind

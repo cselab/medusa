@@ -102,7 +102,7 @@
 #include "ppm_define.h"
 
 #ifdef __MPI
-      INCLUDE 'mpif.h'
+      USE MPI
 #endif
       !-------------------------------------------------------------------------
       !  Arguments     

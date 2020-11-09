@@ -192,7 +192,7 @@
       !-------------------------------------------------------------------------
 #include "ppm_define.h"
 #ifdef __MPI
-      INCLUDE 'mpif.h'
+      USE MPI
 #endif
 #if   __KIND == __SINGLE_PRECISION
       INTEGER, PARAMETER :: MK = ppm_kind_single

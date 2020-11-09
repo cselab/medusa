@@ -123,7 +123,7 @@
         IMPLICIT NONE
 
 #ifdef __MPI
-      INCLUDE  'mpif.h'
+      USE MPI
 #endif
 
 #if    __KIND == __SINGLE_PRECISION
