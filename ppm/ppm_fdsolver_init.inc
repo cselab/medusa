@@ -142,7 +142,7 @@
        USE ppm_module_data_fieldsolver
        USE ppm_module_error
 #ifdef  __FFTW
-      use, intrinsic :: iso_c_binding
+      USE, INTRINSIC :: ISO_C_BINDING
       INCLUDE "fftw3.f"
 #endif
 #if   __KIND == __SINGLE_PRECISION | __KIND == __COMPLEX 
