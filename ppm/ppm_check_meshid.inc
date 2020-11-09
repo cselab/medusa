@@ -59,7 +59,6 @@
       USE ppm_module_error
       USE ppm_module_write
       USE ppm_module_check_topoid
-      IMPLICIT NONE
 
       !-------------------------------------------------------------------------
       !  Arguments     

@@ -58,7 +58,6 @@
         USE ppm_module_substart
         USE ppm_module_substop
         
-        IMPLICIT NONE
         
 #if    __KIND == __SINGLE_PRECISION
         INTEGER, PARAMETER :: MK = ppm_kind_single

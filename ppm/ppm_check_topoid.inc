@@ -55,7 +55,6 @@
       USE ppm_module_substop
       USE ppm_module_error
       USE ppm_module_write
-      IMPLICIT NONE
 
       !-------------------------------------------------------------------------
       !  Arguments     

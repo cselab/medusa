@@ -179,7 +179,6 @@
       USE ppm_module_neighlist_MkNeighIdx
       USE ppm_module_neighlist_clist
       USE ppm_module_clist_destroy
-      IMPLICIT NONE
 #if   __KIND == __SINGLE_PRECISION
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #elif __KIND == __DOUBLE_PRECISION

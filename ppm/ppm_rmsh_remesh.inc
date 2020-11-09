@@ -139,7 +139,6 @@
       USE ppm_module_data_mesh
       USE ppm_module_data_rmsh
 
-      IMPLICIT NONE
 
 #if   __KIND == __SINGLE_PRECISION
       INTEGER, PARAMETER :: MK = ppm_kind_single

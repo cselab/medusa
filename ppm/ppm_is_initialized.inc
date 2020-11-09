@@ -50,7 +50,6 @@
       USE ppm_module_data, ONLY: ppm_kind_double, ppm_initialized
       USE ppm_module_substart
       USE ppm_module_substop
-      IMPLICIT NONE
       !-------------------------------------------------------------------------
       !  Arguments     
       !-------------------------------------------------------------------------

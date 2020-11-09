@@ -248,7 +248,6 @@
       USE ppm_module_map_field_pop_3d
       USE ppm_module_map_field_push_2d
       USE ppm_module_map_field_push_3d
-      IMPLICIT NONE
 #if    __KIND == __SINGLE_PRECISION | __KIND == __SINGLE_PRECISION_COMPLEX
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #else

@@ -198,7 +198,6 @@
       USE   ppm_module_fdsolver_fft_bd
       USE   ppm_module_fdsolver_poisson
   
-      IMPLICIT NONE
 
 #if   __KIND == __SINGLE_PRECISION
       INTEGER, PARAMETER :: MK = ppm_kind_single

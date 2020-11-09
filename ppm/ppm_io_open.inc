@@ -99,7 +99,6 @@
       USE ppm_module_write
       USE ppm_module_alloc
       USE ppm_module_io_unused_unit
-      IMPLICIT NONE
       !-------------------------------------------------------------------------
       !  Includes
       !-------------------------------------------------------------------------

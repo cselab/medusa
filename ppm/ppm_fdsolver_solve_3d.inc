@@ -260,7 +260,6 @@
       USE   ppm_module_fdsolver_fft_bd
  
 
-      IMPLICIT NONE
 
 
 #if   __KIND == __SINGLE_PRECISION

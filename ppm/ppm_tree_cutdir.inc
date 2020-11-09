@@ -103,7 +103,6 @@
       USE ppm_module_write
       USE ppm_module_util_eigen_2sym
       USE ppm_module_util_eigen_3sym
-      IMPLICIT NONE
 #if   __KIND == __SINGLE_PRECISION
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #elif __KIND == __DOUBLE_PRECISION

@@ -49,7 +49,6 @@
 
       SUBROUTINE ppm_write(rank,caller,cbuf,info,iUnit)
       USE ppm_module_data, ONLY : ppm_stdout, ppm_char
-      IMPLICIT NONE
       !-------------------------------------------------------------------------
       !  Arguments     
       !-------------------------------------------------------------------------

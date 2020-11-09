@@ -120,7 +120,6 @@
         USE ppm_module_mg_smooth         
         USE ppm_module_write
 
-        IMPLICIT NONE
 
 #ifdef __MPI
       USE MPI

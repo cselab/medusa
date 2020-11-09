@@ -186,7 +186,6 @@
       USE ppm_module_write
       USE ppm_module_check_meshid
       USE ppm_module_util_invert_list
-      IMPLICIT NONE
 #if    __KIND == __SINGLE_PRECISION | __KIND == __SINGLE_PRECISION_COMPLEX
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #else

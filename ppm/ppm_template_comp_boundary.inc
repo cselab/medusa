@@ -110,7 +110,6 @@
       USE ppm_module_map
       USE ppm_module_bem
 
-      IMPLICIT NONE
 
       !-------------------------------------------------------------------------
       !  Includes

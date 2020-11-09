@@ -106,7 +106,6 @@
        USE ppm_module_check_meshid
 
 
-      IMPLICIT NONE
 
 #if   __KIND == __SINGLE_PRECISION | __KIND == __COMPLEX 
       INTEGER, PARAMETER :: MK = ppm_kind_single

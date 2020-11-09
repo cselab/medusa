@@ -151,7 +151,6 @@
       USE ppm_module_substart
       USE ppm_module_substop
       USE ppm_module_error
-      IMPLICIT NONE
 #if   __KIND == __SINGLE_PRECISION | __KIND == __SINGLE_PRECISION_COMPLEX
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #elif __KIND == __DOUBLE_PRECISION | __KIND == __DOUBLE_PRECISION_COMPLEX
@@ -216,7 +215,6 @@
       REAL(MK)   , DIMENSION(:)  , INTENT(IN   ) :: kpar
       INTERFACE
           FUNCTION kernel(x,kpar)
-              IMPLICIT NONE
 #if   __KIND == __SINGLE_PRECISION | __KIND == __SINGLE_PRECISION_COMPLEX
               INTEGER, PARAMETER :: MK = KIND(1.0E0)
 #elif __KIND == __DOUBLE_PRECISION | __KIND == __DOUBLE_PRECISION_COMPLEX
@@ -231,7 +229,6 @@
       COMPLEX(MK), DIMENSION(:)  , INTENT(IN   ) :: kpar
       INTERFACE
           FUNCTION kernel(x,kpar)
-              IMPLICIT NONE
 #if   __KIND == __SINGLE_PRECISION | __KIND == __SINGLE_PRECISION_COMPLEX
               INTEGER, PARAMETER :: MK = KIND(1.0E0)
 #elif __KIND == __DOUBLE_PRECISION | __KIND == __DOUBLE_PRECISION_COMPLEX

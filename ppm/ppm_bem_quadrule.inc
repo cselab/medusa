@@ -82,7 +82,6 @@
       USE ppm_module_substop
       USE ppm_module_error
       USE ppm_module_bem_quadrule_npoints
-      IMPLICIT NONE
       !-------------------------------------------------------------------------
       !  Type kind
       !-------------------------------------------------------------------------

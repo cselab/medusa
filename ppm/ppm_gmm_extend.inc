@@ -248,7 +248,6 @@
       USE ppm_module_gmm_cpt
       USE ppm_module_gmm_march
       USE ppm_module_gmm_finalize
-      IMPLICIT NONE
 #if    __KIND == __SINGLE_PRECISION | __KIND == __SINGLE_PRECISION_COMPLEX
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #else

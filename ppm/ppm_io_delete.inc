@@ -66,7 +66,6 @@
       USE ppm_module_substop
       USE ppm_module_error
       USE ppm_module_io_unused_unit
-      IMPLICIT NONE
       !-------------------------------------------------------------------------
       !  Arguments     
       !-------------------------------------------------------------------------

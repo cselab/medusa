@@ -183,7 +183,6 @@
       USE ppm_module_check_topoid
       USE ppm_module_check_meshid
       
-      IMPLICIT NONE
 
 
 

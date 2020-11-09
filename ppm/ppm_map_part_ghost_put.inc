@@ -54,7 +54,6 @@
       USE ppm_module_alloc
       USE ppm_module_substart
       USE ppm_module_substop
-      IMPLICIT NONE
       !-------------------------------------------------------------------------
       !  This routine is ALL integer, except the timing variable t0
       !  We pick double as the precision - no real reason for that 

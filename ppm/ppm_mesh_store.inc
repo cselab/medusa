@@ -90,7 +90,6 @@
       USE ppm_module_substart
       USE ppm_module_substop
       USE ppm_module_check_topoid
-      IMPLICIT NONE
       !-------------------------------------------------------------------------
       !  Includes
       !-------------------------------------------------------------------------

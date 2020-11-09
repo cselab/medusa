@@ -149,7 +149,6 @@
       USE ppm_module_util_cart2sph
       USE ppm_module_write
 
-      IMPLICIT NONE
 
       !-------------------------------------------------------------------------
       !  Includes

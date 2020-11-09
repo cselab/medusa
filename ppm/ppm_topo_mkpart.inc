@@ -313,7 +313,6 @@
       USE ppm_module_decomp_pruned_cell
       USE ppm_module_tree
       USE ppm_module_topo_box2subs
-      IMPLICIT NONE
 #if    __KIND == __SINGLE_PRECISION
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #elif  __KIND == __DOUBLE_PRECISION

@@ -63,7 +63,6 @@
         USE ppm_module_data_ode
         USE ppm_module_data
         
-        IMPLICIT NONE
         
         !-----------------------------------------------------------------------
         !  Arguments

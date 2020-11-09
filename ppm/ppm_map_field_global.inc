@@ -134,7 +134,6 @@
       USE ppm_module_check_topoid
       USE ppm_module_check_meshid
       USE ppm_module_mesh_block_intersect
-      IMPLICIT NONE
       !-------------------------------------------------------------------------
       !  Arguments     
       !-------------------------------------------------------------------------

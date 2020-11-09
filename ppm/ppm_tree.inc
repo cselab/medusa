@@ -299,7 +299,6 @@
       USE ppm_module_tree_done
       USE ppm_module_util_rank
       USE ppm_module_decomp_tree
-      IMPLICIT NONE
 #if   __KIND == __SINGLE_PRECISION
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #elif __KIND == __DOUBLE_PRECISION

@@ -99,7 +99,6 @@
       USE ppm_module_error
       USE ppm_module_write
       USE ppm_module_util_cubeq_real
-      IMPLICIT NONE
 #if   __KIND == __SINGLE_PRECISION
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #elif __KIND == __DOUBLE_PRECISION

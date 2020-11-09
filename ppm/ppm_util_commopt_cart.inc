@@ -97,7 +97,6 @@
       USE ppm_module_error
       USE ppm_module_alloc
       USE ppm_module_check_topoid
-      IMPLICIT NONE
       !-------------------------------------------------------------------------
       !  Includes
       !-------------------------------------------------------------------------

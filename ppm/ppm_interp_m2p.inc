@@ -169,7 +169,6 @@
       USE ppm_module_write
       USE ppm_module_check_topoid
       USE ppm_module_check_meshid
-      IMPLICIT NONE
             
 #if   __KIND == __SINGLE_PRECISION
       INTEGER, PARAMETER :: MK = ppm_kind_single

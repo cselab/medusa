@@ -79,7 +79,6 @@
       USE ppm_module_error
       USE ppm_module_alloc
       USE ppm_module_util_invert_list
-      IMPLICIT NONE
 
       !-------------------------------------------------------------------------
       !  Includes

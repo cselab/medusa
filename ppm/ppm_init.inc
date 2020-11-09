@@ -163,7 +163,6 @@
       USE ppm_module_alloc
       USE ppm_module_print_defines
       USE ppm_module_io_set_unit
-      IMPLICIT NONE
       !-------------------------------------------------------------------------
       !  Includes
       !-------------------------------------------------------------------------

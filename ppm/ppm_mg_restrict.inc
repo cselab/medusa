@@ -99,7 +99,6 @@
         USE ppm_module_map_field_ghost
        
 
-        IMPLICIT NONE
 #if    __KIND == __SINGLE_PRECISION
         INTEGER, PARAMETER :: MK = ppm_kind_single
 #else

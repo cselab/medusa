@@ -84,7 +84,6 @@
       USE ppm_module_substop
       USE ppm_module_error
       USE ppm_module_alloc
-      IMPLICIT NONE
       !-------------------------------------------------------------------------
       !  Arguments     
       !-------------------------------------------------------------------------

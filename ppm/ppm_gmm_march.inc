@@ -178,7 +178,6 @@
       USE ppm_module_gmm_march_bkwd
       USE ppm_module_gmm_extend_fwd
       USE ppm_module_gmm_extend_bkwd
-      IMPLICIT NONE
 #if    __KIND == __SINGLE_PRECISION
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #else

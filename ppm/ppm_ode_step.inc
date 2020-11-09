@@ -140,7 +140,6 @@
         USE ppm_module_error
 
         
-        IMPLICIT NONE
 #if     __KIND == __SINGLE_PRECISION
         INTEGER, PARAMETER :: mk = ppm_kind_single
 #else

@@ -114,7 +114,6 @@
       USE ppm_module_error
       USE ppm_module_alloc
       USE ppm_module_mesh_finalize
-      IMPLICIT NONE
       !-------------------------------------------------------------------------
       !  Arguments     
       !-------------------------------------------------------------------------

@@ -170,7 +170,6 @@
       USE ppm_module_map_part_send
       USE ppm_module_map_part_pop
       USE ppm_module_map_part_ghost_pop
-      IMPLICIT NONE
 #if    __KIND == __SINGLE_PRECISION | __KIND == __SINGLE_PRECISION_COMPLEX | __KIND_AUX == __SINGLE_PRECISION
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #else

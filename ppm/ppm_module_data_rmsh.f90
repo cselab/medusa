@@ -34,7 +34,6 @@
         !-----------------------------------------------------------------------
         USE ppm_module_data,ONLY:ppm_kind_single,ppm_kind_double
         !PRIVATE :: ppm_kind_single,ppm_kind_double
-        IMPLICIT NONE
         ! time
         REAL(KIND(1.0D0)) :: t0
 

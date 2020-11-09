@@ -105,7 +105,6 @@
       USE ppm_module_error
       USE ppm_module_substart
       USE ppm_module_substop
-      IMPLICIT NONE
       !-------------------------------------------------------------------------
       !  Includes
       !-------------------------------------------------------------------------

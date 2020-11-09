@@ -105,7 +105,6 @@
 
 
 
-        IMPLICIT NONE
 #if    __KIND == __SINGLE_PRECISION
         INTEGER, PARAMETER :: MK = ppm_kind_single
 #else

@@ -167,7 +167,6 @@
       USE ppm_module_io_read_binary
       USE ppm_module_io_write_ascii
       USE ppm_module_io_write_binary
-      IMPLICIT NONE
 #if    __KIND == __SINGLE_PRECISION | __KIND == __SINGLE_PRECISION_COMPLEX
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #else

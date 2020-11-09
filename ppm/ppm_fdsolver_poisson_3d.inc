@@ -73,7 +73,6 @@
        USE ppm_module_write
        USE ppm_module_error
 
-      IMPLICIT NONE
 
 #if   __KIND == __COMPLEX 
       INTEGER, PARAMETER :: MK = ppm_kind_single

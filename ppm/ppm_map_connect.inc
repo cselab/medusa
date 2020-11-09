@@ -92,7 +92,6 @@
       USE ppm_module_map_connect_distrib
       USE ppm_module_map_connect_send
       USE ppm_module_map_connect_prune
-      IMPLICIT NONE
 
       !-------------------------------------------------------------------------
       !  Includes

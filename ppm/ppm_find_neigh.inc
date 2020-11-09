@@ -115,7 +115,6 @@
       USE ppm_module_copy_image_subs
       USE ppm_module_util_rank
       USE ppm_module_neighlist_MkNeighIdx
-      IMPLICIT NONE
 #if   __KIND == __SINGLE_PRECISION
       INTEGER, PARAMETER :: MK = ppm_kind_single
 #elif __KIND == __DOUBLE_PRECISION
