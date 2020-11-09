@@ -368,27 +368,27 @@
      &  data_in(1,1), MBiEmbed,MBIstride,MBiDist, &
      &  data_out(1,1),MBoEmbed,MBIstride,MBoDist,FFTW_ESTIMATE)
           CALL sfftw_execute(Plan)
-          CALL sfftw_destroy_plan(Plan)
+          CALL fftw_destroy_plan(Plan)
 #elif __KIND == __DOUBLE_PRECISION
       CALL dfftw_plan_many_dft_c2r(Plan, MBRank,Nx_out, MBHowmany, &
      &  data_in(1,1), MBiEmbed,MBIstride,MBiDist, &
      &  data_out(1,1),MBoEmbed,MBIstride,MBoDist,FFTW_ESTIMATE)
           CALL dfftw_execute(Plan)
-          CALL dfftw_destroy_plan(Plan)
+          CALL fftw_destroy_plan(Plan)
 #elif __KIND == __SINGLE_PRECISION_COMPLEX
       CALL sfftw_plan_many_dft(Plan, MBRank,Nx_out, MBHowmany, &
      &  data_in(1,1), MBiEmbed,MBIstride,MBiDist, &
      &  data_out(1,1),MBoEmbed,MBIstride,MBoDist, &
      &  FFTW_BACKWARD, FFTW_ESTIMATE)
           CALL sfftw_execute(Plan)
-          CALL sfftw_destroy_plan(Plan)
+          CALL fftw_destroy_plan(Plan)
 #elif __KIND == __DOUBLE_PRECISION_COMPLEX
       CALL dfftw_plan_many_dft(Plan, MBRank,Nx_out, MBHowmany, &
      &  data_in(1,1), MBiEmbed,MBIstride,MBiDist, &
      &  data_out(1,1),MBoEmbed,MBIstride,MBoDist, &
      &  FFTW_BACKWARD, FFTW_ESTIMATE)
           CALL dfftw_execute(Plan)
-          CALL dfftw_destroy_plan(Plan)
+          CALL fftw_destroy_plan(Plan)
 #endif
 
 

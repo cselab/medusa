@@ -96,26 +96,26 @@
 
 
 #ifdef __FFTW
-      CALL sfftw_destroy_plan(Plan_fd_s)
-      CALL sfftw_destroy_plan(Plan_fd_c_y)
-      CALL sfftw_destroy_plan(Plan_fd_c_z)
-      CALL sfftw_destroy_plan(Plan_bd_s)
-      CALL sfftw_destroy_plan(Plan_bd_c_y)
-      CALL sfftw_destroy_plan(Plan_bd_c_z)
+      CALL fftw_destroy_plan(Plan_fd_s)
+      CALL fftw_destroy_plan(Plan_fd_c_y)
+      CALL fftw_destroy_plan(Plan_fd_c_z)
+      CALL fftw_destroy_plan(Plan_bd_s)
+      CALL fftw_destroy_plan(Plan_bd_c_y)
+      CALL fftw_destroy_plan(Plan_bd_c_z)
 
-      CALL sfftw_destroy_plan(Plan_slab_fd_s)
-      CALL sfftw_destroy_plan(Plan_slab_bd_s)
+      CALL fftw_destroy_plan(Plan_slab_fd_s)
+      CALL fftw_destroy_plan(Plan_slab_bd_s)
 
-      CALL dfftw_destroy_plan(Plan_fd_d)
-      CALL dfftw_destroy_plan(Plan_fd_cc_y)
-      CALL dfftw_destroy_plan(Plan_fd_cc_z)
-      CALL dfftw_destroy_plan(Plan_bd_d)
-      CALL dfftw_destroy_plan(Plan_bd_cc_y)
-      CALL dfftw_destroy_plan(Plan_bd_cc_z)
+      CALL fftw_destroy_plan(Plan_fd_d)
+      CALL fftw_destroy_plan(Plan_fd_cc_y)
+      CALL fftw_destroy_plan(Plan_fd_cc_z)
+      CALL fftw_destroy_plan(Plan_bd_d)
+      CALL fftw_destroy_plan(Plan_bd_cc_y)
+      CALL fftw_destroy_plan(Plan_bd_cc_z)
 
 
-      CALL dfftw_destroy_plan(Plan_slab_fd_d)
-      CALL dfftw_destroy_plan(Plan_slab_bd_d)
+      CALL fftw_destroy_plan(Plan_slab_fd_d)
+      CALL fftw_destroy_plan(Plan_slab_bd_d)
 
 #endif
 
