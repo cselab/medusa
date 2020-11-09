@@ -6,4 +6,4 @@ FCFLAGS = -O2 -g
 # FXFLAGS = -cpp
 
 # gfortran >= 10
-FXFLAGS = -cpp -fallow-argument-mismatch
+FXFLAGS = -cpp -fallow-argument-mismatch -Wimplicit-interface
