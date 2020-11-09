@@ -143,7 +143,7 @@
        USE ppm_module_error
 #ifdef  __FFTW
       USE, INTRINSIC :: ISO_C_BINDING
-      INCLUDE "fftw3.f"
+      INCLUDE 'fftw3.f03'
 #endif
 #if   __KIND == __SINGLE_PRECISION | __KIND == __COMPLEX 
       INTEGER, PARAMETER :: MK = ppm_kind_single

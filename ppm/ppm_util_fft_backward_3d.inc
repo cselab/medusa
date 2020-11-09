@@ -100,7 +100,7 @@
       USE ppm_module_alloc
 #ifdef  __FFTW
       USE, INTRINSIC :: ISO_C_BINDING
-      INCLUDE "fftw3.f"
+      INCLUDE 'fftw3.f03'
 #endif
 #if   __KIND == __SINGLE_PRECISION | __KIND ==__SINGLE_PRECISION_COMPLEX 
       INTEGER, PARAMETER :: MK = ppm_kind_single

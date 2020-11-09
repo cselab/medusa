@@ -65,7 +65,7 @@
        USE ppm_module_data_fieldsolver
 #ifdef  __FFTW
       USE, INTRINSIC :: ISO_C_BINDING
-      INCLUDE "fftw3.f"
+      INCLUDE 'fftw3.f03'
 #endif
       !-------------------------------------------------------------------------
       !  FFTW include
