@@ -98,6 +98,9 @@
       USE ppm_module_data
       USE ppm_module_write
       USE ppm_module_log
+#ifdef __MPI
+      USE MPI
+#endif
       !-------------------------------------------------------------------------
       !  Arguments     
       !-------------------------------------------------------------------------
