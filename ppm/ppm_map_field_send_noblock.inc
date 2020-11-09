@@ -140,6 +140,7 @@
       !  Non-blocking
       !-----------------------------------------------------
       INTEGER               :: kbuffer, kreq, rindex
+      INTEGER		    :: status(MPI_STATUS_SIZE)
       INTEGER, DIMENSION(:), POINTER :: klist => null()
       INTEGER, DIMENSION(:), POINTER :: isendoff => null()
       INTEGER, DIMENSION(:), POINTER :: irecvoff => null()
@@ -821,7 +822,7 @@
          
 #endif
          DO 
-            CALL MPI_WaitAny(kreqrecv,recvreqs,rindex,MPI_STATUSES_IGNORE,info)
+            CALL MPI_WaitAny(kreqrecv,recvreqs,rindex,status,info)
             IF(rindex.EQ.MPI_UNDEFINED) EXIT
             k = klistrecv(rindex)
             kbuffer = irecvoff(k)-1
@@ -920,7 +921,7 @@
 #endif
          
          DO 
-            CALL MPI_WaitAny(kreqrecv,recvreqs,rindex,MPI_STATUSES_IGNORE,info)
+            CALL MPI_WaitAny(kreqrecv,recvreqs,rindex,status,info)
             IF(rindex.EQ.MPI_UNDEFINED) EXIT
             k = klistrecv(rindex)
             kbuffer = irecvoff(k)-1
