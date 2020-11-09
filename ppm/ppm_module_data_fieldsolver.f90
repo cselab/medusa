@@ -31,17 +31,18 @@
 MODULE ppm_module_data_fieldsolver
 
    USE ppm_module_data,ONLY:ppm_kind_single,ppm_kind_double
+   USE, INTRINSIC :: iso_c_binding
    PRIVATE :: ppm_kind_single,ppm_kind_double
 
       ! FFTW Plans
-      INTEGER*8 Plan_fd_s,     Plan_fd_d 
-      INTEGER*8 Plan_slab_fd_s,Plan_slab_fd_d 
-      INTEGER*8 Plan_fd_c_y,   Plan_fd_cc_y
-      INTEGER*8 Plan_fd_c_z,   Plan_fd_cc_z 
-      INTEGER*8 Plan_bd_s,     Plan_bd_d
-      INTEGER*8 Plan_slab_bd_s,Plan_slab_bd_d 
-      INTEGER*8 Plan_bd_c_y,   Plan_bd_cc_y
-      INTEGER*8 Plan_bd_c_z,   Plan_bd_cc_z 
+      type(C_PTR) Plan_fd_s,     Plan_fd_d
+      type(C_PTR) Plan_slab_fd_s,Plan_slab_fd_d
+      type(C_PTR) Plan_fd_c_y,   Plan_fd_cc_y
+      type(C_PTR) Plan_fd_c_z,   Plan_fd_cc_z
+      type(C_PTR) Plan_bd_s,     Plan_bd_d
+      type(C_PTR) Plan_slab_bd_s,Plan_slab_bd_d
+      type(C_PTR) Plan_bd_c_y,   Plan_bd_cc_y
+      type(C_PTR) Plan_bd_c_z,   Plan_bd_cc_z
 
 
       ! MATHKEISAN variables for MathKeisan FFTs
