@@ -3,7 +3,7 @@
 Needs `fftw3f` and `mpif90`.
 
 ```
-$ MAKEFLAGS=-j ./install.sh
+$ MAKEFLAGS=-j make
 ```
 
 Compilers and flags are in [conf.mk](conf.mk).
@@ -15,5 +15,5 @@ files.
 
 ```
 cd medusa
-mpirun -n 8 ./ppm_tv
+mpiexec -n 8 ./ppm_tv
 ```
