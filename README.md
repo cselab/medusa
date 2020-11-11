@@ -1,6 +1,6 @@
 # Install
 
-Needs `fftw3f` and `mpif90`.
+Needs `netcdf` and `mpif90`.
 
 ```
 $ MAKEFLAGS=-j make

@@ -3,10 +3,12 @@ FC = mpif90
 FCFLAGS = -O2 -g
 
 # gfortran < 10
-# FXFLAGS = -cpp
+FXFLAGS = -cpp
 
 # gfortran >= 10
-FXFLAGS = -cpp -fallow-argument-mismatch -Wimplicit-interface
+# FXFLAGS = -cpp -fallow-argument-mismatch -Wimplicit-interface
 
-FFTW_FCFLAGS = `pkg-config --cflags fftw3`
-FFTW_LDFLAGS = `pkg-config --libs fftw3 fftw3f fftw3l`
+NETCDF_CFLAGS = `pkg-config --cflags netcdf`
+NETCDF_LDFLAGS = `pkg-config --libs netcdf`
+#NETCDF_CFLAGS = -I/usr/lib/x86_64-linux-gnu/netcdf/mpi/include
+#NETCDF_LDFLAGS = -L/usr/lib/x86_64-linux-gnu/netcdf/mpi -lnetcdf

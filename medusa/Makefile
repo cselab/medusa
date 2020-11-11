@@ -8,12 +8,11 @@ all: $L
 include obj.mk
 
 PPM_FCFLAGS = -I$(PREFIX)/include
-PPM_LDFLAGS = -L$(PREFIX)/lib -lppm
+PPM_LDFLAGS = -L$(PREFIX)/lib -lppm -lfftw3f -lfftw3
 LINK = $(FC)
 M = module_wvic.mod ppm_module_fft.mod wvic_module_io.mod
-M_LDFLAGS = -lnetcdff -lnetcdf
-$L: $O; $(LINK) $O $(LDFLAGS) $(PPM_LDFLAGS) $(FFTW_LDFLAGS) $(M_LDFLAGS) -o $@
-.f90.o:; $(FC) $< -c $(FCFLAGS) $(FXFLAGS) $(PPM_FCFLAGS) $(FFTW_FCFLAGS)
+$L: $O; $(LINK) $O $(LDFLAGS) $(PPM_LDFLAGS) -lnetcdff $(NETCDF_LDFLAGS) -o $@
+.f90.o:; $(FC) $< -c $(FCFLAGS) $(FXFLAGS) $(PPM_FCFLAGS)
 clean:; rm -f -- $L $O $M
 
 # ./tool/list *.f90 *.inc | ./tool/dep > dep.mk
