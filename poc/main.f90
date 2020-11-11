@@ -1,4 +1,3 @@
-! mpif90 main.f90 -I$HOME/.local/include -L$HOME/.local/lib -lfftw3 -lfftw3f
 program main
   USE, INTRINSIC :: ISO_C_BINDING
   INCLUDE 'fftw3.f03'
