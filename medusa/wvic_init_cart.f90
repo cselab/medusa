@@ -727,30 +727,6 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
   NULLIFY(ndata,isublist,sub2proc,sub_cost,proc_speed,sub_cost)
   ALLOCATE(proc_speed(nproc))
   
-#ifdef __TESTFLOATDECOMP !??? To delete?
-  WRITE(*,*) 'nsubs requested', nsubs
-  nsublist = flow_case
-  ALLOCATE(isublist(nsublist))
-  ALLOCATE(min_sub(3,nsubs))
-  ALLOCATE(max_sub(3,nsubs))
-  ALLOCATE(ndata(3,nsubs))
-  ALLOCATE(istart(3,nsubs))
-  ALLOCATE(sub2proc(nsubs))
-  !-----------------------------------------------------
-  decomposition = ppm_param_decomp_cartesian
-  assigning     = ppm_param_assign_internal
-  !----------------------------------------------------------------------------!
-  ! create the topology
-  CALL ppm_mktopo(xxp, -1, nx, decomposition, assigning, min_physg, max_physg,&
-       &          bcdef, ghostsize, topo_id, mesh_id, min_sub, max_sub,      &
-       &          sub_cost,  sub2proc, nsubs, isublist, nsublist, istart,    &
-       &          ndata, info,ndom=flow_case)
-  IF (INFO.EQ.0) WRITE(*,*) 'Created nsubs ', nsubs
-  IF (INFO.NE.0) WRITE(*,*) 'Could not create nsubs ', flow_case
-  CALL wvic_died
-  CALL MPI_Abort(comm,info)
-#endif
-
   !-----------------------------------------------------
   !  create user defined topology
   nsubs    = ndims(1)*ndims(2)*ndims(3)
