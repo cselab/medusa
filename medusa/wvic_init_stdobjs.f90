@@ -253,7 +253,7 @@ SUBROUTINE wvic_init_sphere_stokes
   CALL ppm_map_field_ghost(field_wp,lda,topo_id,mesh_id, &
        & ghostsize,maptype,info)
 
-  CALL wvic_imposezero_sphere
+  CALL wvic_imposezero_sphere(info)
 
 1122 CONTINUE
 

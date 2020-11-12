@@ -307,7 +307,10 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
      !-------------------------------------------------------------------------!
      ! Optional dumps
      !-------------------------------------------------------------------------
-
+     if (rank .eq. 0) then
+        WRITE(msg, '(A,I6)') 'itime = ', itime
+        CALL ppm_write(rank, 'wvic_tvdrk3', msg, info)
+     endif
      IF(MOD(itime,ndump).EQ.0) THEN
 	WRITE(msg,'(A)') 'H'
         CALL wvic_io_dump_field_vtk(field_H,ndata,msg, itime, info)
@@ -315,6 +318,10 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
         CALL wvic_io_dump_field_vtk(field_up,ndata,msg, itime, info)
 	WRITE(msg,'(A)') 'vrt'
         CALL wvic_io_dump_field_vtk(field_wp,ndata,msg, itime, info)
+        if (rank .eq. 0) then
+           WRITE(msg, '(A)') 'dump H, vel, and vrt files'
+           CALL ppm_write(rank, 'wvic_tvdrk3', msg, info)
+        end if
      END IF
      IF(MOD(itime,ndump).EQ.0) THEN
         CALL MPI_Barrier(comm,info)

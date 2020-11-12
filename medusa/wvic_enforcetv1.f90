@@ -342,7 +342,4 @@ SUBROUTINE wvic_enforcetv1
         END DO
      END IF
   END DO
-  !---- Vorticity has been initialized on the upstream boundary of the field.
-  WRITE(msg,*) ' enforced the upstream dirichlet condition '
-  IF(rank.EQ.0) CALL ppm_write(rank,'wvic_enforcetv1',msg,info)
 END SUBROUTINE wvic_enforcetv1
