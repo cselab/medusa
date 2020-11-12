@@ -27,6 +27,8 @@ SUBROUTINE wvic_enforcetv2
   USE ppm_module_write
   USE ppm_module_map
   USE MPI
+  USE, INTRINSIC :: ISO_C_BINDING
+  INCLUDE 'fftw3.f03'
 
   !----------------------------------------------------------------------------!
   ! localities: noise stuff
@@ -98,7 +100,6 @@ SUBROUTINE wvic_enforcetv2
 #endif
 
 #ifdef SOLVE_WFFTW
-  INCLUDE 'fftw3.f'
   COMPLEX(mk), DIMENSION(:,:), POINTER :: upstream_planec
   INTEGER                                       :: idist, odist, frank
   INTEGER                                       :: istride, ostride

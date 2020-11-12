@@ -59,8 +59,8 @@
         USE ppm_module_mesh_define
         USE ppm_module_write
         
-
-        INCLUDE 'fftw3.f'
+        USE, INTRINSIC :: ISO_C_BINDING
+        INCLUDE 'fftw3.f03'
         
         INTEGER, PARAMETER :: mk = ppm_kind_single
         !-----------------------------------------------------------------------

@@ -6,8 +6,6 @@ awk '
     adj[$1, ++n[$1]] = $2
 }
 END {
-    ban["fftw3.f"]
-    ban["netcdf.f"]
     for (s in n)
 	if (s ~ /\.f90$/)
 	    dfs(s)
@@ -21,8 +19,7 @@ function dfs(s,   q, i, j, k, seen, nxt, c) {
 	    nxt = adj[c, k]
 	    if (!(nxt in seen)) {
 		q[++j] = nxt
-		if (!(nxt in ban))
-		    print f2obj(s) " : " name[nxt]
+		print f2obj(s) " : " name[nxt]
 	    }
 	}
     }
