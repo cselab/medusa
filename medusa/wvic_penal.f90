@@ -13,6 +13,7 @@ SUBROUTINE wvic_penalization_explicit (info)
 
   USE module_wvic
   USE ppm_module_write
+  USE MPI
 
   !----------------------------------------------------------------------------!
   !  Arguments
@@ -32,12 +33,6 @@ SUBROUTINE wvic_penalization_explicit (info)
   REAL(mk), DIMENSION(3)     :: alphau,alphaw,alphaRHS,galphaRHS,galphausum,galphawsum
   REAL(mk)                   :: dV
   INTEGER                    :: ios
-  
-  INCLUDE 'mpif.h'
-
-
-
-
 !  lambda=penalization_lambda/dt
 
 #ifdef _showsmaximumdomegacontributionfromstretchinganddiffusion
@@ -229,6 +224,7 @@ SUBROUTINE wvic_penalization_implicit (info)
   USE ppm_module_interp_p2m
   USE ppm_module_data
   USE ppm_module_map_field_ghost
+  USE MPI
 
   !----------------------------------------------------------------------------!
   !  Arguments
@@ -255,9 +251,6 @@ SUBROUTINE wvic_penalization_implicit (info)
   REAL(mk)                 :: tx, ty, tz
   CHARACTER(len=256)       :: filename
   INTEGER                  :: ios
-
-
-  INCLUDE 'mpif.h'
 
   !----------------------------------------------------------------------------!
   ! Interpolate particle vorticity to mesh

@@ -705,6 +705,7 @@ SUBROUTINE wvic_imposezero_sphere (info)
 
   USE module_wvic
   USE ppm_module_write
+  USE MPI
 
   !----------------------------------------------------------------------------!
   !  Arguments
@@ -717,8 +718,6 @@ SUBROUTINE wvic_imposezero_sphere (info)
   INTEGER :: isub, i , j , k, isubl
   REAL(mk) :: tim1s, tim1e
   CHARACTER(len=256) :: msg
-
-  INCLUDE 'mpif.h'
 
 !??  tim1s = MPI_WTIME()
 

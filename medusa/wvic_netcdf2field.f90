@@ -50,8 +50,8 @@ SUBROUTINE wvic_netcdf2field (info)
   USE module_wvic
   USE ppm_module_write
   USE netcdf
-  
-  INCLUDE 'mpif.h'
+  USE MPI
+
   
   !----------------------------------------------------------------------------!
   ! arguments

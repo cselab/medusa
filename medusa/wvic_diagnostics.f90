@@ -42,6 +42,7 @@ SUBROUTINE wvic_diagnostics (info)
 
   USE module_wvic
   USE ppm_module_write
+  USE MPI
 
   INTEGER , INTENT(inout) :: info
   INTEGER, PARAMETER :: md = kind(1.0d0)
@@ -81,8 +82,6 @@ SUBROUTINE wvic_diagnostics (info)
   REAL(mk), DIMENSION(3) :: forcewmoment, lforcewmoment, gforcewmoment
   REAL(mk), DIMENSION(3*nforces) :: forcenoca
   REAL(mk), DIMENSION(3*nforces) :: nocadimensions
-
-  INCLUDE 'mpif.h'
 
   dv = dx*dy*dz
 
@@ -557,6 +556,7 @@ SUBROUTINE wvic_diagnostics_trail(info)
 
   USE module_wvic
   USE ppm_module_write
+  USE MPI
 
   INTEGER , INTENT(inout) :: info
   INTEGER, PARAMETER :: md = kind(1.0d0)
@@ -602,8 +602,6 @@ SUBROUTINE wvic_diagnostics_trail(info)
   REAL(md), DIMENSION(:), POINTER :: lengofx_d, gengofx_d
   REAL(md), DIMENSION(:), POINTER :: lxomegaofx_d, gxomegaofx_d
   REAL(md), DIMENSION(:), POINTER :: lyomegaofx_d, gyomegaofx_d
-  
-  INCLUDE 'mpif.h'
 
   dv = dx*dy*dz
 

@@ -110,6 +110,7 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
 !  USE netcdf
 !  USE ppm_module_map_field_ghost
   USE ppm_module_rmsh_create_part
+  USE MPI
 
 
   INTERFACE
@@ -155,7 +156,6 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
   REAL(mk), DIMENSION(3,1,1,1) :: ibcvalue
   REAL(mk), DIMENSION(:,:),POINTER     :: XXP => NULL()
   LOGICAL :: periods(3) = .TRUE.
-  INCLUDE 'mpif.h'
   !-----------------------------------------------------
   !  memory measurements
   !-----------------------------------------------------

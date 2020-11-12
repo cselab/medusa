@@ -170,6 +170,7 @@ SUBROUTINE wvic_stepfunc_medusa
   USE ppm_module_fdsolver_solve
   USE ppm_module_map
   USE ppm_module_fft
+  USE MPI
 
   REAL(MK), EXTERNAL :: stepfunction1
   !----------------------------------------------------------------------------!
@@ -202,8 +203,6 @@ SUBROUTINE wvic_stepfunc_medusa
   INTEGER                  :: imin,imax,jmin,jmax,kmin,kmax
   LOGICAL                  :: inside,offofpanel,offofpanel_cand
   REAL(mk)                 :: ubarmax
-  !----------------------------------------------------------------------------!
-  INCLUDE 'mpif.h'
 
   !----------------------------------------------------------------------------!
   ! localities: stuff stuff

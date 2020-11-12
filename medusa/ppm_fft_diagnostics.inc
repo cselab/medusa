@@ -62,6 +62,7 @@
         USE ppm_module_alloc
         USE ppm_module_mesh_define
         USE ppm_module_write
+        USE MPI
         
 
         INCLUDE 'fftw3.f'
@@ -158,9 +159,6 @@
 #endif
         INTEGER                                       :: ig,jg,kg
         REAL(mk), DIMENSION(3)                        :: length
-        
-        INCLUDE 'mpif.h'
-        
         
 #if   __WHAT == __KESPECTRUM
         WRITE(pnm,*) 'ppm_fft_kespectrum'

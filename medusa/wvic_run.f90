@@ -48,6 +48,7 @@ SUBROUTINE wvic_run (niter, info)
   !--- mapping
   USE ppm_module_map_part
   USE ppm_module_topo_check
+  USE MPI
 
   !-----------------------------------------------------------------------------
   !  Interfaces
@@ -114,7 +115,6 @@ SUBROUTINE wvic_run (niter, info)
   LOGICAL            :: ok
   REAL(mk)           :: tim1s, tim1e, timr1, timr2
   LOGICAL            :: abort = .FALSE.
-  INCLUDE 'mpif.h'
   REAL(mk) :: cpu1, cpu2
   INTEGER :: clockspersec, t1_dum, t2_dum
   !-----------------------------------------------------

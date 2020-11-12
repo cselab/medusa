@@ -30,6 +30,7 @@ SUBROUTINE wvic_init_physics_6
   USE ppm_module_rmsh_create_part
   USE ppm_module_fdsolver_solve
   USE ppm_module_fft
+  USE MPI
 
   !-----------------------------------------------------------------------------
   ! interfaces
@@ -88,8 +89,6 @@ SUBROUTINE wvic_init_physics_6
   !-----------------------------------------------------------------------------
   ! localities: timing counters
   INTEGER  :: c1,c2,c3,c4,c5,c6
-  
-  INCLUDE 'mpif.h'
   !-----------------------------------------------------------------------------
   ! = WHAT HAS TO BE DONE? =
   ! - generate noisy vorticity

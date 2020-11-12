@@ -106,6 +106,7 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
   USE ppm_module_map_part
   USE ppm_module_topo_check
   USE ppm_module_map_field_ghost !JTR
+  USE MPI
   
   !----------------------------------------------------------------------------!
   !  Interfaces
@@ -184,7 +185,6 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
   LOGICAL            :: ok
   REAL(mk)           :: tim1s, tim1e, timr1, timr2
   LOGICAL            :: abort = .FALSE.
-  INCLUDE 'mpif.h'
   REAL(mk) :: cpu1, cpu2
   INTEGER :: clockspersec, t1_dum, t2_dum
 

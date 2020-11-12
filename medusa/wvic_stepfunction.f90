@@ -214,6 +214,7 @@ SUBROUTINE wvic_stepfunc_plate
 
   USE module_wvic
   USE ppm_module_write
+  USE MPI
 
   CHARACTER(len=256) :: msg
   INTEGER, PARAMETER :: md = kind(2.0d0)
@@ -223,7 +224,6 @@ SUBROUTINE wvic_stepfunc_plate
   REAL(mk), DIMENSION(12,3,3):: blockdata
   REAL(mk), DIMENSION(3)     :: vert1,vert2,vert3,vert4,vert5,vert6,vert7,vert8
   REAL(mk), DIMENSION(3)     :: t_center
-  INCLUDE 'mpif.h'
 
 
   t_center = 0.5_mk*(max_physg + min_physg) + object_offset 
@@ -542,8 +542,7 @@ SUBROUTINE wvic_stepfunc_complex
   USE ppm_module_fdsolver_solve
   USE ppm_module_map
   USE ppm_module_fft
-
-  INCLUDE 'mpif.h' !JTR - fjern naar mpi ikke er noedvendig
+  USE MPI
 
   INTEGER, PARAMETER :: md = kind(2.0d0)
 
@@ -1187,6 +1186,7 @@ SUBROUTINE wvic_calculate_mass(info)
   USE module_wvic
   USE ppm_module_data
   USE ppm_module_map_field_ghost
+  USE MPI
 
 
   INTEGER, INTENT(out)  :: info
@@ -1198,7 +1198,6 @@ SUBROUTINE wvic_calculate_mass(info)
                          & sum_cmassz,gsum_cmassz
   REAL(mk)              :: tx,ty,tz
   CHARACTER(len=256)       :: msg
-  INCLUDE 'mpif.h'
 
   dv=dx*dy*dz
   sum_mass = 0.0_mk

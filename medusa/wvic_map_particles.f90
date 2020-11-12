@@ -28,6 +28,7 @@ SUBROUTINE wvic_map_particles (pmaptype,info)
   USE ppm_module_map
   USE ppm_module_data
   USE ppm_module_write
+  USE MPI
 
   !-----------------------------------------------------------------------------
   !  arguments
@@ -36,7 +37,6 @@ SUBROUTINE wvic_map_particles (pmaptype,info)
                                    ! partial or global
   INTEGER, INTENT(inout) :: info
 
-  INCLUDE 'mpif.h'
   
   !-----------------------------------------------------------------------------
   !  locals

@@ -17,6 +17,7 @@ SUBROUTINE wvic_barycentric
   USE ppm_module_write
   USE ppm_module_map_field_ghost
   USE ppm_module_rmsh_create_part
+  USE MPI
 
   REAL(MK), EXTERNAL :: stepfunction1
   CHARACTER(len=156) :: msg
@@ -33,9 +34,6 @@ SUBROUTINE wvic_barycentric
   INTEGER                  :: imin,imax,jmin,jmax,kmin,kmax
   REAL(mk)                 :: minimumdist,diag
   REAL(mk)                 :: int1,int2,int3,int4,int5,int6
-  INCLUDE 'mpif.h'
-
-
 
   fixpoints(1,1) = min_physg(1)
   fixpoints(1,2) = min_physg(2)
