@@ -352,8 +352,6 @@ SUBROUTINE wvic_init_helphysics_0
   maptype = ppm_param_map_pop
   CALL ppm_map_field_ghost(field_wp,lda,topo_id,mesh_id, &
        & ghostsize,maptype,info)
-  CALL ppm_write(rank,'wvic_init_helphysics_0','ghst complete',info)
-
 1122 CONTINUE
 
   !----------------------------------------------------------------------------!
