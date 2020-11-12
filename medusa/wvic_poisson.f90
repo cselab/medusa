@@ -52,7 +52,6 @@ SUBROUTINE wvic_poisson_fft (info)
   USE ppm_module_write
   USE ppm_module_fdsolver_solve
   USE ppm_module_fft
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   !  Arguments
@@ -200,12 +199,10 @@ SUBROUTINE wvic_poisson_mg (info)
   USE ppm_module_write
   USE ppm_module_mg
   
-  IMPLICIT NONE
 
   INTERFACE
      SUBROUTINE wvic_alloc_field (vfield_up, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :, :, :, :), POINTER :: vfield_up
        INTEGER, INTENT (Out) :: info
      END SUBROUTINE wvic_alloc_field

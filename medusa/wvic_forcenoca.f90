@@ -13,7 +13,6 @@ SUBROUTINE wvic_forcenoca (tforcenoca,gnocadimensions,info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
 
 
 

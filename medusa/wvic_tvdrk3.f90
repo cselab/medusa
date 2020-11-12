@@ -106,7 +106,6 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
   USE ppm_module_map_part
   USE ppm_module_topo_check
   USE ppm_module_map_field_ghost !JTR
-  IMPLICIT NONE
   
   !----------------------------------------------------------------------------!
   !  Interfaces
@@ -114,13 +113,11 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
   INTERFACE
      SUBROUTINE wvic_alloc_field (vfield_up, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :, :, :, :), POINTER :: vfield_up
        INTEGER, INTENT (Out) :: info
      END SUBROUTINE wvic_alloc_field
      SUBROUTINE wvic_alloc_field_4 (vfield_up, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :, :, :, :), POINTER :: vfield_up
        INTEGER, INTENT (Out) :: info
      END SUBROUTINE wvic_alloc_field_4
@@ -131,7 +128,6 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
           & ipack, lpack, rpack, info)
        USE module_wvic
        USE ppm_module_write
-       IMPLICIT NONE
        INTEGER, INTENT(in)                        :: vdime, vnp
        REAL(mk),DIMENSION(:,:), POINTER           :: vdummy, vxp, vup
        REAL(MK),DIMENSION(:,:), POINTER,OPTIONAL  :: rpack
@@ -147,7 +143,6 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
           &lpack, rpack, rkstep, info)
        USE module_wvic
        USE ppm_module_write
-       IMPLICIT NONE
        INTEGER, INTENT(in)               :: vdime, vnp
        REAL(mk),DIMENSION(:,:),POINTER     :: vxp, vwp, vdwp
        REAL(MK),DIMENSION(:,:), POINTER,OPTIONAL  :: rpack
@@ -827,7 +822,6 @@ END SUBROUTINE wvic_tvdrk3
 
 SUBROUTINE measure(tag,which)
   USE module_wvic
-  IMPLICIT NONE
   INTEGER    :: tag,which
   
 #ifdef __WITH_MEMORY_MEASUREMENT__

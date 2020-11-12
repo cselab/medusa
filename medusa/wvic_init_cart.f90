@@ -111,12 +111,10 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
 !  USE ppm_module_map_field_ghost
   USE ppm_module_rmsh_create_part
 
-  IMPLICIT NONE
 
   INTERFACE
      SUBROUTINE wvic_alloc_field (vfield_up, ilda, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :, :, :, :), POINTER :: vfield_up
        INTEGER                          , INTENT(in) :: ilda
        INTEGER, INTENT (Out) :: info
@@ -124,7 +122,6 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
 
      SUBROUTINE wvic_alloc_field_s (vfield_up, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:,  :, :, :), POINTER :: vfield_up
        INTEGER, INTENT (Out) :: info
      END SUBROUTINE wvic_alloc_field_s

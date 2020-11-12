@@ -19,7 +19,6 @@ SUBROUTINE wvic_io_dump_scalar_vtk(scalfield, n_data, scalname, iter,info)
   USE ppm_module_write
   USE ppm_module_data
 
-  IMPLICIT NONE
 
   !-----------------------------------------------------------------------------
   ! arguments

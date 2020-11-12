@@ -23,7 +23,6 @@ SUBROUTINE wvic_suck_restart (info)
   
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
   
   INTEGER, INTENT(inout) :: info
   CHARACTER(len=256) :: msg

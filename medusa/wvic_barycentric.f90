@@ -17,7 +17,6 @@ SUBROUTINE wvic_barycentric
   USE ppm_module_write
   USE ppm_module_map_field_ghost
   USE ppm_module_rmsh_create_part
-  IMPLICIT NONE
 
   REAL(MK), EXTERNAL :: stepfunction1
   CHARACTER(len=156) :: msg

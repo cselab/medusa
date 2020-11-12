@@ -48,7 +48,6 @@ SUBROUTINE wvic_run (niter, info)
   !--- mapping
   USE ppm_module_map_part
   USE ppm_module_topo_check
-  IMPLICIT NONE
 
   !-----------------------------------------------------------------------------
   !  Interfaces
@@ -58,7 +57,6 @@ SUBROUTINE wvic_run (niter, info)
        USE module_wvic
        USE ppm_module_data_rmsh
        USE ppm_module_write
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :), POINTER :: vxp
        REAL (mk), DIMENSION (:, :), POINTER :: vup
        REAL (mk), DIMENSION (:, :, :, :, :), POINTER :: vfield_up
@@ -72,7 +70,6 @@ SUBROUTINE wvic_run (niter, info)
        USE ppm_module_rmsh_comp_weights
        USE ppm_module_rmsh_remesh
        USE ppm_module_write
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :), POINTER :: vxp
        REAL (mk), DIMENSION (:, :), POINTER :: vup
        INTEGER, INTENT (Out) :: info

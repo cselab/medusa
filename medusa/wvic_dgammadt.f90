@@ -36,7 +36,6 @@ SUBROUTINE wvic_dgammadt (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   !  Arguments
@@ -250,7 +249,6 @@ SUBROUTINE wvic_dgammadt_MUSCLE (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
 
 
   !----------------------------------------------------------------------------!
@@ -389,7 +387,6 @@ SUBROUTINE wvic_dgammadt_4TH (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
 
 
   !----------------------------------------------------------------------------!
@@ -519,7 +516,6 @@ SUBROUTINE wvic_dgammadt_pcons (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
 
 
   !----------------------------------------------------------------------------!
@@ -638,7 +634,6 @@ SUBROUTINE wvic_dgammadt_ncons (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   !  Arguments
@@ -744,7 +739,6 @@ END SUBROUTINE wvic_dgammadt_ncons
 SUBROUTINE wvic_les_blue (info)
 
   USE module_wvic
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   !  Argumentation

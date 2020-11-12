@@ -1,7 +1,6 @@
 
 subroutine UpperCase(string,ilen)
 
-IMPLICIT NONE
 
 !------------------------------------------------------------------------------
 !UpperCase  Converts a string to all upper case characters.

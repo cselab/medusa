@@ -30,7 +30,6 @@ SUBROUTINE wvic_enforcetv1
   USE ppm_module_data
   USE ppm_module_write
   USE ppm_module_map
-  IMPLICIT NONE
   
   !----------------------------------------------------------------------------!
   ! localities: noise stuff

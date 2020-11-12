@@ -32,7 +32,6 @@ PROGRAM wvic
 
   USE module_wvic
   USE ppm_module_finalize
-  IMPLICIT NONE
 
   INTEGER :: info, taskid
   INTEGER :: steps

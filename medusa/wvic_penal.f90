@@ -13,7 +13,6 @@ SUBROUTINE wvic_penalization_explicit (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   !  Arguments
@@ -230,7 +229,6 @@ SUBROUTINE wvic_penalization_implicit (info)
   USE ppm_module_interp_p2m
   USE ppm_module_data
   USE ppm_module_map_field_ghost
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   !  Arguments

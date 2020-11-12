@@ -28,7 +28,6 @@ SUBROUTINE wvic_write_restart (info)
   USE ppm_module_user_io
   USE ppm_module_data
   USE ppm_module_write
-  IMPLICIT NONE
 
   !-----------------------------------------------------------------------------
   !  Arguments

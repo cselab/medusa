@@ -43,7 +43,6 @@ SUBROUTINE wvic_ghost(which, info)
   USE ppm_module_data
   USE ppm_module_map
   
-  IMPLICIT NONE
 
   INTEGER , INTENT(in)    :: which
   INTEGER , INTENT(inout)   :: info

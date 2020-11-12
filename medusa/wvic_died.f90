@@ -23,7 +23,6 @@
 SUBROUTINE wvic_died
 
   USE module_wvic
-  IMPLICIT NONE
 
 
 END SUBROUTINE wvic_died

@@ -12,7 +12,6 @@ SUBROUTINE wvic_readstl(info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
 
 
   INTEGER, INTENT(inout)                :: info

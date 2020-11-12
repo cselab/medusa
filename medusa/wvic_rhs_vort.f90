@@ -79,14 +79,12 @@ FUNCTION wvic_rhs_vort ( vxp, vwp, vdwp, vdime, vnp, ipack, lpack, rpack, &
   USE ppm_module_interp_p2m
   USE ppm_module_interp_m2p
   USE ppm_module_data
-  IMPLICIT NONE
   !----------------------------------------------------------------------------!
   !  Interfaces
   !----------------------------------------------------------------------------!
   INTERFACE
      SUBROUTINE wvic_alloc_field (vfield_up, ilda, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :, :, :, :), POINTER :: vfield_up
        INTEGER                          , INTENT(in) :: ilda
        INTEGER, INTENT (Out) :: info

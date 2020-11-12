@@ -51,7 +51,6 @@ SUBROUTINE wvic_netcdf2field (info)
   USE ppm_module_write
   USE netcdf
   
-  IMPLICIT NONE
   INCLUDE 'mpif.h'
   
   !----------------------------------------------------------------------------!

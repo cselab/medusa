@@ -42,7 +42,6 @@ SUBROUTINE wvic_diagnostics (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
 
   INTEGER , INTENT(inout) :: info
   INTEGER, PARAMETER :: md = kind(1.0d0)
@@ -558,7 +557,6 @@ SUBROUTINE wvic_diagnostics_trail(info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
 
   INTEGER , INTENT(inout) :: info
   INTEGER, PARAMETER :: md = kind(1.0d0)

@@ -40,7 +40,6 @@
 
     USE module_wvic
     USE ppm_module_write
-    IMPLICIT NONE
 
     INTEGER :: isub, i, j, k, isubl, iface, info
     REAL(mk) :: fac11(0:4), fac22(0:4), facx, facy, facz
@@ -660,7 +659,6 @@
 
     USE module_wvic
     USE ppm_module_write
-    IMPLICIT NONE
     
     INTEGER :: isub, i, j, k, isubl, iface, info
     REAL(mk) :: fac11(0:4), fac22(0:4), facx, facy, facz

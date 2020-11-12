@@ -2,7 +2,6 @@ SUBROUTINE wvic_readmedusa
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
 
   INTEGER                  :: info
 
@@ -171,7 +170,6 @@ SUBROUTINE wvic_stepfunc_medusa
   USE ppm_module_fdsolver_solve
   USE ppm_module_map
   USE ppm_module_fft
-  IMPLICIT NONE
 
   REAL(MK), EXTERNAL :: stepfunction1
   !----------------------------------------------------------------------------!
@@ -768,7 +766,6 @@ END SUBROUTINE wvic_stepfunc_medusa
 
 SUBROUTINE wvic_interpolate_medusa
   USE module_wvic
-  IMPLICIT NONE
 
   CHARACTER(len=256)       :: msg
   REAL(mk), DIMENSION(2)   :: point1,point2,panel
@@ -841,7 +838,6 @@ SUBROUTINE wvic_medusa_move
   USE ppm_module_map_field_ghost
   USE ppm_module_map_part
 
-  IMPLICIT NONE
 
   REAL(mk), DIMENSION(3) :: len_physg
   INTEGER                :: i,kp

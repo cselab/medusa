@@ -39,20 +39,17 @@ SUBROUTINE wvic_init_physics_0
   USE ppm_module_rmsh_create_part
   USE ppm_module_fdsolver_solve
   USE ppm_module_map
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   ! interfaces
   INTERFACE
      SUBROUTINE wvic_alloc_field_s (vfield_up, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :, :, :), POINTER :: vfield_up
        INTEGER, INTENT (Out) :: info
      END SUBROUTINE wvic_alloc_field_s
      SUBROUTINE wvic_alloc_field(vfield_up, ilda, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL(mk), DIMENSION(:,:,:,:,:), POINTER :: vfield_up
        INTEGER                   , INTENT(out) :: info
        INTEGER                   , INTENT(in ) :: ilda

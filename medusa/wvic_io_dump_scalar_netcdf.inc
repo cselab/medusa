@@ -31,7 +31,6 @@ SUBROUTINE wvic_io_dump_scalar_netcdf(scalfield, n_data, scalname, iter,info)
   USE module_wvic
   USE ppm_module_write
   USE netcdf
-  IMPLICIT NONE
 
   !-----------------------------------------------------------------------------
   ! arguments

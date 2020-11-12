@@ -95,7 +95,6 @@
 SUBROUTINE wvic_readparams(ctrlfile, info)
 
   USE  module_wvic
-  IMPLICIT NONE
   
 
   INTEGER, INTENT(inout)                :: info

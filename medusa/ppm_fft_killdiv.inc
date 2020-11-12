@@ -41,7 +41,6 @@
         USE ppm_module_mesh_define
         USE ppm_module_write
         
-        IMPLICIT NONE
 
         INCLUDE 'fftw3.f'
         

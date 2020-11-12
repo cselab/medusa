@@ -1,13 +1,11 @@
   FUNCTION rtbis(func,x1,x2,xacc)
 !  COMMON / varsisec1 / tx, ty, tz, phi, T, R, mk
   USE module_wvic
-  IMPLICIT NONE
   REAL(mk), INTENT(IN) :: x1,x2,xacc
   REAL(mk) :: rtbis
   INTERFACE
       FUNCTION func(x)
       USE module_wvic
-      IMPLICIT NONE
       REAL(mk), INTENT(IN) :: x
       REAL(mk)                :: func
       END FUNCTION func
@@ -39,13 +37,11 @@
 
 FUNCTION rtflsp(func,x1,x2,xacc)
   USE module_wvic
-  IMPLICIT NONE
   REAL(mk), INTENT(IN) :: x1,x2,xacc
   REAL(mk) :: rtflsp
   INTERFACE
     FUNCTION func(x)
       USE module_wvic
-      IMPLICIT NONE
       REAL(mk), INTENT(IN) :: x
       REAL(mk) :: func
     END FUNCTION func
@@ -90,13 +86,11 @@ END FUNCTION rtflsp
 
 FUNCTION rtsec(func,x1,x2,xacc)
   USE module_wvic
-  IMPLICIT NONE
   REAL(mk), INTENT(IN) :: x1,x2,xacc
   REAL(mk) :: rtsec
   INTERFACE
     FUNCTION func(x)
       USE module_wvic
-      IMPLICIT NONE
       REAL(mk), INTENT(IN) :: x
       REAL(mk) :: func
     END FUNCTION func
@@ -130,14 +124,12 @@ END FUNCTION rtsec
 
 FUNCTION zriddr(func,x1,x2,xacc,test)
   USE module_wvic  
-  IMPLICIT NONE
   REAL(mk), INTENT(IN) :: x1,x2,xacc
   INTEGER, INTENT(IN) :: test
   REAL(mk) :: zriddr
   INTERFACE
     FUNCTION func(x)
       USE module_wvic
-      IMPLICIT NONE
       REAL(mk), INTENT(IN) :: x
       REAL(mk) :: func
     END FUNCTION func
@@ -199,13 +191,11 @@ END FUNCTION zriddr
 
 FUNCTION zbrent(func,x1,x2,tol)
   USE module_wvic
-  IMPLICIT NONE
   REAL(mk), INTENT(IN) :: x1,x2,tol
   REAL(mk) :: zbrent
   INTERFACE
     FUNCTION func(x)
       USE module_wvic
-      IMPLICIT NONE
       REAL(mk), INTENT(IN) :: x
       REAL(mk) :: func
     END FUNCTION func

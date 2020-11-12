@@ -44,7 +44,6 @@ SUBROUTINE wvic_compvel (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
 
   !-----------------------------------------------------------------------------
   !  Arguments
@@ -177,7 +176,6 @@ SUBROUTINE wvic_compvel_4th (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
 
   !-----------------------------------------------------------------------------
   !  Arguments
@@ -281,7 +279,6 @@ SUBROUTINE wvic_compvel_spec (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
 
   !-----------------------------------------------------------------------------
   !  Arguments
@@ -350,7 +347,6 @@ SUBROUTINE wvic_compvel_adduinfty (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
 
   !-----------------------------------------------------------------------------
   !  Arguments
