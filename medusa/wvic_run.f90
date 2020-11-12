@@ -478,6 +478,4 @@ SUBROUTINE wvic_run (niter, info)
   
 9999 CONTINUE
 #endif
-  IF(info.NE.0) CALL wvic_died
-  
 END SUBROUTINE wvic_run

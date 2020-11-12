@@ -313,7 +313,6 @@ SUBROUTINE wvic_barycentric
                 WRITE(0,*) msg 
                 call mpi_finalize(info)
                 stop
-                call wvic_died
                 EXIT
               ELSE
                 multicheck = 0

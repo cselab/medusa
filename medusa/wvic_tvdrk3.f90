@@ -408,7 +408,6 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
 !WRITE(0,*) 'JTRstop' !JTR
 !call mpi_finalize(info)
 !stop
-!call wvic_died
 
      !-------------------------------------------------------------------------!
      ! time to map them
@@ -790,32 +789,16 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
      
      runtime_now = runtime_now + (t2_run_wtime-t1_run_wtime)
      
-     !-------------------------------------------------------------------------!
-     !  check for abort file
-     !-------------------------------------------------------------------------!
      CALL wvic_check_abort(abort,info)
-     IF(rank.EQ.0) THEN
-        IF(INT(runtime_now).GT.tot) THEN
-           abort = .TRUE.
-        END IF
-     END IF
      IF(itime.EQ.niter) THEN
         abort = .TRUE.
      END IF
      CALL MPI_BCast(abort,1,MPI_LOGICAL,0,comm,info)
-     !-------------------------------------------------------------------------!
-     !  root broad casts
-     !-------------------------------------------------------------------------!
      IF(abort) THEN
-        CALL ppm_write(rank,'wvic_tvdrk3',&
-             &'Abort file found. Terminizing.',info)
         CALL wvic_dump_restart(info)
         CALL MPI_Barrier(comm,info)
         EXIT
      END IF
-        
-     IF(itime.EQ.niter) EXIT
-     
   END DO !end of iteration
   
   
@@ -823,7 +806,6 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
   CALL MPI_Barrier(comm,info)
   
 9999 CONTINUE
-  IF(info.NE.0) CALL wvic_died
 END SUBROUTINE wvic_tvdrk3
 
 

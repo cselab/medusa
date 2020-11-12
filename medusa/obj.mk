@@ -12,7 +12,6 @@ wvic_compvel.o\
 wvic_dgammadt.o\
 wvic_dgammadt_wall.o\
 wvic_diagnostics.o\
-wvic_died.o\
 wvic_dump_restart.o\
 wvic_enforcetv0.o\
 wvic_enforcetv1.o\

@@ -69,8 +69,6 @@ SUBROUTINE wvic_check_abort(lExist,info)
   IF (rank.EQ.0) THEN
      INQUIRE(FILE='ABORT',EXIST=lExist,IOSTAT=ios)
   ENDIF
-  
-
   !-----------------------------------------------------------------------------
   !  Broad cast the result
   !-----------------------------------------------------------------------------

@@ -45,7 +45,6 @@ SUBROUTINE wvic_readstl(info)
      Info = 1
      call mpi_finalize(info)
      stop
-     call wvic_died
 !     GOTO 9999
   END IF
 

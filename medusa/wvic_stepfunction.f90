@@ -10,7 +10,7 @@
 SUBROUTINE wvic_init_stepfunc
   USE module_wvic
   USE ppm_module_rmsh_create_part
-
+  INTEGER :: info
   REAL(mk) :: pi
   pi = ACOS(-1.0_mk)
 

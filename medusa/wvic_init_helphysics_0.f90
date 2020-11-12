@@ -323,7 +323,7 @@ SUBROUTINE wvic_init_helphysics_0
       END DO !j
     END DO !k
   END DO !isub
-  write(*,*), "finished subdomain, ", isubl
+  write(*,*) "finished subdomain, ", isubl
   CALL stopwatch("STOP")
 
  !---- Vorticity has been initialized on the field.
