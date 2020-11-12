@@ -252,13 +252,6 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
   
   IF(MOD(itime,ndump).EQ.0) THEN
         CALL MPI_Barrier(comm,info)
-        !----------------------------------------------------------------------!
-        ! dump plot3d file
-        !----------------------------------------------------------------------!
-        !CALL wvic_dumpfield_plot3d(info)
-        !----------------------------------------------------------------------!
-        ! dump netcdf file
-        !----------------------------------------------------------------------!
         CALL wvic_field2netcdf(info)
   END IF
 
@@ -790,13 +783,6 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
 
      IF(MOD(itime,ndump).EQ.0) THEN
         CALL MPI_Barrier(comm,info)
-        !----------------------------------------------------------------------!
-        ! dump plot3d file
-        !----------------------------------------------------------------------!
-        !CALL wvic_dumpfield_plot3d(info)
-        !----------------------------------------------------------------------!
-        ! dump netcdf file
-        !----------------------------------------------------------------------!
         CALL wvic_field2netcdf(info)
      END IF
      

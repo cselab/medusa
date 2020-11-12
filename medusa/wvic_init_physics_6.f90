@@ -361,10 +361,6 @@ SUBROUTINE wvic_init_physics_6
 
   WRITE(msg,*) ' created ',np,' vortobots'
   IF(rank.EQ.0) CALL ppm_write(rank,'wvic_init_physics_6',msg,info)
-  !-----------------------------------------------------------------------------
-  ! all set
-  !-----------------------------------------------------------------------------
-  ! we dont like plot3d no more
   CALL system_clock(c1,c2,c3)
   CALL wvic_field2netcdf(info)
   CALL system_clock(c4,c5,c6)

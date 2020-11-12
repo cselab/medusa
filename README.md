@@ -15,8 +15,7 @@ $ module load gnu openmpi && MAKEFLAGS=-j make
 
 # Run
 
-Configuration file: [medusa/Ctrl](medusa/Ctrl). Dumps netcdf and vtk
-files.
+Configuration file: [medusa/Ctrl](medusa/Ctrl). Dumps pvti files.
 
 ```
 cd medusa

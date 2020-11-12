@@ -366,12 +366,6 @@ SUBROUTINE wvic_init_helphysics_0
        & (/cutoff,HUGE(cutoff)/),info,resetpos=.TRUE.,cutoff_weights=cow)
   WRITE(msg,*) ' created ',np,' particles'
   IF(rank.EQ.0) CALL ppm_write(rank,'wvic_init_helphysics_0',msg,info)
-  !----------------------------------------------------------------------------!
-  ! all set
-  !----------------------------------------------------------------------------!
-  ! we dont like plot3d no more
-  ! CALL wvic_dumpfield_plot3d(info)
-
 END SUBROUTINE wvic_init_helphysics_0
 
 !-------purely debugging---------------

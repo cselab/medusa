@@ -443,13 +443,6 @@ SUBROUTINE wvic_run (niter, info)
      
      CALL ppm_write(rank,'wvic_run',msg,info)
      IF(MOD(itime,ndump).EQ.0) THEN
-        !-----------------------------------------------------
-        ! dump plot3d file
-        !-----------------------------------------------------
-        ! CALL wvic_dumpfield_plot3d(info)
-        !-----------------------------------------------------
-        ! dump netcdf file
-        !-----------------------------------------------------
         CALL wvic_field2netcdf(info)
      END IF
      IF(MOD(itime,nrestart).EQ.0) THEN
