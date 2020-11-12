@@ -105,7 +105,7 @@ SUBROUTINE wvic_enforcetv2
   INTEGER                                       :: istride, ostride
   INTEGER,  DIMENSION(2)                        :: fnx, iembed, oembed
   INTEGER                                       :: howmany
-  INTEGER*8                                     :: plan
+  TYPE(C_PTR)                                   :: plan
   REAL(mk)                                      :: pi2_lx,pi2_ly
   REAL(mk)                                      :: kinv
   INTEGER , DIMENSION(2)                        :: lda_end
@@ -399,7 +399,7 @@ SUBROUTINE wvic_enforcetv2
                & upstream_planec(1,1), &
                & FFTW_ESTIMATE)
          CALL sfftw_execute(plan)
-         CALL sfftw_destroy_plan(plan)
+         CALL fftw_destroy_plan(plan)
          DO j=1,nx(2)
             upstream_planec((nx(1)-1)/2+2,j) = upstream_planec(1,j)
          END DO

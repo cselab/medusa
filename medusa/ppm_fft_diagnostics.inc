@@ -122,7 +122,7 @@
         INTEGER                                       :: istride, ostride
         INTEGER,  DIMENSION(2)                        :: fnx, iembed, oembed
         INTEGER                                       :: howmany
-        INTEGER*8                                     :: plan
+        TYPE(C_PTR)                                   :: plan
         COMPLEX(mk), DIMENSION(:,:), POINTER          :: c_i, c_o
 
         !-----------------------------------------------------
@@ -311,7 +311,7 @@
                    & cfld1    (1,1,1,k,isub), oembed(1), ostride, odist, &
                    & FFTW_ESTIMATE)
               CALL sfftw_execute(plan)
-              CALL sfftw_destroy_plan(plan)
+              CALL fftw_destroy_plan(plan)
               DO j=1,ndata(2,isubl)
                  cfld1(1,(ndata(1,isubl)-1)/2+2,j,k,isub) = cfld1(1,1,j,k,isub)
                  cfld1(2,(ndata(1,isubl)-1)/2+2,j,k,isub) = cfld1(2,1,j,k,isub)
@@ -487,7 +487,7 @@
                  
               END DO
            END DO
-           CALL sfftw_destroy_plan(plan)
+           CALL fftw_destroy_plan(plan)
 
         END DO
 #else
@@ -527,7 +527,7 @@
                  END DO
               END DO
            END DO
-           CALL sfftw_destroy_plan(plan)
+           CALL fftw_destroy_plan(plan)
 
         END DO
 #endif
@@ -816,7 +816,7 @@
                  cfld2(3,ndata(3,isublist(isub)),j,k,isub) = c_o(3,1)
               END DO
            END DO
-           CALL sfftw_destroy_plan(plan)
+           CALL fftw_destroy_plan(plan)
 
         END DO
 #else
@@ -851,7 +851,7 @@
                  END DO
               END DO
            END DO
-           CALL sfftw_destroy_plan(plan)
+           CALL fftw_destroy_plan(plan)
 
         END DO
 
@@ -980,7 +980,7 @@
                    & field_rhs(1,1,1,k,isub), oembed(1), ostride, odist, &
                    & FFTW_ESTIMATE)
               CALL sfftw_execute(plan)
-              CALL sfftw_destroy_plan(plan)
+              CALL fftw_destroy_plan(plan)
               DO j=1,ndata(2,isubl)
                  field_rhs(1,ndata(1,isubl),j,k,isub) = field_rhs(1,1,j,k,isub)
                  field_rhs(2,ndata(1,isubl),j,k,isub) = field_rhs(2,1,j,k,isub)

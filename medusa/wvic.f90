@@ -32,6 +32,7 @@ PROGRAM wvic
 
   USE module_wvic
   USE ppm_module_finalize
+  USE MPI
 
   INTEGER :: info, taskid
   INTEGER :: steps
