@@ -8,6 +8,11 @@ $ MAKEFLAGS=-j make
 
 Compilers and flags are in [conf.mk](conf.mk).
 
+falcon:
+```
+$ module load gnu openmpi && MAKEFLAGS=-j make
+````
+
 # Run
 
 Configuration file: [medusa/Ctrl](medusa/Ctrl). Dumps netcdf and vtk
