@@ -409,7 +409,6 @@ SUBROUTINE wvic_init_tvphysics_1
   !----------------------------------------------------------------------------!
   ! get ghosts for the new vorticity
   !----------------------------------------------------------------------------!
-  CALL ppm_write(rank,'wvic_init_tvphysics_0','ghosting',info)
   maptype = ppm_param_map_init
   CALL ppm_map_field_ghost(field_wp,lda,topo_id,mesh_id,&
        & ghostsize,maptype,info)
