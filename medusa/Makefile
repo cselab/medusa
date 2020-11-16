@@ -8,7 +8,7 @@ all: $L
 include obj.mk
 
 PPM_FCFLAGS = -I$(PREFIX)/include
-PPM_LDFLAGS = -L$(PREFIX)/lib -lppm -lfftw3f -lfftw3
+PPM_LDFLAGS = -L$(PREFIX)/lib -lppm -lfftw3f
 LINK = $(FC)
 M = module_wvic.mod ppm_module_fft.mod wvic_module_io.mod
 $L: $O; $(LINK) $O $(LDFLAGS) $(PPM_LDFLAGS) -lnetcdff $(NETCDF_LDFLAGS) -o $@
