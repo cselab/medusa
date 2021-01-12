@@ -30,7 +30,6 @@ SUBROUTINE wvic_enforcetv1
   USE ppm_module_data
   USE ppm_module_write
   USE ppm_module_map
-  IMPLICIT NONE
   
   !----------------------------------------------------------------------------!
   ! localities: noise stuff
@@ -343,14 +342,4 @@ SUBROUTINE wvic_enforcetv1
         END DO
      END IF
   END DO
-  !---- Vorticity has been initialized on the upstream boundary of the field.
-  WRITE(msg,*) ' enforced the upstream dirichlet condition '
-  IF(rank.EQ.0) CALL ppm_write(rank,'wvic_enforcetv1',msg,info)
-  !----------------------------------------------------------------------------!
-  ! all set
-  !----------------------------------------------------------------------------!
-  ! we dont like plot3d no more
-  ! CALL wvic_dumpfield_plot3d(info)
-
-
 END SUBROUTINE wvic_enforcetv1

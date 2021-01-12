@@ -52,7 +52,7 @@ SUBROUTINE wvic_poisson_fft (info)
   USE ppm_module_write
   USE ppm_module_fdsolver_solve
   USE ppm_module_fft
-  IMPLICIT NONE
+  USE MPI
 
   !----------------------------------------------------------------------------!
   !  Arguments
@@ -72,8 +72,6 @@ SUBROUTINE wvic_poisson_fft (info)
   REAL(mk), DIMENSION(3)    :: mom_tot, gmom_tot ! total momentum
   REAL(mk)                  :: wpabs, wpabs_tot
   REAL(mk)                  :: gwpabs_tot
-  INCLUDE 'mpif.h'
-  
   tim1s = MPI_WTIME()
   CALL cpu_time(pim1s)
   
@@ -199,13 +197,12 @@ SUBROUTINE wvic_poisson_mg (info)
   USE ppm_module_data
   USE ppm_module_write
   USE ppm_module_mg
+  USE MPI
   
-  IMPLICIT NONE
 
   INTERFACE
      SUBROUTINE wvic_alloc_field (vfield_up, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :, :, :, :), POINTER :: vfield_up
        INTEGER, INTENT (Out) :: info
      END SUBROUTINE wvic_alloc_field
@@ -229,9 +226,6 @@ SUBROUTINE wvic_poisson_mg (info)
   INTEGER               :: i,j,k,isub,isubl
   REAL(mk), DIMENSION(3):: l0rhs, gl0rhs
 
-  
-  INCLUDE 'mpif.h'
-  
   c1 = 0.0_mk
   c2 = 0.0_mk
   c3 = 0.0_mk

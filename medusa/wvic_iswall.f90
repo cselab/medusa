@@ -60,7 +60,6 @@
   !--- mapping
   USE ppm_module_map_part
   USE ppm_module_topo_check
-  IMPLICIT NONE
   
   !----------------------------------------------------------------------------!
   !  Arguments

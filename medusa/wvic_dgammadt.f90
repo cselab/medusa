@@ -36,7 +36,7 @@ SUBROUTINE wvic_dgammadt (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
+  USE MPI
 
   !----------------------------------------------------------------------------!
   !  Arguments
@@ -50,8 +50,6 @@ SUBROUTINE wvic_dgammadt (info)
   REAL(mk) :: fac1, fac2, fac3, fac4, fac5, fac6
   REAL(mk) :: tim1s, tim1e
   CHARACTER(len=256) :: msg
-
-  INCLUDE 'mpif.h'
 
   tim1s = MPI_WTIME()
 
@@ -250,7 +248,7 @@ SUBROUTINE wvic_dgammadt_MUSCLE (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
+  USE MPI
 
 
   !----------------------------------------------------------------------------!
@@ -265,9 +263,6 @@ SUBROUTINE wvic_dgammadt_MUSCLE (info)
   REAL(mk) :: fac1, fac2, fac3, fac4, fac5, fac6, fac7, fac8, fac9
   REAL(mk) :: tim1s, tim1e
   CHARACTER(len=256) :: msg
-
-  INCLUDE 'mpif.h'
-
   tim1s = MPI_WTIME()
 
   fac1 = 1.0_mk/dx**2*nu
@@ -389,7 +384,7 @@ SUBROUTINE wvic_dgammadt_4TH (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
+  USE MPI
 
 
   !----------------------------------------------------------------------------!
@@ -404,8 +399,6 @@ SUBROUTINE wvic_dgammadt_4TH (info)
   REAL(mk) :: fac1, fac2, fac3, fac4, fac5, fac6, fac7, fac8, fac9
   REAL(mk) :: tim1s, tim1e
   CHARACTER(len=256) :: msg
-
-  INCLUDE 'mpif.h'
 
   tim1s = MPI_WTIME()
 
@@ -519,7 +512,7 @@ SUBROUTINE wvic_dgammadt_pcons (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
+  USE MPI
 
 
   !----------------------------------------------------------------------------!
@@ -535,7 +528,6 @@ SUBROUTINE wvic_dgammadt_pcons (info)
   REAL(mk) :: tim1s, tim1e
   CHARACTER(len=256) :: msg
   LOGICAL :: stopme = .FALSE.
-  INCLUDE 'mpif.h'
 
   tim1s = MPI_WTIME()
 
@@ -638,7 +630,7 @@ SUBROUTINE wvic_dgammadt_ncons (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
+  USE MPI
 
   !----------------------------------------------------------------------------!
   !  Arguments
@@ -652,8 +644,6 @@ SUBROUTINE wvic_dgammadt_ncons (info)
   REAL(mk) :: fac1, fac2, fac3, fac4, fac5, fac6
   REAL(mk) :: tim1s, tim1e
   CHARACTER(len=256) :: msg
-
-  INCLUDE 'mpif.h'
 
   tim1s = MPI_WTIME()
 
@@ -744,7 +734,6 @@ END SUBROUTINE wvic_dgammadt_ncons
 SUBROUTINE wvic_les_blue (info)
 
   USE module_wvic
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   !  Argumentation

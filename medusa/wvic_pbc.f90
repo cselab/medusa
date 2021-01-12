@@ -48,7 +48,6 @@ SUBROUTINE wvic_pbc (info)
   USE ppm_module_error
   USE ppm_module_write
   USE ppm_module_impose_part_bc
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   !  arguments

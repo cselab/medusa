@@ -31,7 +31,6 @@
 SUBROUTINE wvic_les_tdm
 
   USE module_wvic
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   !  Argumentation
@@ -98,7 +97,6 @@ SUBROUTINE wvic_les_tdmclipped
   !  Keep the positive part of 2 \nu + (u_p-u_q)\cdot (x_p-x_q)
   !----------------------------------------------------------------------------!
   USE module_wvic
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   !  Argumentation
@@ -160,7 +158,6 @@ END SUBROUTINE wvic_les_tdmclipped
 SUBROUTINE wvic_les_tdmclipped_old
 
   USE module_wvic
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   !  Argumentation

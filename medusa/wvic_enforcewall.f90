@@ -79,7 +79,6 @@ SUBROUTINE wvic_enforcewall_vorticity (info)
   !--- mapping
   USE ppm_module_map_part
   USE ppm_module_topo_check
-  IMPLICIT NONE
   
   !----------------------------------------------------------------------------!
   !  Arguments
@@ -245,7 +244,6 @@ END SUBROUTINE wvic_enforcewall_vorticity
 SUBROUTINE wvic_enforcewall_velocity (info)
 
   USE module_wvic
-  IMPLICIT NONE
   
   INTEGER,  INTENT(INOUT)                :: info
   

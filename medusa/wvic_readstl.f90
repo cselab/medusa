@@ -12,7 +12,7 @@ SUBROUTINE wvic_readstl(info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
+  USE MPI
 
 
   INTEGER, INTENT(inout)                :: info
@@ -29,7 +29,6 @@ SUBROUTINE wvic_readstl(info)
   CHARACTER(LEN=256)       :: cvalue,carg
   LOGICAL                  :: lExist
   REAL(mk), DIMENSION(3)   :: vertex1,vertex2,vertex3,vecu,vecv,vecw
-  INCLUDE 'mpif.h'
 
   !-----------------------------------------------------------------------------
   ! Definition of file unit
@@ -46,7 +45,6 @@ SUBROUTINE wvic_readstl(info)
      Info = 1
      call mpi_finalize(info)
      stop
-     call wvic_died
 !     GOTO 9999
   END IF
 

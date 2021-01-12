@@ -44,7 +44,7 @@ SUBROUTINE wvic_compvel (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
+  USE MPI
 
   !-----------------------------------------------------------------------------
   !  Arguments
@@ -67,7 +67,6 @@ SUBROUTINE wvic_compvel (info)
   REAL(mk), DIMENSION(3)    :: mom_tot, gmom_tot ! total momentum
   REAL(mk)                  :: wpabs, wpabs_tot
   REAL(mk)                  :: gwpabs_tot
-  INCLUDE 'mpif.h'
 
   tim1s = MPI_WTIME()
   
@@ -177,7 +176,7 @@ SUBROUTINE wvic_compvel_4th (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
+  USE MPI
 
   !-----------------------------------------------------------------------------
   !  Arguments
@@ -200,7 +199,6 @@ SUBROUTINE wvic_compvel_4th (info)
   REAL(mk), DIMENSION(3)    :: mom_tot, gmom_tot ! total momentum
   REAL(mk)                  :: wpabs, wpabs_tot
   REAL(mk)                  :: gwpabs_tot
-  INCLUDE 'mpif.h'
 
   tim1s = MPI_WTIME()
   
@@ -281,7 +279,7 @@ SUBROUTINE wvic_compvel_spec (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
+  USE MPI
 
   !-----------------------------------------------------------------------------
   !  Arguments
@@ -300,7 +298,6 @@ SUBROUTINE wvic_compvel_spec (info)
   REAL(mk), DIMENSION(3)    :: mom_tot, gmom_tot ! total momentum
   REAL(mk)                  :: wpabs, wpabs_tot
   REAL(mk)                  :: gwpabs_tot
-  INCLUDE 'mpif.h'
 
   tim1s = MPI_WTIME()
   
@@ -350,7 +347,7 @@ SUBROUTINE wvic_compvel_adduinfty (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
+  USE MPI
 
   !-----------------------------------------------------------------------------
   !  Arguments
@@ -370,7 +367,6 @@ SUBROUTINE wvic_compvel_adduinfty (info)
   REAL(mk)                  :: wpabs, wpabs_tot
   REAL(mk)                  :: gwpabs_tot
   REAL(mk)                  :: ramp
-  INCLUDE 'mpif.h'
 
   tim1s = MPI_WTIME()
   

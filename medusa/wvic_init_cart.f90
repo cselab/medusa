@@ -110,13 +110,12 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
 !  USE netcdf
 !  USE ppm_module_map_field_ghost
   USE ppm_module_rmsh_create_part
+  USE MPI
 
-  IMPLICIT NONE
 
   INTERFACE
      SUBROUTINE wvic_alloc_field (vfield_up, ilda, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :, :, :, :), POINTER :: vfield_up
        INTEGER                          , INTENT(in) :: ilda
        INTEGER, INTENT (Out) :: info
@@ -124,7 +123,6 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
 
      SUBROUTINE wvic_alloc_field_s (vfield_up, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:,  :, :, :), POINTER :: vfield_up
        INTEGER, INTENT (Out) :: info
      END SUBROUTINE wvic_alloc_field_s
@@ -158,7 +156,6 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
   REAL(mk), DIMENSION(3,1,1,1) :: ibcvalue
   REAL(mk), DIMENSION(:,:),POINTER     :: XXP => NULL()
   LOGICAL :: periods(3) = .TRUE.
-  INCLUDE 'mpif.h'
   !-----------------------------------------------------
   !  memory measurements
   !-----------------------------------------------------
@@ -275,13 +272,8 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
   !  first of all initialize mpi
   !----------------------------------------------------------------------------!
   ALLOCATE(min_physg(dime),max_physg(dime),stat=istat)
-  IF(istat.NE.0) CALL wvic_died
   ALLOCATE(bcdef(2*dime),nx(dime),stat=istat)
-  IF(istat.NE.0) CALL wvic_died
   ALLOCATE(ghostsize(dime),stat=istat)
-  IF(istat.NE.0) CALL wvic_died
-
-
   CALL MPI_Init(info)
   CALL MPI_Comm_Size(MPI_COMM_WORLD,nproc,info)
   CALL MPI_Comm_Rank(MPI_COMM_WORLD,rank, info)
@@ -597,7 +589,6 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
     WRITE(0,*) 'Ghostlayer insufficient for stl stencil, exiting\n'
     call mpi_finalize(info)
     stop
-    call wvic_died
   END IF
 
 
@@ -658,7 +649,6 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
   cutoff=-TINY(cutoff)
   krnl = ppm_param_rmsh_kernel_mp4
   CALL ppm_init(dime,prec,tol,comm,debug,info, ilogfile)
-  IF (info.NE.0) CALL wvic_died
   !  say that everythings fine
   if(verbose) CALL ppm_write(rank,'wvic_init_cart_crow','parallel things init''d..',info)
   IF(MAXVAL(ghostsize).GT.1) THEN
@@ -730,30 +720,6 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
   NULLIFY(ndata,isublist,sub2proc,sub_cost,proc_speed,sub_cost)
   ALLOCATE(proc_speed(nproc))
   
-#ifdef __TESTFLOATDECOMP !??? To delete?
-  WRITE(*,*) 'nsubs requested', nsubs
-  nsublist = flow_case
-  ALLOCATE(isublist(nsublist))
-  ALLOCATE(min_sub(3,nsubs))
-  ALLOCATE(max_sub(3,nsubs))
-  ALLOCATE(ndata(3,nsubs))
-  ALLOCATE(istart(3,nsubs))
-  ALLOCATE(sub2proc(nsubs))
-  !-----------------------------------------------------
-  decomposition = ppm_param_decomp_cartesian
-  assigning     = ppm_param_assign_internal
-  !----------------------------------------------------------------------------!
-  ! create the topology
-  CALL ppm_mktopo(xxp, -1, nx, decomposition, assigning, min_physg, max_physg,&
-       &          bcdef, ghostsize, topo_id, mesh_id, min_sub, max_sub,      &
-       &          sub_cost,  sub2proc, nsubs, isublist, nsublist, istart,    &
-       &          ndata, info,ndom=flow_case)
-  IF (INFO.EQ.0) WRITE(*,*) 'Created nsubs ', nsubs
-  IF (INFO.NE.0) WRITE(*,*) 'Could not create nsubs ', flow_case
-  CALL wvic_died
-  CALL MPI_Abort(comm,info)
-#endif
-
   !-----------------------------------------------------
   !  create user defined topology
   nsubs    = ndims(1)*ndims(2)*ndims(3)
@@ -800,8 +766,6 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
        &          bcdef, ghostsize, topo_id, mesh_id, min_sub, max_sub,      &
        &          sub_cost,  sub2proc, nsubs, isublist, nsublist, istart,    &
        &          ndata, info)
-
-  IF(info.NE.0) CALL wvic_died
   !----------------------------------------------------------------------------!
 
   IF (unboundedxy) THEN
@@ -809,7 +773,6 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
       dblxy_topo_id = -1
       dblxy_mesh_id = -1
       ALLOCATE(dblxy_min_physg(dime),dblxy_max_physg(dime),stat=istat)
-      IF(istat.NE.0) CALL wvic_died
       dblxy_min_physg(:) = min_physg(:)
       dblxy_max_physg(1) = 2.0_mk*max_physg(1) - min_physg(1)
       dblxy_max_physg(2) = 2.0_mk*max_physg(2) - min_physg(2)
@@ -860,7 +823,6 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
        &          bcdef, ghostsize, dblxy_topo_id, dblxy_mesh_id,  dblxy_min_sub,  dblxy_max_sub,      &
        &          dblxy_sub_cost,  dblxy_sub2proc, nsubs, dblxy_isublist, nsublist, dblxy_istart,    &
        &          dblxy_ndata, info)
-      IF(info.NE.0) CALL wvic_died
       !----------------------------------------------------------------------------!
   END IF
 
@@ -894,20 +856,13 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
   !  Allocate the armada of fields
   !----------------------------------------------------------------------------!
   CALL wvic_alloc_field(field_up,dime,info)
-  IF(info.NE.0) CALL wvic_died
   CALL wvic_alloc_field(field_wp,lda,info)
-  IF(info.NE.0) CALL wvic_died
   CALL wvic_alloc_field(field_dwp,lda,info)
-  IF(info.NE.0) CALL wvic_died
-
   !---------------------------------------
   ! JTR and the julenisser were here
   !---------------------------------------
   CALL wvic_alloc_field_s(field_H,info)
-  IF(info.NE.0) CALL wvic_died
   CALL wvic_alloc_field(field_ubar,lda,info)
-  IF(info.NE.0) CALL wvic_died
-
   !-----------------------------------------------------------------------------
   ! Allocate array for storing z-velocity on the line of pressure integration.
   ! to use for time derivative of z-velocity. Is initialized as 0
@@ -1057,7 +1012,6 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
            ! Create upstream group
            CALL MPI_COMM_GROUP(MPI_COMM_WORLD, whole_group,info)
            ALLOCATE(upstream_ranks(ndims(1)*ndims(2)),stat=istat)
-           IF(istat.NE.0) CALL wvic_died
            n_upstream = 0
            kcpu = 1
            DO jcpu=1,ndims(2)
@@ -1097,7 +1051,6 @@ SUBROUTINE wvic_init_cart(ctrlfile, info)
   dwp = 0.0_mk
   IF(istat.NE.0) THEN
      PRINT*,'died'
-     CALL wvic_died
      PRINT*,'died done'
      STOP
   END IF

@@ -28,7 +28,7 @@ SUBROUTINE wvic_write_restart (info)
   USE ppm_module_user_io
   USE ppm_module_data
   USE ppm_module_write
-  IMPLICIT NONE
+  USE MPI
 
   !-----------------------------------------------------------------------------
   !  Arguments
@@ -42,9 +42,6 @@ SUBROUTINE wvic_write_restart (info)
   INTEGER                                :: iounit
   REAL(mk), DIMENSION(8 )                :: fvec
   CHARACTER(len=256)                     :: filename
-
-  INCLUDE 'mpif.h'
-
 
   WRITE(filename,'(A,I4.4,A)') runtag(1:iruntag),itime,'.restart'
 

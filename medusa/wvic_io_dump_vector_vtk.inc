@@ -18,7 +18,6 @@ SUBROUTINE wvic_io_dump_vector_vtk(vectfield, n_data, vectname, iter,info)
   USE module_wvic
   USE ppm_module_write
   USE ppm_module_data
-  IMPLICIT NONE
 
   !-----------------------------------------------------------------------------
   ! arguments

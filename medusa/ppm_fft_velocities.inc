@@ -59,9 +59,8 @@
         USE ppm_module_mesh_define
         USE ppm_module_write
         
-        IMPLICIT NONE
-
-        INCLUDE 'fftw3.f'
+        USE, INTRINSIC :: ISO_C_BINDING
+        INCLUDE 'fftw3.f03'
         
         INTEGER, PARAMETER :: mk = ppm_kind_single
         !-----------------------------------------------------------------------
@@ -119,7 +118,7 @@
         INTEGER                                       :: istride, ostride
         INTEGER,  DIMENSION(2)                        :: fnx, iembed, oembed
         INTEGER                                       :: howmany
-        INTEGER*8                                     :: plan
+        TYPE(C_PTR)                                   :: plan
         COMPLEX(mk), DIMENSION(:,:), POINTER          :: c_i, c_o
 
         !-----------------------------------------------------

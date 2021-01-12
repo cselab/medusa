@@ -26,9 +26,10 @@ SUBROUTINE wvic_enforcetv2
   USE ppm_module_data
   USE ppm_module_write
   USE ppm_module_map
-  IMPLICIT NONE
-  
-  INCLUDE 'mpif.h'
+  USE MPI
+  USE, INTRINSIC :: ISO_C_BINDING
+  INCLUDE 'fftw3.f03'
+
   !----------------------------------------------------------------------------!
   ! localities: noise stuff
   INTEGER, PARAMETER       :: mkd = KIND(1.0d0)
@@ -99,13 +100,12 @@ SUBROUTINE wvic_enforcetv2
 #endif
 
 #ifdef SOLVE_WFFTW
-  INCLUDE 'fftw3.f'
   COMPLEX(mk), DIMENSION(:,:), POINTER :: upstream_planec
   INTEGER                                       :: idist, odist, frank
   INTEGER                                       :: istride, ostride
   INTEGER,  DIMENSION(2)                        :: fnx, iembed, oembed
   INTEGER                                       :: howmany
-  INTEGER*8                                     :: plan
+  TYPE(C_PTR)                                   :: plan
   REAL(mk)                                      :: pi2_lx,pi2_ly
   REAL(mk)                                      :: kinv
   INTEGER , DIMENSION(2)                        :: lda_end
@@ -487,17 +487,4 @@ SUBROUTINE wvic_enforcetv2
      END DO
      DEALLOCATE(upstream_wpl,upstream_planel)
   END IF
-  
-  
-
-  !---- Vorticity has been initialized on the upstream boundary of the field.
-  WRITE(msg,*) ' enforced the upstream dirichlet condition '
-  IF ((verbose).AND.(rank.EQ.0)) CALL ppm_write(rank,'wvic_enforcetv2',msg,info)
-  !----------------------------------------------------------------------------!
-  ! all set
-  !----------------------------------------------------------------------------!
-  ! we dont like plot3d no more
-  ! CALL wvic_dumpfield_plot3d(info)
-
-
 END SUBROUTINE wvic_enforcetv2

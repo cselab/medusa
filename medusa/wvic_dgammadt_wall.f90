@@ -40,7 +40,7 @@
 
     USE module_wvic
     USE ppm_module_write
-    IMPLICIT NONE
+    USE MPI
 
     INTEGER :: isub, i, j, k, isubl, iface, info
     REAL(mk) :: fac11(0:4), fac22(0:4), facx, facy, facz
@@ -49,7 +49,6 @@
     REAL(mk) :: tim1s, tim1e, dxi, dyi, dzi
     CHARACTER(len=256) :: msg
 
-    INCLUDE 'mpif.h'
 
     tim1s = MPI_WTIME()
 
@@ -660,7 +659,6 @@
 
     USE module_wvic
     USE ppm_module_write
-    IMPLICIT NONE
     
     INTEGER :: isub, i, j, k, isubl, iface, info
     REAL(mk) :: fac11(0:4), fac22(0:4), facx, facy, facz

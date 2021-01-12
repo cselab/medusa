@@ -27,20 +27,17 @@ SUBROUTINE wvic_init_sphere_stokes
   USE ppm_module_fdsolver_solve
   USE ppm_module_map
   USE ppm_module_fft
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   ! interfaces
   INTERFACE
      SUBROUTINE wvic_alloc_field_s (vfield_up, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :, :, :), POINTER :: vfield_up
        INTEGER, INTENT (Out) :: info
      END SUBROUTINE wvic_alloc_field_s
      SUBROUTINE wvic_alloc_field(vfield_up, ilda, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL(mk), DIMENSION(:,:,:,:,:), POINTER :: vfield_up
        INTEGER                   , INTENT(out) :: info
        INTEGER                   , INTENT(in ) :: ilda
@@ -256,7 +253,7 @@ SUBROUTINE wvic_init_sphere_stokes
   CALL ppm_map_field_ghost(field_wp,lda,topo_id,mesh_id, &
        & ghostsize,maptype,info)
 
-  CALL wvic_imposezero_sphere
+  CALL wvic_imposezero_sphere(info)
 
 1122 CONTINUE
 
@@ -288,20 +285,17 @@ SUBROUTINE wvic_init_onset
   USE ppm_module_fdsolver_solve
   USE ppm_module_map
   USE ppm_module_fft
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   ! interfaces
   INTERFACE
      SUBROUTINE wvic_alloc_field_s (vfield_up, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :, :, :), POINTER :: vfield_up
        INTEGER, INTENT (Out) :: info
      END SUBROUTINE wvic_alloc_field_s
      SUBROUTINE wvic_alloc_field(vfield_up, ilda, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL(mk), DIMENSION(:,:,:,:,:), POINTER :: vfield_up
        INTEGER                   , INTENT(out) :: info
        INTEGER                   , INTENT(in ) :: ilda
@@ -521,20 +515,17 @@ SUBROUTINE wvic_init_poiseulle
   USE ppm_module_fdsolver_solve
   USE ppm_module_map
   USE ppm_module_fft
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   ! interfaces
   INTERFACE
      SUBROUTINE wvic_alloc_field_s (vfield_up, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :, :, :), POINTER :: vfield_up
        INTEGER, INTENT (Out) :: info
      END SUBROUTINE wvic_alloc_field_s
      SUBROUTINE wvic_alloc_field(vfield_up, ilda, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL(mk), DIMENSION(:,:,:,:,:), POINTER :: vfield_up
        INTEGER                   , INTENT(out) :: info
        INTEGER                   , INTENT(in ) :: ilda
@@ -714,7 +705,7 @@ SUBROUTINE wvic_imposezero_sphere (info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
+  USE MPI
 
   !----------------------------------------------------------------------------!
   !  Arguments
@@ -727,8 +718,6 @@ SUBROUTINE wvic_imposezero_sphere (info)
   INTEGER :: isub, i , j , k, isubl
   REAL(mk) :: tim1s, tim1e
   CHARACTER(len=256) :: msg
-
-  INCLUDE 'mpif.h'
 
 !??  tim1s = MPI_WTIME()
 

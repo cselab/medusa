@@ -13,7 +13,7 @@ SUBROUTINE wvic_forcenoca (tforcenoca,gnocadimensions,info)
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
+  USE MPI
 
 
 
@@ -44,9 +44,6 @@ SUBROUTINE wvic_forcenoca (tforcenoca,gnocadimensions,info)
        sforcenocaB, gsforcenocaB, sforcenocaT, gsforcenocaT
   REAL(mk), DIMENSION(3*nforces) :: lnocadimensions,gnocadimensions
   REAL(mk) :: o1, o2, o3, u1, u2, u3
-
-  INCLUDE 'mpif.h'
-
 
   !-----------------------------------------------------------------------------
   !  force a la Noca (Impulse Equation)

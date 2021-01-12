@@ -14,7 +14,6 @@ SUBROUTINE wvic_solid_velocity(info)
   USE module_wvic
   USE ppm_module_map_field_ghost
   USE ppm_module_data
-  IMPLICIT NONE
 
   INTEGER, INTENT(out)  :: info
   INTEGER               :: i,j,k
@@ -85,7 +84,6 @@ SUBROUTINE wvic_advect_stepfunction(info)
   USE ppm_module_map_field_ghost
   USE ppm_module_data
 
-  IMPLICIT NONE
 
 
   INTEGER, INTENT(out)  :: info
@@ -170,7 +168,6 @@ SUBROUTINE wvic_advect_stepparticles(info)
   USE ppm_module_topo_check
   USE ppm_module_map_field_ghost
 
-  IMPLICIT NONE
 
 
   INTEGER, INTENT(inout):: info
@@ -271,7 +268,6 @@ SUBROUTINE wvic_pbc_stepfunc (info)
   USE ppm_module_error
   USE ppm_module_write
   USE ppm_module_impose_part_bc
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   !  arguments

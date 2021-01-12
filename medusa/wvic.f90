@@ -32,7 +32,7 @@ PROGRAM wvic
 
   USE module_wvic
   USE ppm_module_finalize
-  IMPLICIT NONE
+  USE MPI
 
   INTEGER :: info, taskid
   INTEGER :: steps
@@ -82,11 +82,6 @@ PROGRAM wvic
   CALL PAT_HWPC_END(10)
   CALL PAT_HWPC_FINALIZE()
 #endif
-
-  !----------------------------------------------------------------------------!
-  ! terminate some things
-  !----------------------------------------------------------------------------!
-  CALL wvic_died
   !----------------------------------------------------------------------------!
   ! only mpi finalize because ppm_finalize dont work on xlf
   !----------------------------------------------------------------------------!

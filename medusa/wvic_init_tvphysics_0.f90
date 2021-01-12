@@ -78,20 +78,17 @@ SUBROUTINE wvic_init_tvphysics_0
   USE ppm_module_fdsolver_solve
   USE ppm_module_map
   USE ppm_module_fft
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   ! interfaces
   INTERFACE
      SUBROUTINE wvic_alloc_field_s (vfield_up, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :, :, :), POINTER :: vfield_up
        INTEGER, INTENT (Out) :: info
      END SUBROUTINE wvic_alloc_field_s
      SUBROUTINE wvic_alloc_field(vfield_up, ilda, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL(mk), DIMENSION(:,:,:,:,:), POINTER :: vfield_up
        INTEGER                   , INTENT(out) :: info
        INTEGER                   , INTENT(in ) :: ilda
@@ -465,7 +462,6 @@ SUBROUTINE wvic_init_tvphysics_0
   !----------------------------------------------------------------------------!
   ! get ghosts for the new vorticity
   !----------------------------------------------------------------------------!
-  CALL ppm_write(rank,'wvic_init_tvphysics_0','ghosting',info)
   maptype = ppm_param_map_init
   CALL ppm_map_field_ghost(field_wp,lda,topo_id,mesh_id,&
        & ghostsize,maptype,info)
@@ -481,8 +477,6 @@ SUBROUTINE wvic_init_tvphysics_0
   maptype = ppm_param_map_pop
   CALL ppm_map_field_ghost(field_wp,lda,topo_id,mesh_id, &
        & ghostsize,maptype,info)
-  CALL ppm_write(rank,'wvic_init_tvphysics_0','ghst complete',info)
-
 1122 CONTINUE
 
   !----------------------------------------------------------------------------!
@@ -492,11 +486,4 @@ SUBROUTINE wvic_init_tvphysics_0
        & (/cutoff,HUGE(cutoff)/),info,resetpos=.TRUE.,cutoff_weights=cow)
   WRITE(msg,*) ' created ',np,' particles'
   IF(rank.EQ.0) CALL ppm_write(rank,'wvic_init_tvphysics_0',msg,info)
-  !----------------------------------------------------------------------------!
-  ! all set
-  !----------------------------------------------------------------------------!
-  ! we dont like plot3d no more
-  ! CALL wvic_dumpfield_plot3d(info)
-
-
 END SUBROUTINE wvic_init_tvphysics_0

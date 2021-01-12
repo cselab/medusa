@@ -48,7 +48,7 @@ SUBROUTINE wvic_run (niter, info)
   !--- mapping
   USE ppm_module_map_part
   USE ppm_module_topo_check
-  IMPLICIT NONE
+  USE MPI
 
   !-----------------------------------------------------------------------------
   !  Interfaces
@@ -58,7 +58,6 @@ SUBROUTINE wvic_run (niter, info)
        USE module_wvic
        USE ppm_module_data_rmsh
        USE ppm_module_write
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :), POINTER :: vxp
        REAL (mk), DIMENSION (:, :), POINTER :: vup
        REAL (mk), DIMENSION (:, :, :, :, :), POINTER :: vfield_up
@@ -72,7 +71,6 @@ SUBROUTINE wvic_run (niter, info)
        USE ppm_module_rmsh_comp_weights
        USE ppm_module_rmsh_remesh
        USE ppm_module_write
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :), POINTER :: vxp
        REAL (mk), DIMENSION (:, :), POINTER :: vup
        INTEGER, INTENT (Out) :: info
@@ -117,7 +115,6 @@ SUBROUTINE wvic_run (niter, info)
   LOGICAL            :: ok
   REAL(mk)           :: tim1s, tim1e, timr1, timr2
   LOGICAL            :: abort = .FALSE.
-  INCLUDE 'mpif.h'
   REAL(mk) :: cpu1, cpu2
   INTEGER :: clockspersec, t1_dum, t2_dum
   !-----------------------------------------------------
@@ -443,13 +440,6 @@ SUBROUTINE wvic_run (niter, info)
      
      CALL ppm_write(rank,'wvic_run',msg,info)
      IF(MOD(itime,ndump).EQ.0) THEN
-        !-----------------------------------------------------
-        ! dump plot3d file
-        !-----------------------------------------------------
-        ! CALL wvic_dumpfield_plot3d(info)
-        !-----------------------------------------------------
-        ! dump netcdf file
-        !-----------------------------------------------------
         CALL wvic_field2netcdf(info)
      END IF
      IF(MOD(itime,nrestart).EQ.0) THEN
@@ -488,6 +478,4 @@ SUBROUTINE wvic_run (niter, info)
   
 9999 CONTINUE
 #endif
-  IF(info.NE.0) CALL wvic_died
-  
 END SUBROUTINE wvic_run

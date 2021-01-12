@@ -42,7 +42,6 @@ FUNCTION wvic_rhs_loca (vdummy, vxp, vup, vdime, vnp, &
   USE ppm_module_write
   USE ppm_module_data
   USE ppm_module_interp_m2p
-  IMPLICIT NONE
   ! interface needed because pointer
   
   !----------------------------------------------------------------------------!

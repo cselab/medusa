@@ -40,7 +40,6 @@ SUBROUTINE wvic_io_dump_vectorc_netcdf(vectfield, n_data, vectname, iter, info)
   USE module_wvic
   USE ppm_module_write
   USE netcdf
-  IMPLICIT NONE
 
   !-----------------------------------------------------------------------------
   ! arguments

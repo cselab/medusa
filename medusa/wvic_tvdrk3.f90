@@ -106,7 +106,7 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
   USE ppm_module_map_part
   USE ppm_module_topo_check
   USE ppm_module_map_field_ghost !JTR
-  IMPLICIT NONE
+  USE MPI
   
   !----------------------------------------------------------------------------!
   !  Interfaces
@@ -114,13 +114,11 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
   INTERFACE
      SUBROUTINE wvic_alloc_field (vfield_up, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :, :, :, :), POINTER :: vfield_up
        INTEGER, INTENT (Out) :: info
      END SUBROUTINE wvic_alloc_field
      SUBROUTINE wvic_alloc_field_4 (vfield_up, info)
        USE module_wvic
-       IMPLICIT NONE
        REAL (mk), DIMENSION (:, :, :, :, :), POINTER :: vfield_up
        INTEGER, INTENT (Out) :: info
      END SUBROUTINE wvic_alloc_field_4
@@ -131,7 +129,6 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
           & ipack, lpack, rpack, info)
        USE module_wvic
        USE ppm_module_write
-       IMPLICIT NONE
        INTEGER, INTENT(in)                        :: vdime, vnp
        REAL(mk),DIMENSION(:,:), POINTER           :: vdummy, vxp, vup
        REAL(MK),DIMENSION(:,:), POINTER,OPTIONAL  :: rpack
@@ -147,7 +144,6 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
           &lpack, rpack, rkstep, info)
        USE module_wvic
        USE ppm_module_write
-       IMPLICIT NONE
        INTEGER, INTENT(in)               :: vdime, vnp
        REAL(mk),DIMENSION(:,:),POINTER     :: vxp, vwp, vdwp
        REAL(MK),DIMENSION(:,:), POINTER,OPTIONAL  :: rpack
@@ -189,7 +185,6 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
   LOGICAL            :: ok
   REAL(mk)           :: tim1s, tim1e, timr1, timr2
   LOGICAL            :: abort = .FALSE.
-  INCLUDE 'mpif.h'
   REAL(mk) :: cpu1, cpu2
   INTEGER :: clockspersec, t1_dum, t2_dum
 
@@ -252,13 +247,6 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
   
   IF(MOD(itime,ndump).EQ.0) THEN
         CALL MPI_Barrier(comm,info)
-        !----------------------------------------------------------------------!
-        ! dump plot3d file
-        !----------------------------------------------------------------------!
-        !CALL wvic_dumpfield_plot3d(info)
-        !----------------------------------------------------------------------!
-        ! dump netcdf file
-        !----------------------------------------------------------------------!
         CALL wvic_field2netcdf(info)
   END IF
 
@@ -319,7 +307,10 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
      !-------------------------------------------------------------------------!
      ! Optional dumps
      !-------------------------------------------------------------------------
-
+     if (rank .eq. 0) then
+        WRITE(msg, '(A,I6)') 'itime = ', itime
+        CALL ppm_write(rank, 'wvic_tvdrk3', msg, info)
+     endif
      IF(MOD(itime,ndump).EQ.0) THEN
 	WRITE(msg,'(A)') 'H'
         CALL wvic_io_dump_field_vtk(field_H,ndata,msg, itime, info)
@@ -327,6 +318,10 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
         CALL wvic_io_dump_field_vtk(field_up,ndata,msg, itime, info)
 	WRITE(msg,'(A)') 'vrt'
         CALL wvic_io_dump_field_vtk(field_wp,ndata,msg, itime, info)
+        if (rank .eq. 0) then
+           WRITE(msg, '(A)') 'dump H, vel, and vrt files'
+           CALL ppm_write(rank, 'wvic_tvdrk3', msg, info)
+        end if
      END IF
      IF(MOD(itime,ndump).EQ.0) THEN
         CALL MPI_Barrier(comm,info)
@@ -413,7 +408,6 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
 !WRITE(0,*) 'JTRstop' !JTR
 !call mpi_finalize(info)
 !stop
-!call wvic_died
 
      !-------------------------------------------------------------------------!
      ! time to map them
@@ -790,44 +784,21 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
 
      IF(MOD(itime,ndump).EQ.0) THEN
         CALL MPI_Barrier(comm,info)
-        !----------------------------------------------------------------------!
-        ! dump plot3d file
-        !----------------------------------------------------------------------!
-        !CALL wvic_dumpfield_plot3d(info)
-        !----------------------------------------------------------------------!
-        ! dump netcdf file
-        !----------------------------------------------------------------------!
         CALL wvic_field2netcdf(info)
      END IF
      
      runtime_now = runtime_now + (t2_run_wtime-t1_run_wtime)
      
-     !-------------------------------------------------------------------------!
-     !  check for abort file
-     !-------------------------------------------------------------------------!
      CALL wvic_check_abort(abort,info)
-     IF(rank.EQ.0) THEN
-        IF(INT(runtime_now).GT.tot) THEN
-           abort = .TRUE.
-        END IF
-     END IF
      IF(itime.EQ.niter) THEN
         abort = .TRUE.
      END IF
      CALL MPI_BCast(abort,1,MPI_LOGICAL,0,comm,info)
-     !-------------------------------------------------------------------------!
-     !  root broad casts
-     !-------------------------------------------------------------------------!
      IF(abort) THEN
-        CALL ppm_write(rank,'wvic_tvdrk3',&
-             &'Abort file found. Terminizing.',info)
         CALL wvic_dump_restart(info)
         CALL MPI_Barrier(comm,info)
         EXIT
      END IF
-        
-     IF(itime.EQ.niter) EXIT
-     
   END DO !end of iteration
   
   
@@ -835,13 +806,11 @@ SUBROUTINE wvic_tvdrk3 (niter, info)
   CALL MPI_Barrier(comm,info)
   
 9999 CONTINUE
-  IF(info.NE.0) CALL wvic_died
 END SUBROUTINE wvic_tvdrk3
 
 
 SUBROUTINE measure(tag,which)
   USE module_wvic
-  IMPLICIT NONE
   INTEGER    :: tag,which
   
 #ifdef __WITH_MEMORY_MEASUREMENT__

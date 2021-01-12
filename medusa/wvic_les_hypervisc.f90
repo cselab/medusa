@@ -34,7 +34,6 @@ SUBROUTINE wvic_les_hypervisc
 
   USE module_wvic
   USE ppm_module_write
-  IMPLICIT NONE
 
   !----------------------------------------------------------------------------!
   !  Localities
