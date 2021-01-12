@@ -14,6 +14,6 @@ Configuration file: [medusa/Ctrl](medusa/Ctrl). Dumps netcdf and vtk
 files.
 
 ```
-cd medusa
-mpiexec -n 8 ./ppm_tv
+$ cd medusa
+$ mpiexec -n 8 ./ppm_tv
 ```
