@@ -1,17 +1,16 @@
 # Install
 
-Needs `netcdf` and `mpif90`.
+Needs `netcdf` and `mpif90`. On Debian
 
 ```
-$ MAKEFLAGS=-j make
+sudo apt install openmpi-bin libnetcdf-mpi-dev
 ```
 
-Compilers and flags are in [conf.mk](conf.mk).
+Compilers and flags are in [conf.mk](conf.mk). Buid
 
-falcon:
 ```
-$ module load gnu openmpi && MAKEFLAGS=-j make
-````
+$ MAKEFLAGS=-j4 make
+```
 
 # Run
 
