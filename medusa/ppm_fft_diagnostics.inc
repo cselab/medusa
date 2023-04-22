@@ -43,8 +43,10 @@
 #error DOUBLE PRECISION NOT IMPLEMENTED [MB]
 #endif
 #if   __WHAT == __KESPECTRUM
+#undef __PPM_FFT_GENERIC
 #define __PPM_FFT_GENERIC ppm_fft_kespectrum
 #elif __WHAT == __KESPECTRUM_KX
+#undef __PPM_FFT_GENERIC
 #define __PPM_FFT_GENERIC ppm_fft_kespectrumkx
 #endif
       SUBROUTINE __PPM_FFT_GENERIC (field_rhs, mesh_id, topo_id, &

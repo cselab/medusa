@@ -50,6 +50,7 @@
 #if   __WHAT == __POTENTIAL
 #define __PPM_FFT_GENERIC ppm_fft_potential_bgw
 #elif __WHAT == __VELOCITIES
+#undef __PPM_FFT_GENERIC
 #define __PPM_FFT_GENERIC ppm_fft_velocities_bgw
 #elif __WHAT == __POTENTIAL2ND
 #define __PPM_FFT_GENERIC ppm_fft_potential2nd_bgw

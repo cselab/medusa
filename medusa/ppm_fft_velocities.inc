@@ -35,12 +35,14 @@
 #error DOUBLE PRECISION NOT IMPLEMENTED [MB]
 #endif
 #if   __WHAT == __POTENTIAL
+#undef __PPM_FFT_GENERIC
 #define __PPM_FFT_GENERIC ppm_fft_potential
 #elif __WHAT == __VELOCITIES
 #define __PPM_FFT_GENERIC ppm_fft_velocities
 #elif __WHAT == __POTENTIAL2ND
 #define __PPM_FFT_GENERIC ppm_fft_potential2nd
 #elif __WHAT == __SOLENOIDAL
+#undef __PPM_FFT_GENERIC
 #define __PPM_FFT_GENERIC ppm_fft_solenoidal
 #endif
       SUBROUTINE __PPM_FFT_GENERIC (field_rhs, mesh_id, topo_id, &
