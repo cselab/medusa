@@ -1,34 +1,19 @@
 !-------------------------------------------------------------------------------
 !* filename: wvic_io_dump_vector_netcdf                                       *!
 !* project : wvic                                                             *!
-!* purpose : dump a vector field to a netcdf file                             *!
+!* purpose : dump a vector field to a raw binary file                         *!
 !*         :                                                                  *!
 !* author  : Philippe Chatelain                                               *!
 !*         : Computational Science and Engineering Lab (CSE-Lab)              *!
 !*         : ICOS, ETH Zurich                                                 *!
 !*         :                                                                  *!
-!* date    : Tue Aug 17 18:17:05 2004                                         *!
-!* please return to <pchatela@inf.ethz.ch>                                    *!
-!
-! $Log: wvic_io_dump_vector_netcdf.F,v $
-! Revision 1.5  2006/09/16 00:22:03  pchatela
-! Implemented the kinetic energy spectrum, dumped into an ascii file.
-!
-! Revision 1.4  2006/09/11 16:52:46  pchatela
-! Fixes
-!
-! Revision 1.3  2006/09/11 14:57:27  pchatela
-! Fixed velocity computation with odd/even symmetries
-! Added flag for adaptive time step
-!
-! Revision 1.2  2006/09/01 17:33:29  pchatela
-! small bugfix
-!
-! Revision 1.1  2006/09/01 15:45:19  pchatela
-! IO module stuff
-!
-!
-! 
+!  netcdf dependency removed.  Layout (single precision):
+!     INTEGER  :: nx, ny, nz
+!     REAL(ms) :: grid(2,3)
+!     REAL(ms) :: time, dt
+!     REAL(ms) :: state(3,nx,ny,nz)
+!  For complex fields the real part is written to <name>_rp_... and the
+!  imaginary part to <name>_ip_... .
 !------------------------------------------------------------------------------!
 
 #if __WHAT == __REAL
@@ -39,7 +24,6 @@ SUBROUTINE wvic_io_dump_vectorc_netcdf(vectfield, n_data, vectname, iter, info)
 
   USE module_wvic
   USE ppm_module_write
-  USE netcdf
 
   !-----------------------------------------------------------------------------
   ! arguments
@@ -51,7 +35,7 @@ SUBROUTINE wvic_io_dump_vectorc_netcdf(vectfield, n_data, vectname, iter, info)
 #endif
   INTEGER, DIMENSION(:,:), POINTER         :: n_data
   CHARACTER(len=256)                       :: vectname
-  INTEGER, INTENT(IN)                      :: iter   
+  INTEGER, INTENT(IN)                      :: iter
   INTEGER, INTENT(inout)                   :: info
 
   !-----------------------------------------------------------------------------
@@ -59,16 +43,14 @@ SUBROUTINE wvic_io_dump_vectorc_netcdf(vectfield, n_data, vectname, iter, info)
   !-----------------------------------------------------------------------------
   INTEGER, PARAMETER :: ms = kind(1.0e0)
   CHARACTER(len=256) :: ncfile
-  INTEGER            :: ncid, idnx, idny, idnz, idvsize
-  INTEGER            :: idnaxes, idndeltas, idntsteps
-  INTEGER            :: ivgrid, ivstate, ivtime, ivdt
+  INTEGER            :: ncid
   CHARACTER(len=256) :: msg
   INTEGER            :: stat, isub, isubl
-  INTEGER            :: i,j,k,ivectname,chunksize
-  INTEGER, PARAMETER :: naxes = 3, ndeltas = 2, ntsteps = 1, vsize = 3
+  INTEGER            :: i,j,k,ivectname
+  INTEGER            :: lnx, lny, lnz
+  INTEGER, PARAMETER :: vsize = 3
   REAL(ms), DIMENSION(2,3) :: grid
   REAL(ms), DIMENSION(:,:,:,:), ALLOCATABLE :: state
-  INTEGER            :: NETCDFPREC
 
   !-----------------------------------------------------------------------------
   ! construct filename
@@ -81,88 +63,30 @@ SUBROUTINE wvic_io_dump_vectorc_netcdf(vectfield, n_data, vectname, iter, info)
   WRITE(ncfile,'(A,A,A,A,I5.5,A,I5.5,A)') &
        &vectname(1:ivectname),'_rp_',runtag(1:iruntag),'R',rank,'I',iter,'.nc'
 #endif
-  IF(mk.EQ.KIND(1.0e0)) THEN
-     NETCDFPREC = NF90_FLOAT
-  ELSE
-     NETCDFPREC = NF90_DOUBLE
-  END IF
-  !-----------------------------------------------------------------------------
-  ! creeate the dataset
-  !-----------------------------------------------------------------------------
-  chunksize = 65536
-  stat = nf90_create(path=ncfile,cmode=NF90_CLOBBER, ncid=ncid, & 
-       &  chunksize=chunksize)
-  !-----------------------------------------------------------------------------
-  ! put the dataset into definition mode
-  !-----------------------------------------------------------------------------
-  stat = nf90_redef(ncid)
 
-  !-----------------------------------------------------------------------------
-  ! define the dimensions
   isub = 1; isubl = isublist(isub)
-  stat = nf90_def_dim(ncid, 'nx', n_data(1,isubl), idnx)
-  stat = nf90_def_dim(ncid, 'ny', n_data(2,isubl), idny)
-  stat = nf90_def_dim(ncid, 'nz', n_data(3,isubl), idnz)
-  stat = nf90_def_dim(ncid, 'vsize', vsize, idvsize)
-  stat = nf90_def_dim(ncid, 'naxes', naxes, idnaxes)
-  stat = nf90_def_dim(ncid, 'ndeltas', ndeltas, idndeltas)
-  stat = nf90_def_dim(ncid, 'ntsteps', ntsteps, idntsteps)
-  !-----------------------------------------------------------------------------
-  
-  !-----------------------------------------------------------------------------
-  ! define variables
-  stat = nf90_def_var(ncid, 'grid',  NETCDFPREC, &
-       &             (/idndeltas, idnaxes/), ivgrid)
-  stat = nf90_def_var(ncid, 'state', NETCDFPREC, &
-       &             (/idvsize,idnx,idny,idnz/), ivstate)
-  stat = nf90_def_var(ncid, 'time',  NETCDFPREC, &
-       &             idntsteps, ivtime)
-  stat = nf90_def_var(ncid, 'dt',    NETCDFPREC, &
-       &             idntsteps, ivdt)
-  !-----------------------------------------------------------------------------
+  lnx = n_data(1,isubl); lny = n_data(2,isubl); lnz = n_data(3,isubl)
 
-  !-----------------------------------------------------------------------------
-  ! put attributes
-  stat = nf90_put_att(ncid, ivstate, 'field', 'state, vector')
-  stat = nf90_put_att(ncid, ivstate, 'positions', 'grid, regular')
-  !-----------------------------------------------------------------------------
-
-  !-----------------------------------------------------------------------------
-  ! leave define mode
-  !-----------------------------------------------------------------------------
-  stat = nf90_enddef(ncid)
-
-  !-----------------------------------------------------------------------------
-  ! now were going to write the data
-  !-----------------------------------------------------------------------------
-  
   !-----------------------------------------------------------------------------
   ! grid data
-  isub = 1; isubl = isublist(isub)
+  !-----------------------------------------------------------------------------
   grid(1,1) = REAL(min_sub(3,isubl),MS)
   grid(1,2) = REAL(min_sub(2,isubl),MS)
   grid(1,3) = REAL(min_sub(1,isubl),MS)
   grid(2,1) = REAL(dZ);grid(2,2) = REAL(dy); grid(2,3) = REAL(dx)
-  stat = nf90_put_var(ncid=ncid, varid=ivgrid, values=grid)
-  !-----------------------------------------------------------------------------
-
-  !-----------------------------------------------------------------------------
-  ! lets remember what time it is ..
-  stat = nf90_put_var(ncid=ncid,varid=ivtime, values=time)
-  stat = nf90_put_var(ncid=ncid,varid=ivdt,   values=REAL(dt))
-  !-----------------------------------------------------------------------------
 
   !-----------------------------------------------------------------------------
   ! state vector data
-  ALLOCATE(state(vsize,n_data(1,isubl),n_data(2,isubl),n_data(3,isubl)),stat=stat)
+  !-----------------------------------------------------------------------------
+  ALLOCATE(state(vsize,lnx,lny,lnz),stat=stat)
   IF(stat.NE.0) THEN
-     WRITE(msg,*) 'scalar netcdf dump failed, not enough memory'
+     WRITE(msg,*) 'vector dump failed, not enough memory'
      CALL ppm_write(rank,'wvic_dump_vector_field',msg,info)
      GOTO 9999
   END IF
-  DO k=1,n_data(3,isubl)
-     DO j=1,n_data(2,isubl)
-        DO i=1,n_data(1,isubl)
+  DO k=1,lnz
+     DO j=1,lny
+        DO i=1,lnx
 #if __WHAT == __REAL
            state(1,i,j,k) = REAL(vectfield(1,i,j,k,isub),ms)
            state(2,i,j,k) = REAL(vectfield(2,i,j,k,isub),ms)
@@ -175,100 +99,40 @@ SUBROUTINE wvic_io_dump_vectorc_netcdf(vectfield, n_data, vectname, iter, info)
         END DO
      END DO
   END DO
-  stat = nf90_put_var(ncid=ncid,varid=ivstate, values=state)
+
+  ncid = 72
+  OPEN(unit=ncid, file=ncfile, form='unformatted', access='stream', &
+       & status='replace', action='write', iostat=stat)
+  IF(stat.NE.0) THEN
+     WRITE(msg,*) 'could not open ', TRIM(ncfile)
+     CALL ppm_write(rank,'wvic_io_dump_vector_netcdf',msg,info)
+     DEALLOCATE(state,stat=stat)
+     GOTO 9999
+  END IF
+  WRITE(ncid) lnx, lny, lnz
+  WRITE(ncid) grid
+  WRITE(ncid) REAL(time,ms), REAL(dt,ms)
+  WRITE(ncid) state
+  CLOSE(ncid)
   DEALLOCATE(state,stat=stat)
-  stat = nf90_close(ncid)
-  !-----------------------------------------------------------------------------
 
 #if __WHAT == __COMPLEX
   !-----------------------------------------------------------------------------
-  ! construct filename
+  ! imaginary part
   !-----------------------------------------------------------------------------
   ivectname = LEN_TRIM(vectname)
   WRITE(ncfile,'(A,A,A,A,I5.5,A,I5.5,A)') &
        &vectname(1:ivectname),'_ip_',runtag(1:iruntag),'R',rank,'I',iter,'.nc'
-  IF(mk.EQ.KIND(1.0e0)) THEN
-     NETCDFPREC = NF90_FLOAT
-  ELSE
-     NETCDFPREC = NF90_DOUBLE
-  END IF
-  !-----------------------------------------------------------------------------
-  ! creeate the dataset
-  !-----------------------------------------------------------------------------
-  chunksize = 65536
-  stat = nf90_create(path=ncfile,cmode=NF90_CLOBBER, ncid=ncid, & 
-       &  chunksize=chunksize)
-  !-----------------------------------------------------------------------------
-  ! put the dataset into definition mode
-  !-----------------------------------------------------------------------------
-  stat = nf90_redef(ncid)
 
-  !-----------------------------------------------------------------------------
-  ! define the dimensions
-  isub = 1; isubl = isublist(isub)
-  stat = nf90_def_dim(ncid, 'nx', n_data(1,isubl), idnx)
-  stat = nf90_def_dim(ncid, 'ny', n_data(2,isubl), idny)
-  stat = nf90_def_dim(ncid, 'nz', n_data(3,isubl), idnz)
-  stat = nf90_def_dim(ncid, 'vsize', vsize, idvsize)
-  stat = nf90_def_dim(ncid, 'naxes', naxes, idnaxes)
-  stat = nf90_def_dim(ncid, 'ndeltas', ndeltas, idndeltas)
-  stat = nf90_def_dim(ncid, 'ntsteps', ntsteps, idntsteps)
-  !-----------------------------------------------------------------------------
-  
-  !-----------------------------------------------------------------------------
-  ! define variables
-  stat = nf90_def_var(ncid, 'grid',  NETCDFPREC, &
-       &             (/idndeltas, idnaxes/), ivgrid)
-  stat = nf90_def_var(ncid, 'state', NETCDFPREC, &
-       &             (/idvsize,idnx,idny,idnz/), ivstate)
-  stat = nf90_def_var(ncid, 'time',  NETCDFPREC, &
-       &             idntsteps, ivtime)
-  stat = nf90_def_var(ncid, 'dt',    NETCDFPREC, &
-       &             idntsteps, ivdt)
-  !-----------------------------------------------------------------------------
-
-  !-----------------------------------------------------------------------------
-  ! put attributes
-  stat = nf90_put_att(ncid, ivstate, 'field', 'state, vector')
-  stat = nf90_put_att(ncid, ivstate, 'positions', 'grid, regular')
-  !-----------------------------------------------------------------------------
-
-  !-----------------------------------------------------------------------------
-  ! leave define mode
-  !-----------------------------------------------------------------------------
-  stat = nf90_enddef(ncid)
-
-  !-----------------------------------------------------------------------------
-  ! now were going to write the data
-  !-----------------------------------------------------------------------------
-  
-  !-----------------------------------------------------------------------------
-  ! grid data
-  isub = 1; isubl = isublist(isub)
-  grid(1,1) = REAL(min_sub(3,isubl),MS)
-  grid(1,2) = REAL(min_sub(2,isubl),MS)
-  grid(1,3) = REAL(min_sub(1,isubl),MS)
-  grid(2,1) = REAL(dZ);grid(2,2) = REAL(dy); grid(2,3) = REAL(dx)
-  stat = nf90_put_var(ncid=ncid, varid=ivgrid, values=grid)
-  !-----------------------------------------------------------------------------
-
-  !-----------------------------------------------------------------------------
-  ! lets remember what time it is ..
-  stat = nf90_put_var(ncid=ncid,varid=ivtime, values=time)
-  stat = nf90_put_var(ncid=ncid,varid=ivdt,   values=REAL(dt))
-  !-----------------------------------------------------------------------------
-
-  !-----------------------------------------------------------------------------
-  ! state vector data
-  ALLOCATE(state(vsize,n_data(1,isubl),n_data(2,isubl),n_data(3,isubl)),stat=stat)
+  ALLOCATE(state(vsize,lnx,lny,lnz),stat=stat)
   IF(stat.NE.0) THEN
-     WRITE(msg,*) 'vector netcdf dump failed, not enough memory'
+     WRITE(msg,*) 'vector dump failed, not enough memory'
      CALL ppm_write(rank,'wvic_dump_vector_field',msg,info)
      GOTO 9999
   END IF
-  DO k=1,n_data(3,isubl)
-     DO j=1,n_data(2,isubl)
-        DO i=1,n_data(1,isubl)
+  DO k=1,lnz
+     DO j=1,lny
+        DO i=1,lnx
            state(1,i,j,k) = REAL(AIMAG(vectfield(1,k,j,i,isub)),ms)
            state(2,i,j,k) = REAL(AIMAG(vectfield(2,k,j,i,isub)),ms)
            state(3,i,j,k) = REAL(AIMAG(vectfield(3,k,j,i,isub)),ms)
@@ -276,19 +140,31 @@ SUBROUTINE wvic_io_dump_vectorc_netcdf(vectfield, n_data, vectname, iter, info)
      END DO
   END DO
   WRITE(*,*) 'Maxval(state): ',MAXVAL(REAL(state))
-  stat = nf90_put_var(ncid=ncid,varid=ivstate, values=state)
+
+  ncid = 72
+  OPEN(unit=ncid, file=ncfile, form='unformatted', access='stream', &
+       & status='replace', action='write', iostat=stat)
+  IF(stat.NE.0) THEN
+     WRITE(msg,*) 'could not open ', TRIM(ncfile)
+     CALL ppm_write(rank,'wvic_io_dump_vector_netcdf',msg,info)
+     DEALLOCATE(state,stat=stat)
+     GOTO 9999
+  END IF
+  WRITE(ncid) lnx, lny, lnz
+  WRITE(ncid) grid
+  WRITE(ncid) REAL(time,ms), REAL(dt,ms)
+  WRITE(ncid) state
+  CLOSE(ncid)
   DEALLOCATE(state,stat=stat)
-  stat = nf90_close(ncid)
-  !-----------------------------------------------------------------------------
 #endif
 
   IF (verbose) THEN
-     WRITE(msg,*) 'netcdf data written'
+     WRITE(msg,*) 'data written'
      CALL ppm_write(rank,'wvic_io_dump_vector_netcdf',msg,info)
   END IF
 
 9999 CONTINUE
-  
+
 #if __WHAT == __REAL
 END SUBROUTINE wvic_io_dump_vector_netcdf
 #elif __WHAT == __COMPLEX
