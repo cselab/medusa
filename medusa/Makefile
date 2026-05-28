@@ -9,9 +9,10 @@ include obj.mk
 
 PPM_FCFLAGS = -I$(PREFIX)/include
 PPM_LDFLAGS = -L$(PREFIX)/lib -lppm -lfftw3f
+PPM_LIB = $(PREFIX)/lib/libppm.a
 LINK = $(FC)
 M = module_wvic.mod ppm_module_fft.mod wvic_module_io.mod
-$L: $O; $(LINK) $O $(LDFLAGS) $(PPM_LDFLAGS) -o $@
+$L: $O $(PPM_LIB); $(LINK) $O $(LDFLAGS) $(PPM_LDFLAGS) -o $@
 .f90.o:; $(FC) $< -c $(FCFLAGS) $(FXFLAGS) $(PPM_FCFLAGS)
 clean:; rm -f -- $L $O $M
 
