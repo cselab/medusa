@@ -172,6 +172,13 @@
       CALL substart('ppm_util_commopt',t0,info)
       M_PI = ACOS(-1.0)
       !-------------------------------------------------------------------------
+      !  Nullify local pointers. Their association status is otherwise
+      !  undefined, and ppm_alloc() keys its (de)allocation decision on
+      !  ASSOCIATED(), which aborts on platforms that do not zero them
+      !  (e.g. macOS/arm64).
+      !-------------------------------------------------------------------------
+      NULLIFY(ilinks,optres,nneighprocs,ineighprocs,ichecked)
+      !-------------------------------------------------------------------------
       !  Check arguments
       !-------------------------------------------------------------------------
       IF (ppm_debug .GT. 0) THEN
