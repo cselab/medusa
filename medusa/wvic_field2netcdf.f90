@@ -7,9 +7,6 @@
 !*         : Computational Science and Engineering Lab (CSE-Lab)              *!
 !*         : ICOS, ETH Zurich                                                 *!
 !*         :                                                                  *!
-!* date    : Fri Dec  3 19:42:31 2004                                         *!
-!* please return to <bergdorf@inf.ethz.ch> currently at the ['si-sE 'lab]     *!
-!
 !  netcdf dependency removed: each rank dumps its own subdomain to a simple
 !  stream-access binary file.  Layout (single precision):
 !     INTEGER  :: nx, ny, nz

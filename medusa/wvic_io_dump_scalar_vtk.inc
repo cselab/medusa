@@ -105,8 +105,8 @@ SUBROUTINE wvic_io_dump_scalar_vtk(scalfield, n_data, scalname, iter,info)
     jmaxg = nx(2)-1
     kmaxg = nx(3)-1
 
-    WRITE(vtkfile,'(A,A,A,A,I5.5,A)')&
-      & scalname(1:iscalname),'_',runtag(1:iruntag),'I',iter,'.pvti'
+    WRITE(vtkfile,'(A,A,I5.5,A)')&
+      & scalname(1:iscalname),'.',iter,'.pvti'
 
     OPEN(17,file=vtkfile,access='stream')
 
@@ -129,11 +129,11 @@ SUBROUTINE wvic_io_dump_scalar_vtk(scalfield, n_data, scalname, iter,info)
  
     ! Loop over all topologies 
     DO i=1,ppm_nsubs(ppm_topoid)
-      WRITE(buffer,'(A,A,6(I8),A,A,A,A,A,I5.5,A,I5.5,A)') '    <Piece ', &
+      WRITE(buffer,'(A,A,6(I8),A,A,A,I5.5,A,I5.5,A)') '    <Piece ', &
         & 'Extent="',istart(1,i)-1,istart(1,i)+n_data(1,i)-2,istart(2,i)-1, &
         & istart(2,i)+n_data(2,i)-2,istart(3,i)-1,istart(3,i)+n_data(3,i)-2, &
-        & '" Source="', scalname(1:iscalname),'_',runtag(1:iruntag),'R', &
-        & sub2proc(i),'I',iter, '.vti"/>'//lf
+        & '" Source="', scalname(1:iscalname),'.',iter,'.p', &
+        & sub2proc(i), '.vti"/>'//lf
       WRITE(17) TRIM(buffer)
     END DO
   
@@ -147,8 +147,8 @@ SUBROUTINE wvic_io_dump_scalar_vtk(scalfield, n_data, scalname, iter,info)
   ! End of outputting the parallel pvti file
   !-----------------------------------------------------------------------------
 
-  WRITE(vtkfile,'(A,A,A,A,I5.5,A,I5.5,A)')&
-    & scalname(1:iscalname),'_',runtag(1:iruntag),'R',rank,'I',iter,'.vti'
+  WRITE(vtkfile,'(A,A,I5.5,A,I5.5,A)')&
+    & scalname(1:iscalname),'.',iter,'.p',rank,'.vti'
 
   OPEN(17,file=vtkfile,access='stream')
 

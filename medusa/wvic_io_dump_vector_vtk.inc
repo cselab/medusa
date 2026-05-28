@@ -105,8 +105,8 @@ SUBROUTINE wvic_io_dump_vector_vtk(vectfield, n_data, vectname, iter,info)
     jmaxg = nx(2)-1
     kmaxg = nx(3)-1
 
-    WRITE(vtkfile,'(A,A,A,A,I5.5,A)')&
-      & vectname(1:ivectname),'_',runtag(1:iruntag),'I',iter,'.pvti'
+    WRITE(vtkfile,'(A,A,I5.5,A)')&
+      & vectname(1:ivectname),'.',iter,'.pvti'
 
     OPEN(17,file=vtkfile,access='stream')
 
@@ -148,8 +148,8 @@ SUBROUTINE wvic_io_dump_vector_vtk(vectfield, n_data, vectname, iter,info)
   ! End of outputting the parallel pvti file
   !-----------------------------------------------------------------------------
 
-  WRITE(vtkfile,'(A,A,A,A,I5.5,A,I5.5,A)')&
-    & vectname(1:ivectname),'_',runtag(1:iruntag),'R',rank,'I',iter,'.vti'
+  WRITE(vtkfile,'(A,A,I5.5,A,I5.5,A)')&
+    & vectname(1:ivectname),'.',iter,'.p',rank,'.vti'
 
   OPEN(17,file=vtkfile,access='stream')
 
