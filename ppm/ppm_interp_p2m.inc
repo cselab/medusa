@@ -211,7 +211,7 @@
      ! Local variables 
      !--------------------------------------------------------------------------
      INTEGER,  DIMENSION(:,:)     , POINTER :: istart, ndata
-     INTEGER,  DIMENSION(:)       , POINTER :: ilist1,ilist2
+     INTEGER,  DIMENSION(:)       , POINTER :: ilist1 => NULL(),ilist2 => NULL()
      REAL(MK), DIMENSION(:,:)     , POINTER :: min_phys,max_phys
      REAL   ,  DIMENSION(ppm_dim)           :: dxi,dx
      REAL   ,  DIMENSION(ppm_dim)           :: len_phys

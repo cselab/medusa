@@ -311,7 +311,7 @@
 
 #if   __DIM == __SFIELD
       INTEGER , DIMENSION(4  )                   :: lda_DATA_fv
-      COMPLEX(MK), DIMENSION(:,:,:,:), POINTER   :: DATA_fv_com
+      COMPLEX(MK), DIMENSION(:,:,:,:), POINTER   :: DATA_fv_com => NULL()
       INTEGER , DIMENSION(4  )                   :: lda_DATA_fv_com
 #elif __DIM == __VFIELD
       INTEGER , DIMENSION(5  )                   :: lda_DATA_fv
@@ -322,10 +322,10 @@
       INTEGER, DIMENSION(2)                      :: topo_ids_tmp
       INTEGER, DIMENSION(2)                      :: mesh_ids_tmp
 
-      REAL(MK), DIMENSION(:,:,:), POINTER        :: data_in
-      COMPLEX(MK), DIMENSION(:,:,:), POINTER     :: data_com
-      COMPLEX(MK), DIMENSION(:,:,:), POINTER     :: FFT_x, FFT_xy, FFT_xyz
-      REAL(MK), DIMENSION(:,:,:), POINTER        :: Result
+      REAL(MK), DIMENSION(:,:,:), POINTER        :: data_in => NULL()
+      COMPLEX(MK), DIMENSION(:,:,:), POINTER     :: data_com => NULL()
+      COMPLEX(MK), DIMENSION(:,:,:), POINTER     :: FFT_x => NULL(), FFT_xy => NULL(), FFT_xyz => NULL()
+      REAL(MK), DIMENSION(:,:,:), POINTER        :: Result => NULL()
 
 
       ! variables
@@ -342,16 +342,16 @@
       INTEGER                                 :: mesh_id_xpen, mesh_id_ypen
       INTEGER                                 :: mesh_id_xpen_complex
       INTEGER                                 :: mesh_id_zpen
-      REAL(MK), DIMENSION(:,:), POINTER       :: min_sub,max_sub
-      REAL(MK), DIMENSION(:  ), POINTER       :: cost
-      INTEGER , DIMENSION(:,:), POINTER       :: istart, istart_xpen_complex  
-      INTEGER , DIMENSION(:,:), POINTER       :: istart_ypen, istart_trans
-      INTEGER , DIMENSION(:,:), POINTER       :: istart_zpen
-      INTEGER , DIMENSION(:,:), POINTER       :: ndata, ndata_xpen_complex
-      INTEGER , DIMENSION(:,:), POINTER       :: ndata_ypen, ndata_trans
-      INTEGER , DIMENSION(:,:), POINTER       :: ndata_zpen
-      INTEGER , DIMENSION(:  ), POINTER       :: sub2proc
-      INTEGER , DIMENSION(:  ), POINTER       :: isublist
+      REAL(MK), DIMENSION(:,:), POINTER       :: min_sub => NULL(),max_sub => NULL()
+      REAL(MK), DIMENSION(:  ), POINTER       :: cost => NULL()
+      INTEGER , DIMENSION(:,:), POINTER       :: istart => NULL(), istart_xpen_complex => NULL()  
+      INTEGER , DIMENSION(:,:), POINTER       :: istart_ypen => NULL(), istart_trans => NULL()
+      INTEGER , DIMENSION(:,:), POINTER       :: istart_zpen => NULL()
+      INTEGER , DIMENSION(:,:), POINTER       :: ndata => NULL(), ndata_xpen_complex => NULL()
+      INTEGER , DIMENSION(:,:), POINTER       :: ndata_ypen => NULL(), ndata_trans => NULL()
+      INTEGER , DIMENSION(:,:), POINTER       :: ndata_zpen => NULL()
+      INTEGER , DIMENSION(:  ), POINTER       :: sub2proc => NULL()
+      INTEGER , DIMENSION(:  ), POINTER       :: isublist => NULL()
       INTEGER                                 :: nsublist, idom
       INTEGER                                 :: dim, n
       INTEGER                                 :: iopt

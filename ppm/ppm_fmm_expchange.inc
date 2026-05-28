@@ -108,9 +108,9 @@
       INTEGER, DIMENSION(2)                :: ldu2
       INTEGER, DIMENSION(3)                :: ldu3
       REAL(MK)                             :: t0
-      REAL(MK),DIMENSION(:  ),     POINTER :: radius,recvrad,sendrad
-      REAL(MK),DIMENSION(:,:),     POINTER :: recvcen,sendcen,centerofbox
-      COMPLEX(MK),DIMENSION(:,:,:),POINTER :: expansion,recvexp,sendexp
+      REAL(MK),DIMENSION(:  ),     POINTER :: radius,recvrad => NULL(),sendrad => NULL()
+      REAL(MK),DIMENSION(:,:),     POINTER :: recvcen => NULL(),sendcen => NULL(),centerofbox
+      COMPLEX(MK),DIMENSION(:,:,:),POINTER :: expansion,recvexp => NULL(),sendexp => NULL()
 #ifdef __MPI
       INTEGER, DIMENSION(MPI_STATUS_SIZE)  :: status
 #endif

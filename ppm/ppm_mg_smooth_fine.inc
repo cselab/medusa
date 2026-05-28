@@ -224,7 +224,7 @@
 #endif
 #elif  __DIM == __VFIELD
 #if __MESH_DIM == __2D
-     REAL(MK),DIMENSION(:),POINTER :: moldu
+     REAL(MK),DIMENSION(:),POINTER :: moldu => NULL()
 #elif __MESH_DIM == __3D
      REAL(MK),DIMENSION(:),POINTER :: moldu
 #endif

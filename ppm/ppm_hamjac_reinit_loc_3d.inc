@@ -89,7 +89,7 @@
         INTEGER, DIMENSION(:), POINTER        :: isublist
         INTEGER, DIMENSION(:,:), INTENT(in)   :: iloc
         INTEGER                               :: np, p
-        REAL(mk), DIMENSION(:,:,:,:), POINTER :: tphi
+        REAL(mk), DIMENSION(:,:,:,:), POINTER :: tphi => NULL()
         INTEGER                               :: nsublist
         INTEGER, DIMENSION(:,:), POINTER      :: ndata
         INTEGER                               :: topoid,meshid

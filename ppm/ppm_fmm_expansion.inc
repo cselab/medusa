@@ -159,7 +159,7 @@
       REAL(MK)                              :: dx,dy,dz,dist
       REAL(MK),DIMENSION(:)  , POINTER      :: rho,theta,phi,radius 
       REAL(MK),DIMENSION(:)  , POINTER      :: fac,fracfac,boxcost 
-      REAL(MK),DIMENSION(:,:), POINTER      :: Anm,Pnm,sqrtfac,xp 
+      REAL(MK),DIMENSION(:,:), POINTER      :: Anm,Pnm,sqrtfac,xp => NULL() 
       REAL(MK),DIMENSION(:,:), POINTER      :: centerofbox
       REAL(MK),DIMENSION(:,:), POINTER      :: min_box,max_box
       REAL(MK),DIMENSION(:,:), POINTER      :: min_sub,max_sub

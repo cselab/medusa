@@ -89,7 +89,7 @@
         !-----------------------------------------------------
         INTEGER, DIMENSION(:), POINTER        :: isublist
 #if   __MODE == __SCA
-        REAL(mk), DIMENSION(:,:,:,:), POINTER :: tpsi
+        REAL(mk), DIMENSION(:,:,:,:), POINTER :: tpsi => NULL()
 #elif __MODE == __VEC
         REAL(mk), DIMENSION(:,:,:,:,:), POINTER :: tpsi
 #endif        

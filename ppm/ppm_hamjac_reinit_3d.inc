@@ -87,7 +87,7 @@
         !  Aliases
         !-----------------------------------------------------
         INTEGER, DIMENSION(:), POINTER        :: isublist
-        REAL(mk), DIMENSION(:,:,:,:), POINTER :: tphi
+        REAL(mk), DIMENSION(:,:,:,:), POINTER :: tphi => NULL()
         INTEGER                               :: nsublist
         INTEGER, DIMENSION(:,:), POINTER      :: ndata
         INTEGER                               :: topoid,meshid

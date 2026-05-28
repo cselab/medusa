@@ -158,7 +158,7 @@
 
 #if __DIM == __SFIELD
 #if __MESH_DIM == __2D
-        REAL(MK),DIMENSION(:,:,:),POINTER :: uc_dummy
+        REAL(MK),DIMENSION(:,:,:),POINTER :: uc_dummy => NULL()
 #elif __MESH_DIM == __3D
         REAL(MK),DIMENSION(:,:,:,:),POINTER :: uc_dummy
 #endif

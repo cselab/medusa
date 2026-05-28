@@ -140,15 +140,15 @@
       !  Local variables 
       !-------------------------------------------------------------------------
       LOGICAL                              :: drct
-      LOGICAL,DIMENSION(:),   POINTER      :: flagcoeff,flagpart
+      LOGICAL,DIMENSION(:),   POINTER      :: flagcoeff => NULL(),flagpart => NULL()
       INTEGER                              :: i,j,cnt,level
       INTEGER                              :: root,iopt,istat
       INTEGER                              :: curtopoid,in_topoid
       INTEGER                              :: stackpointer,curbox,cursub
       INTEGER,DIMENSION(1)                 :: ldu1
       INTEGER,DIMENSION(2)                 :: ldu2
-      INTEGER,DIMENSION(:),   POINTER      :: lpart_subtop,stack
-      INTEGER,DIMENSION(:,:), POINTER      :: lcoeff_subtop
+      INTEGER,DIMENSION(:),   POINTER      :: lpart_subtop => NULL(),stack => NULL()
+      INTEGER,DIMENSION(:,:), POINTER      :: lcoeff_subtop => NULL()
       REAL(MK)                             :: dx,dy,dz,dist,rad,t0 
       REAL(MK),DIMENSION(:),  POINTER      :: radius      
       REAL(MK),DIMENSION(:,:),POINTER      :: centerofbox
