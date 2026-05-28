@@ -3,7 +3,7 @@
 Needs `netcdf` and `mpif90`. On Debian
 
 ```
-sudo apt install openmpi-bin libnetcdf-mpi-dev
+sudo apt install openmpi-bin
 ```
 
 Compilers and flags are in [conf.mk](conf.mk). Buid
