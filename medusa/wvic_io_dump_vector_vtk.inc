@@ -130,11 +130,11 @@ SUBROUTINE wvic_io_dump_vector_vtk(vectfield, n_data, vectname, iter,info)
     !PPM replace n_data
     ! Loop over all topologies
     DO i=1,ppm_nsubs(ppm_topoid)
-      WRITE(buffer,'(A,A,6(I8),A,A,A,A,A,I5.5,A,I5.5,A)') '    <Piece ', &
+      WRITE(buffer,'(A,A,6(I8),A,A,A,I5.5,A,I5.5,A)') '    <Piece ', &
         & 'Extent="',istart(1,i)-1,istart(1,i)+n_data(1,i)-2,istart(2,i)-1, &
         & istart(2,i)+n_data(2,i)-2,istart(3,i)-1,istart(3,i)+n_data(3,i)-2, &
-        & '" Source="', vectname(1:ivectname),'_',runtag(1:iruntag),'R', &
-        & sub2proc(i),'I',iter, '.vti"/>'//lf
+        & '" Source="', vectname(1:ivectname),'.',iter,'.p', &
+        & sub2proc(i), '.vti"/>'//lf
       WRITE(17) TRIM(buffer)
     END DO
 
